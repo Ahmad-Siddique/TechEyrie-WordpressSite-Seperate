@@ -1,0 +1,583 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #E8E8E8; /* Light gray background for the whole page */
+  }
+
+  /* Force Helvetica font stack */
+  .font-helvetica {
+    font-family: 'Helvetica Now Text', Arial, sans-serif;
+  }
+}
+
+/* Animation for mobile dropdown */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slideDown {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+/* === SMOOTH TEXT LIKE DAPPER.CO === */
+@font-face {
+  font-family: 'Helvetica Now Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/HelveticaNowText-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now Text';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/HelveticaNowText-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now Text';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/HelveticaNowText-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now Display';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/HelveticaNowDisplay-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Ivy Presto Headline';
+  font-style: normal;
+  font-weight: 300; /* or 700 if this is a bold cut */
+  src: url('/fonts/fonnts.com-Ivy-Presto-Headline-Semi-Light.otf') format('opentype');
+  font-display: swap;
+}
+
+/* In your global.css file */
+@font-face {
+  font-family: 'Fellix';
+  src: url('/fonts/Fellix-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fellix';
+  src: url('/fonts/Fellix-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fellix';
+  src: url('/fonts/Fellix-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fellix';
+  src: url('/fonts/Fellix-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fellix';
+  src: url('/fonts/Fellix-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* === SUISSE INTL FONT === */
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/fonnts.com-Suisse_Intl_Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/fonnts.com-Suisse_Intl_Medium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/fonnts.com-Suisse_Intl_Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/fonnts.com-SuisseIntl-Light.ttf') format('truetype');
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'PPWoodland';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/PPWoodland-Ultralight.otf') format('opentype');
+  font-display: swap;
+}
+
+.font-ppwoodland {
+  font-family: 'PPWoodland', Arial, sans-serif;
+}
+
+
+.font-suisse {
+  font-family: 'Suisse Intl', Arial, sans-serif;
+}
+
+.font-ivy-presto {
+  font-family: 'Ivy Presto Headline', serif !important;
+  font-weight: 300        /* try 300 or even 200 */
+ 
+}
+
+/* === SPACE GROTESK FONT === */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/SpaceGrotesk-Light.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-space-grotesk {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+}
+
+/* === CINZEL DECORATIVE FONT === */
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/CinzelDecorative-Regular.otf') format('opentype'),
+       url('/fonts/CinzelDecorative-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/CinzelDecorative-Bold.otf') format('opentype'),
+       url('/fonts/CinzelDecorative-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/CinzelDecorative-Black.otf') format('opentype'),
+       url('/fonts/CinzelDecorative-Black.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+/* === ITALIANA FONT === */
+@font-face {
+  font-family: 'Italiana';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Italiana-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-italiana {
+  font-family: 'Italiana', serif;
+}
+
+
+/* === MERRIWEATHER FONT === */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300 900;
+  src: url('/fonts/Merriweather-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300 900;
+  src: url('/fonts/Merriweather-Italic-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-merriweather {
+  font-family: 'Merriweather', serif;
+}
+
+/* === PLAYFAIR DISPLAY FONT === */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 900;
+  src: url('/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+@font-face {
+  font-family: 'PPNeueMontreal';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/PPNeueMontreal-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LayGrotesk-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/laygrotesk-trial-regular.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LayGrotesk-Semibold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/laygrotesk-trial-semibold.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Akkurat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Akkurat.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-ppneue {
+  font-family: 'PPNeueMontreal', 'Helvetica Now Text', Arial, sans-serif;
+}
+
+/* icomat1 font scope */
+.icomat1-laygrotesk,
+.icomat1-laygrotesk p,
+.icomat1-laygrotesk span,
+.icomat1-laygrotesk a,
+.icomat1-laygrotesk li,
+.icomat1-laygrotesk button,
+.icomat1-laygrotesk input,
+.icomat1-laygrotesk textarea,
+.icomat1-laygrotesk label,
+.icomat1-laygrotesk small,
+.icomat1-laygrotesk div {
+  font-family: LayGrotesk-Regular,sans-serif;
+}
+
+.icomat1-laygrotesk h1,
+.icomat1-laygrotesk h2,
+.icomat1-laygrotesk h3,
+.icomat1-laygrotesk h4,
+.icomat1-laygrotesk h5,
+.icomat1-laygrotesk h6,
+.icomat1-laygrotesk .font-semibold,
+.icomat1-laygrotesk .font-bold,
+.icomat1-laygrotesk .font-extrabold,
+.icomat1-laygrotesk .font-black {
+  font-family: LayGrotesk-Semibold,sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Force maximum text crispness */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Extra smooth on macOS Chrome/Edge */
+html {
+  -webkit-text-stroke: 0.45px; /* this is the magic sauce Dapper uses */
+}
+
+/* Optional: even smoother on high-DPI */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  * {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+
+/* globals.css */
+
+@keyframes triangle-fade {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  20% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+}
+
+.animate-triangle-fade {
+  animation: triangle-fade 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Ensure body doesn't clip triangles */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 9999;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-toggle-btn:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  background-color: #1a1a1a;
+  color: white;
+  border-color: #333333;
+}
+
+@media (min-width: 768px) {
+  .theme-toggle-btn {
+    right: 30px;
+  }
+}
+
+/* WordPress Content Styles */
+.wordpress-content-wrapper h1,
+.wordpress-content-wrapper h2,
+.wordpress-content-wrapper h3,
+.wordpress-content-wrapper h4 {
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.wordpress-content-wrapper h1 {
+  font-size: 2.5rem;
+}
+
+.wordpress-content-wrapper h2 {
+  font-size: 2rem;
+}
+
+.wordpress-content-wrapper h3 {
+  font-size: 1.75rem;
+}
+
+.wordpress-content-wrapper h4 {
+  font-size: 1.5rem;
+}
+
+.wordpress-content-wrapper p {
+  margin-bottom: 1.5rem;
+}
+
+.wordpress-content-wrapper a {
+  color: #74F5A1;
+  text-decoration: underline;
+}
+
+.wordpress-content-wrapper a:hover {
+  opacity: 0.8;
+}
+
+.wordpress-content-wrapper ul,
+.wordpress-content-wrapper ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.wordpress-content-wrapper li {
+  margin-bottom: 0.75rem;
+}
+
+.wordpress-content-wrapper strong,
+.wordpress-content-wrapper b {
+  font-weight: bold;
+}
+
+.wordpress-content-wrapper blockquote {
+  border-left: 4px solid #74F5A1;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+.wordpress-content-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+
+.wordpress-content-wrapper code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+.wordpress-content-wrapper pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.wordpress-content-wrapper pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+[data-theme="dark"] .wordpress-content-wrapper h1,
+[data-theme="dark"] .wordpress-content-wrapper h2,
+[data-theme="dark"] .wordpress-content-wrapper h3,
+[data-theme="dark"] .wordpress-content-wrapper h4,
+[data-theme="dark"] .wordpress-content-wrapper strong,
+[data-theme="dark"] .wordpress-content-wrapper b {
+  color: white;
+}
+
+[data-theme="dark"] .wordpress-content-wrapper p,
+[data-theme="dark"] .wordpress-content-wrapper li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .wordpress-content-wrapper blockquote {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .wordpress-content-wrapper code {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .wordpress-content-wrapper pre {
+  background-color: rgba(255, 255, 255, 0.05);
+}
