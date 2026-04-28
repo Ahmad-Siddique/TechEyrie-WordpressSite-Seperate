@@ -557,7 +557,7 @@ function ServiceItem({ service, bottomBorder }) {
 }
 
 // ── Mega dropdown ─────────────────────────────────────────────
-function MegaDropdown({ visible, onMouseEnter, onMouseLeave }) {
+function MegaDropdown({ visible, onMouseEnter, onMouseLeave, onQuoteClick }) {
   const panelRef = useRef(null);
   useEffect(() => {
     if (!panelRef.current) return;
@@ -603,10 +603,13 @@ function MegaDropdown({ visible, onMouseEnter, onMouseLeave }) {
               letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.5,
               fontFamily: "Akkurat, sans-serif", margin: 0,
             }}>Get a quote</p>
-            <a href="/#contact" style={{
+            <button
+              type="button"
+              onClick={() => onQuoteClick?.()}
+              style={{
               marginTop: "36px", display: "inline-flex", alignItems: "center", justifyContent: "center",
               width: "56px", height: "56px", borderRadius: "50%", background: "#162D24",
-              textDecoration: "none", transition: "transform 0.22s, background 0.22s",
+              border: "none", textDecoration: "none", transition: "transform 0.22s, background 0.22s", cursor: "pointer",
             }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.12)"; e.currentTarget.style.background = "#1f4638"; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.background = "#162D24"; }}
@@ -614,7 +617,7 @@ function MegaDropdown({ visible, onMouseEnter, onMouseLeave }) {
               <svg width="24" height="24" viewBox="0 0 18 18" fill="none">
                 <path d="M3 9h12M11 5l4 4-4 4" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -945,7 +948,15 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
       </header>
 
       <div ref={megaRef}>
-        <MegaDropdown visible={megaOpen} onMouseEnter={openMega} onMouseLeave={closeMega} />
+        <MegaDropdown
+          visible={megaOpen}
+          onMouseEnter={openMega}
+          onMouseLeave={closeMega}
+          onQuoteClick={() => {
+            setMegaOpen(false);
+            setQuoteOpen(true);
+          }}
+        />
       </div>
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
       <QuoteDrawer open={quoteOpen} onClose={() => setQuoteOpen(false)} />

@@ -5,7 +5,6 @@ import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import Footer from '../../../components/dark7/Footer'
 import HeroSection from '../../../components/icomat/HeroSection'
 import RTSSection from '../../../components/icomat/RTSSection'
 import RTSRevolutionSection from '../../../components/icomat/RTSRevolutionSection'
@@ -98,7 +97,6 @@ export default function IcomatPage() {
       <BuildWithIcomatSection />
       <UnlockingSection />
       <FooterSection />
-      <Footer theme="dark" />
     </div>
   )
 }
