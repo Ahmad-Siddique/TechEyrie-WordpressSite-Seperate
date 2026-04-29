@@ -881,10 +881,10 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
   return (
     <>
       <header ref={headerRef} style={{
-        position: "fixed", top: "8px", left: 0, right: 0,
+        position: "fixed", top: 0, left: 0, right: 0,
         zIndex: 150, height: "64px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "0 clamp(20px, 3vw, 40px)",
+        padding: "8px clamp(20px, 3vw, 40px) 0",
         background: scrolled || megaOpen
           ? "rgba(10,10,9,0.96)"
           : "linear-gradient(to bottom, rgba(10,10,9,0.55) 0%, transparent 100%)",

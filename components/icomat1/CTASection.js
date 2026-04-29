@@ -7,144 +7,173 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CTASection({ onQuoteOpen }) {
-  const sectionRef   = useRef(null);
-  const gradientRef  = useRef(null);
-  const textRef      = useRef(null);
-  const btnRef       = useRef(null);
-  const btnTextRef   = useRef(null);
-  const btnCloneRef  = useRef(null);
-  const btnTlRef     = useRef(null);
-  const grainRef     = useRef(null);
-  const shimmerRef   = useRef(null);
-  const grainAnimRef = useRef(null);
+  const sectionRef = useRef(null);
+  const greenBaseRef = useRef(null); // solid green fill
+  const greenGlowRef = useRef(null); // green curved glow
+  const whiteBaseRef = useRef(null); // solid white fill
+  const whiteGlowRef = useRef(null); // white curved glow
+  const contentRef = useRef(null);
+  const textRef = useRef(null);
+  const btnRef = useRef(null);
+  const btnTextRef = useRef(null);
+  const btnCloneRef = useRef(null);
+  const btnTlRef = useRef(null);
 
-  // ── Animate grain during color transition ─────────────────
-  const animateGrain = (intensity) => {
-    const grain   = grainRef.current;
-    const shimmer = shimmerRef.current;
-    if (!grain || !shimmer) return;
-
-    gsap.to(grain, {
-      opacity: intensity * 0.65,
-      duration: 0.3,
-      ease: "power1.inOut",
-    });
-    gsap.to(shimmer, {
-      opacity: intensity * 0.4,
-      duration: 0.4,
-      ease: "power1.inOut",
-    });
-  };
-
-  // ── Scroll color-transition ───────────────────────────────
+  // ── Button hover ──────────────────────────────────────────────
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const section  = sectionRef.current;
-      const gradient = gradientRef.current;
-      const text     = textRef.current;
-      const btn      = btnRef.current;
-
-      gsap.set(section,  { backgroundColor: "#000000" });
-      gsap.set(gradient, { opacity: 0, scaleY: 0, transformOrigin: "bottom center" });
-      gsap.set(text,     { color: "#f8f8f4" });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 95%",
-          end:   "top 10%",
-          scrub: 0.4,
-          onUpdate: (self) => {
-            const p = self.progress;
-            // Grain peaks at mid-transition (0.25 → 0.7), fades out after
-            let intensity = 0;
-            if (p < 0.25) {
-              intensity = p / 0.25;
-            } else if (p < 0.7) {
-              intensity = 1;
-            } else {
-              intensity = 1 - (p - 0.7) / 0.3;
-            }
-            animateGrain(Math.max(0, Math.min(1, intensity)));
-          },
-        },
-      });
-
-      tl
-        .to(section, { backgroundColor: "#0d2b1e", duration: 0.4, ease: "power1.inOut" }, 0)
-        .to(gradient, { opacity: 1, scaleY: 1, duration: 0.4, ease: "power2.out" }, 0)
-        .to(section, { backgroundColor: "#ffffff", duration: 0.35, ease: "power1.inOut" }, 0.4)
-        .to(gradient, { opacity: 0, duration: 0.3, ease: "power1.in" }, 0.42)
-        .to(text,              { color: "#0a0a09", duration: 0.15, ease: "none" }, 0.7)
-        .to(btn,               { borderColor: "rgba(255,255,255,0)", backgroundColor: "#ffffff", duration: 0.15, ease: "none" }, 0.7)
-        .to(btnTextRef.current,  { color: "#0a0a09", duration: 0.15, ease: "none" }, 0.7)
-        .to(btnCloneRef.current, { color: "#0a0a09", duration: 0.15, ease: "none" }, 0.7);
-
-      gsap.fromTo(
-        [text, btn],
-        { opacity: 0, y: 36 },
-        {
-          opacity: 1, y: 0, duration: 0.65, ease: "power3.out", stagger: 0.1,
-          scrollTrigger: { trigger: section, start: "top 90%", once: true },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  // ── Grain animation loop — fast flickering frames ─────────
-  useEffect(() => {
-    const grain = grainRef.current;
-    if (!grain) return;
-
-    let frame;
-    let t = 0;
-    const tick = () => {
-      frame = requestAnimationFrame(tick);
-      t++;
-      // Shift the SVG noise seed every ~3 frames for film-grain flicker
-      if (t % 3 === 0) {
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        grain.style.backgroundPosition = `${x}% ${y}%`;
-      }
-    };
-    tick();
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  // ── Button hover ──────────────────────────────────────────
-  useEffect(() => {
-    const btn   = btnRef.current;
-    const text  = btnTextRef.current;
+    const btn = btnRef.current;
+    const text = btnTextRef.current;
     const clone = btnCloneRef.current;
     if (!btn || !text || !clone) return;
 
     const H = btn.offsetHeight;
     gsap.set(clone, { y: H, opacity: 1 });
-    gsap.set(text,  { y: 0, opacity: 1 });
+    gsap.set(text, { y: 0, opacity: 1 });
 
     const onEnter = () => {
       btnTlRef.current?.kill();
-      gsap.to(btn, { backgroundColor: "rgba(255,255,255,0.96)", borderColor: "rgba(255,255,255,1)", duration: 0.35, ease: "power2.out" });
-      btnTlRef.current = gsap.timeline({ defaults: { duration: 0.52, ease: "power3.inOut" } });
+      gsap.to(btn, {
+        backgroundColor: "rgba(255,255,255,0.96)",
+        borderColor: "rgba(255,255,255,1)",
+        duration: 0.35,
+        ease: "power2.out",
+      });
+      btnTlRef.current = gsap.timeline({
+        defaults: { duration: 0.52, ease: "power3.inOut" },
+      });
       btnTlRef.current.to(text, { y: -H }, 0).to(clone, { y: 0 }, 0);
     };
+
     const onLeave = () => {
       btnTlRef.current?.kill();
-      gsap.to(btn, { backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.34)", duration: 0.35, ease: "power2.out" });
-      btnTlRef.current = gsap.timeline({ defaults: { duration: 0.48, ease: "power3.inOut" } });
+      gsap.to(btn, {
+        backgroundColor: "rgba(255,255,255,0.12)",
+        borderColor: "rgba(255,255,255,0.34)",
+        duration: 0.35,
+        ease: "power2.out",
+      });
+      btnTlRef.current = gsap.timeline({
+        defaults: { duration: 0.48, ease: "power3.inOut" },
+      });
       btnTlRef.current.to(clone, { y: H }, 0).to(text, { y: 0 }, 0);
     };
 
     btn.addEventListener("mouseenter", onEnter);
     btn.addEventListener("mouseleave", onLeave);
+
     return () => {
       btn.removeEventListener("mouseenter", onEnter);
       btn.removeEventListener("mouseleave", onLeave);
       btnTlRef.current?.kill();
     };
+  }, []);
+
+  // ── Pinned scroll ─────────────────────────────────────────────
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Base layers start invisible
+      gsap.set(greenBaseRef.current, { opacity: 0 });
+      gsap.set(whiteBaseRef.current, { opacity: 0 });
+
+      // Glows start tiny (scale 0.1) at the bottom center and fully transparent
+      gsap.set(greenGlowRef.current, { opacity: 0, scale: 0.1, transformOrigin: "50% 100%" });
+      gsap.set(whiteGlowRef.current, { opacity: 0, scale: 0.1, transformOrigin: "50% 100%" });
+
+      gsap.set(textRef.current, { color: "#f8f8f4" });
+      gsap.set(btnRef.current, {
+        backgroundColor: "rgba(255,255,255,0.12)",
+        borderColor: "rgba(255,255,255,0.34)",
+      });
+      gsap.set(btnTextRef.current, { color: "#ffffff" });
+      gsap.set(btnCloneRef.current, { color: "#101010" });
+
+      // Content entrance
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 48 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=300%",
+          pin: true,
+          scrub: 2.5,
+          anticipatePin: 1,
+        },
+      });
+
+      tl
+        // ── STAGE 1: Green Glow rises and expands ──
+        .to(greenGlowRef.current, {
+          opacity: 1,
+          scale: 4, // Scales up 400% to push the curve completely over the top edge
+          duration: 0.5,
+          ease: "power2.inOut",
+        }, 0)
+        // Solid green base fades in slightly delayed, ensuring the glow edge leads
+        .to(greenBaseRef.current, {
+          opacity: 1,
+          duration: 0.35,
+          ease: "power2.in",
+        }, 0.15)
+
+        // ── HOLD on full green (0.5 → 0.6) ──
+
+        // ── STAGE 2: White Glow rises and expands ──
+        .to(whiteGlowRef.current, {
+          opacity: 1,
+          scale: 4,
+          duration: 0.5,
+          ease: "power2.inOut",
+        }, 0.6)
+        // Solid white base fills in behind the glow
+        .to(whiteBaseRef.current, {
+          opacity: 1,
+          duration: 0.35,
+          ease: "power2.in",
+        }, 0.75)
+        
+        // Green layers fade out gracefully to avoid muddy colors
+        .to([greenBaseRef.current, greenGlowRef.current], {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power1.in",
+        }, 0.7)
+
+        // Text + button flip to dark as the white glow swallows the screen
+        .to(textRef.current, {
+          color: "#0a0a09",
+          duration: 0.08,
+          ease: "none",
+        }, 0.88)
+        .to(btnRef.current, {
+          backgroundColor: "rgba(0,0,0,0.08)",
+          borderColor: "rgba(0,0,0,0.25)",
+          duration: 0.08,
+          ease: "none",
+        }, 0.88)
+        .to(btnTextRef.current, {
+          color: "#0a0a09",
+          duration: 0.08,
+          ease: "none",
+        }, 0.88);
+
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -153,89 +182,96 @@ export default function CTASection({ onQuoteOpen }) {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "100vh",
+        height: "100vh",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
         backgroundColor: "#000000",
-        padding: "clamp(80px, 12vw, 160px) clamp(24px, 5vw, 80px)",
       }}
     >
-      {/* ── Radiant green gradient ── */}
+      {/* ── Solid green base ── */}
       <div
-        ref={gradientRef}
+        ref={greenBaseRef}
         style={{
           position: "absolute",
           inset: 0,
-          background: `radial-gradient(ellipse 110% 80% at 50% 115%,
-            #2d7a52 0%, #1B4732 25%, rgba(27,71,50,0.55) 55%, transparent 75%)`,
-          pointerEvents: "none",
-          zIndex: 0,
-          transformOrigin: "bottom center",
-        }}
-      />
-
-      {/* ── Film grain — flickering background-position ── */}
-      <div
-        ref={grainRef}
-        style={{
-          position: "absolute",
-          inset: "-50%",          /* oversized so position shifts don't show edges */
-          width: "200%",
-          height: "200%",
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23grain)' opacity='1'/%3E%3C/svg%3E")`,
-          backgroundRepeat: "repeat",
-          backgroundSize:   "220px 220px",
-          pointerEvents: "none",
           zIndex: 1,
-          opacity: 0,             /* starts invisible, driven by scroll */
-          mixBlendMode: "screen", /* grain LIGHTS the scene — visible on dark AND mid tones */
-          willChange: "background-position",
+          backgroundColor: "#0d2b1e",
+          pointerEvents: "none",
         }}
       />
 
-      {/* ── Sweeping shimmer band ── */}
+      {/* ── Green Curved Glow ── */}
       <div
-        ref={shimmerRef}
+        ref={greenGlowRef}
         style={{
           position: "absolute",
           inset: 0,
-          background: `linear-gradient(
-            135deg,
-            transparent          0%,
-            transparent         30%,
-            rgba(255,255,255,0.06) 45%,
-            rgba(255,255,255,0.14) 50%,
-            rgba(255,255,255,0.06) 55%,
-            transparent         70%,
-            transparent        100%
+          zIndex: 2,
+          // Perfect ellipse at bottom center creates the smooth curved dome
+          background: `radial-gradient(
+            ellipse 100% 100% at 50% 100%,
+            #4ae394 0%,
+            #1e5c38 40%,
+            rgba(13,43,30,0.5) 75%,
+            transparent 100%
           )`,
           pointerEvents: "none",
-          zIndex: 2,
-          opacity: 0,
-          animation: "shimmerSweep 2.8s ease-in-out infinite",
+        }}
+      />
+
+      {/* ── Solid white base ── */}
+      <div
+        ref={whiteBaseRef}
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 3,
+          backgroundColor: "#f7f6f2",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* ── White Curved Glow ── */}
+      <div
+        ref={whiteGlowRef}
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 4,
+          background: `radial-gradient(
+            ellipse 100% 100% at 50% 100%,
+            #ffffff 0%,
+            #e8e6e0 45%,
+            rgba(247,246,242,0.6) 80%,
+            transparent 100%
+          )`,
+          pointerEvents: "none",
         }}
       />
 
       {/* ── Content ── */}
-      <div style={{
-        position: "relative",
-        zIndex: 3,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
-        maxWidth: "880px",
-        width: "100%",
-        gap: "clamp(36px, 5vw, 56px)",
-      }}>
+      <div
+        ref={contentRef}
+        style={{
+          position: "relative",
+          zIndex: 5,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          maxWidth: "880px",
+          width: "100%",
+          padding: "0 clamp(24px, 5vw, 80px)",
+          gap: "clamp(36px, 5vw, 56px)",
+          opacity: 0,
+        }}
+      >
         <h2
           ref={textRef}
-          className="cta-title"
           style={{
-            fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+            fontFamily: "'Satoshi', 'Helvetica Neue', sans-serif",
             fontWeight: 300,
             fontSize: "clamp(2.2rem, 4.8vw, 5rem)",
             lineHeight: 1.02,
@@ -244,7 +280,7 @@ export default function CTASection({ onQuoteOpen }) {
             margin: 0,
           }}
         >
-          Ready to start your WordPress project?
+          Ready to start your<br />WordPress project?
         </h2>
 
         <button
@@ -258,44 +294,52 @@ export default function CTASection({ onQuoteOpen }) {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "36px 56px",
+            padding: "clamp(20px,2.5vw,36px) clamp(36px,4vw,56px)",
             background: "rgba(255,255,255,0.12)",
             border: "1px solid rgba(255,255,255,0.34)",
             borderRadius: "38px",
             backdropFilter: "blur(10px)",
             WebkitBackdropFilter: "blur(10px)",
-            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px rgba(0,0,0,0.3)",
+            boxShadow:
+              "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px rgba(0,0,0,0.3)",
             cursor: "pointer",
-            fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
-            fontSize: "clamp(14px, 0.95vw, 15px)",
+            fontSize: "clamp(13px, 0.95vw, 15px)",
             fontWeight: 600,
             letterSpacing: "0.09em",
             textTransform: "uppercase",
             lineHeight: 1,
           }}
         >
-          <span ref={btnTextRef} style={{ display: "block", color: "#ffffff", whiteSpace: "nowrap", lineHeight: 1 }}>
+          <span
+            ref={btnTextRef}
+            style={{
+              display: "block",
+              color: "#ffffff",
+              whiteSpace: "nowrap",
+              lineHeight: 1,
+            }}
+          >
             Get a Quote
           </span>
-          <span ref={btnCloneRef} aria-hidden="true" style={{ display: "block", color: "#101010", whiteSpace: "nowrap", position: "absolute", lineHeight: 1 }}>
+          <span
+            ref={btnCloneRef}
+            aria-hidden="true"
+            style={{
+              display: "block",
+              color: "#101010",
+              whiteSpace: "nowrap",
+              position: "absolute",
+              lineHeight: 1,
+            }}
+          >
             Get a Quote
           </span>
         </button>
       </div>
 
       <style>{`
-        @keyframes shimmerSweep {
-          0%   { transform: translateX(-100%) skewX(-8deg); }
-          100% { transform: translateX(200%)  skewX(-8deg); }
-        }
-        @media (min-width: 1024px) {
-          .cta-title {
-            white-space: nowrap;
-            font-size: clamp(2.1rem, 3.7vw, 4.2rem) !important;
-          }
-        }
         @media (prefers-reduced-motion: reduce) {
-          * { animation: none !important; }
+          * { animation: none !important; transition: none !important; }
         }
       `}</style>
     </section>

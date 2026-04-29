@@ -5,18 +5,24 @@ import gsap from "gsap";
 
 export default function LoadingScreen({ onComplete }) {
   const overlayRef = useRef(null);
-  const blackRef = useRef(null);
   const logoRef = useRef(null);
-  const gradientRef = useRef(null);
+  const blackBaseRef = useRef(null); // Solid black fill
+  const blackGlowRef = useRef(null); // Curved dark glow
 
   useEffect(() => {
     const overlay = overlayRef.current;
-    const black = blackRef.current;
     const logo = logoRef.current;
+    const blackBase = blackBaseRef.current;
+    const blackGlow = blackGlowRef.current;
 
+    // ── Initial States ──
     gsap.set(overlay, { opacity: 1, pointerEvents: "all" });
-    gsap.set(black, { yPercent: 110, opacity: 0.08 }); // ← starts nearly invisible
     gsap.set(logo, { opacity: 0, scale: 0.85 });
+    
+    // Base starts invisible
+    gsap.set(blackBase, { opacity: 0 });
+    // Glow starts tiny at the bottom center and fully transparent
+    gsap.set(blackGlow, { opacity: 0, scale: 0.1, transformOrigin: "50% 100%" });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -30,42 +36,49 @@ export default function LoadingScreen({ onComplete }) {
       .to(logo, {
         opacity: 1,
         scale: 1,
-        duration: 0.28,       // was 0.4 → −30%
+        duration: 0.18,
         ease: "power3.out",
-      }, 0.08)
+      }, 0.05)
 
       // Subtle pulse
       .to(logo, {
         scale: 1.06,
-        duration: 0.17,       // was 0.25 → −30%
+        duration: 0.11,
         ease: "power1.inOut",
         yoyo: true,
         repeat: 1,
-      }, 0.38)               // tighter offset
+      }, 0.25)
 
-      .addLabel("waveStart", 0.78)  // was 1.15 → compressed
+      .addLabel("waveStart", 0.5)
 
-      // ── Phase 2: Black rises + opacity builds from near-zero to full ──
-      .to(black, {
-        yPercent: 0,
-        opacity: 1,           // fades from 0.08 → 1 as it rises
-        duration: 0.9,
-        ease: "power4.inOut",
+      // ── Phase 2: Smooth Curved Glow rises and expands ──
+      .to(blackGlow, {
+        opacity: 1,
+        scale: 4, // Scales up 400% to push the curve completely over the top edge
+        duration: 0.85,
+        ease: "power2.inOut",
       }, "waveStart")
+      
+      // Solid black base fades in slightly delayed to ensure the glow edge leads the visual
+      .to(blackBase, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.in",
+      }, "waveStart+=0.25")
 
-      // Logo fades out mid-rise
+      // Logo fades out as the darkness rises over it
       .to(logo, {
         opacity: 0,
         duration: 0.28,
         ease: "power2.in",
       }, "waveStart+=0.2")
 
-      // ── Phase 3: Smooth fade out ──
+      // ── Phase 3: Smooth fade out of the entire loading screen ──
       .to(overlay, {
         opacity: 0,
         duration: 0.75,
         ease: "power1.inOut",
-      }, "waveStart+=0.8");
+      }, "waveStart+=0.9"); // starts right as the dark wave finishes covering
 
     return () => tl.kill();
   }, []);
@@ -82,7 +95,7 @@ export default function LoadingScreen({ onComplete }) {
           "radial-gradient(ellipse at center, #ffffff 30%, #e8e8e8 100%)",
       }}
     >
-      {/* Logo */}
+      {/* ── Logo ── */}
       <div
         ref={logoRef}
         style={{
@@ -104,57 +117,36 @@ export default function LoadingScreen({ onComplete }) {
         </svg>
       </div>
 
-      {/* Black + Wave COMBINED */}
+      {/* ── Solid Black Base ── */}
       <div
-        ref={blackRef}
+        ref={blackBaseRef}
         style={{
           position: "absolute",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          height: "130%",
+          inset: 0,
           zIndex: 3,
+          backgroundColor: "#111111",
+          pointerEvents: "none",
         }}
-      >
-        {/* Wave (top edge) */}
-        <svg
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-          style={{
-            position: "absolute",
-            top: "-119px",
-            width: "100%",
-            height: "120px",
-            display: "block",
-          }}
-        >
-          <defs>
-            <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#111111" stopOpacity="0" />
-              <stop offset="55%" stopColor="#111111" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#111111" stopOpacity="1" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,60 C200,110 400,10 600,60 C800,110 1000,10 1200,60 C1300,85 1380,50 1440,60 L1440,120 L0,120 Z"
-            fill="url(#waveGrad)"
-          />
-        </svg>
+      />
 
-        {/* Black body */}
-        <div
-          ref={gradientRef}
-          style={{
-            width: "100%",
-            height: "100%",
-            background: "radial-gradient(ellipse at center, #2a2a2a 0%, #111111 70%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%)",
-            maskImage:
-              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%)",
-          }}
-        />
-      </div>
+      {/* ── Black Curved Glow ── */}
+      <div
+        ref={blackGlowRef}
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 4,
+          // Perfect ellipse at bottom center creates the smooth curved dome
+          background: `radial-gradient(
+            ellipse 100% 100% at 50% 100%,
+            #2a2a2a 0%,
+            #1a1a1a 45%,
+            rgba(17,17,17,0.7) 80%,
+            transparent 100%
+          )`,
+          pointerEvents: "none",
+        }}
+      />
     </div>
   );
 }

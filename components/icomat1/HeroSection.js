@@ -8,20 +8,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 function HeroQuoteButton({ onClick }) {
-  const wrapRef = useRef(null);
-  const textRef = useRef(null);
+  const wrapRef  = useRef(null);
+  const textRef  = useRef(null);
   const cloneRef = useRef(null);
-  const tlRef = useRef(null);
+  const tlRef    = useRef(null);
 
   useEffect(() => {
-    const wrap = wrapRef.current;
-    const text = textRef.current;
+    const wrap  = wrapRef.current;
+    const text  = textRef.current;
     const clone = cloneRef.current;
     if (!wrap || !text || !clone) return;
 
     const H = wrap.offsetHeight;
     gsap.set(clone, { y: H, opacity: 1 });
-    gsap.set(text, { y: 0, opacity: 1 });
+    gsap.set(text,  { y: 0, opacity: 1 });
 
     const onEnter = () => {
       tlRef.current?.kill();
@@ -76,32 +76,20 @@ function HeroQuoteButton({ onClick }) {
         border: "1px solid rgba(255,255,255,0.34)",
         backdropFilter: "blur(10px)",
         WebkitBackdropFilter: "blur(10px)",
-        boxShadow:
-          "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px rgba(0,0,0,0.3)",
+        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px rgba(0,0,0,0.3)",
         cursor: "pointer",
       }}
     >
       <span
         ref={textRef}
-        style={{
-          display: "block",
-          lineHeight: 1,
-          color: "#ffffff",
-          whiteSpace: "nowrap",
-        }}
+        style={{ display: "block", lineHeight: 1, color: "#ffffff", whiteSpace: "nowrap" }}
       >
         Get a Quote
       </span>
       <span
         ref={cloneRef}
         aria-hidden="true"
-        style={{
-          display: "block",
-          lineHeight: 1,
-          color: "#101010",
-          whiteSpace: "nowrap",
-          position: "absolute",
-        }}
+        style={{ display: "block", lineHeight: 1, color: "#101010", whiteSpace: "nowrap", position: "absolute" }}
       >
         Get a Quote
       </span>
@@ -110,127 +98,80 @@ function HeroQuoteButton({ onClick }) {
 }
 
 export default function HeroSection({ onQuoteClick }) {
-  const containerRef = useRef(null);
-  const videoRef = useRef(null);
-  const overlayRef = useRef(null);
-  const headingRef = useRef(null);
-  const badgeRef = useRef(null);
+  const containerRef       = useRef(null);
+  const videoRef           = useRef(null);
+  const overlayRef         = useRef(null);
+  const headingRef         = useRef(null);
+  const badgeRef           = useRef(null);
   const scrollIndicatorRef = useRef(null);
+  const contentRef         = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
 
-      // ── Set hard initial states so scroll-out never conflicts ──────
-      gsap.set(videoRef.current, { opacity: 0 });
-      gsap.set(overlayRef.current, { opacity: 0 });
-      gsap.set(badgeRef.current, { opacity: 0, y: 20 });
+      // ── Hard initial states ──
+      gsap.set(videoRef.current,           { opacity: 0 });
+      gsap.set(overlayRef.current,         { opacity: 0 });
+      gsap.set(badgeRef.current,           { opacity: 0, y: 20 });
       gsap.set(scrollIndicatorRef.current, { opacity: 0 });
 
-      // ── Entrance timeline ──────────────────────────────────────────
+      // ── Entrance timeline ──
       const tl = gsap.timeline({ delay: 0.3 });
 
-      tl.to(
-        videoRef.current,
-        { opacity: 1, duration: 1.8, ease: "power2.inOut" },
-        0
-      );
+      tl.to(videoRef.current,
+        { opacity: 1, duration: 1.8, ease: "power2.inOut" }, 0);
 
-      tl.to(
-        overlayRef.current,
-        { opacity: 1, duration: 1.5, ease: "power2.inOut" },
-        0.2
-      );
+      tl.to(overlayRef.current,
+        { opacity: 1, duration: 1.5, ease: "power2.inOut" }, 0.2);
 
-      tl.to(
-        badgeRef.current,
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
-        0.6
-      );
+      tl.to(badgeRef.current,
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, 0.6);
 
       if (headingRef.current) {
-        const split = new SplitText(headingRef.current, {
-          type: "lines,words",
-        });
+        const split = new SplitText(headingRef.current, { type: "lines,words" });
         gsap.set(split.words, { opacity: 0, y: 60, skewY: 4 });
-        tl.to(
-          split.words,
-          {
-            opacity: 1,
-            y: 0,
-            skewY: 0,
-            duration: 1.1,
-            ease: "power4.out",
-            stagger: 0.08,
-          },
-          0.8
-        );
+        tl.to(split.words, {
+          opacity: 1, y: 0, skewY: 0,
+          duration: 1.1, ease: "power4.out",
+          stagger: 0.08,
+        }, 0.8);
       }
 
-      tl.to(
-        scrollIndicatorRef.current,
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-        1.8
-      );
+      tl.to(scrollIndicatorRef.current,
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 1.8);
 
       // Scroll indicator bounce
       gsap.to(scrollIndicatorRef.current, {
-        y: 8,
-        duration: 1.2,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-        delay: 2.6,
+        y: 8, duration: 1.2, ease: "sine.inOut",
+        repeat: -1, yoyo: true, delay: 2.6,
       });
 
-      // ── Scroll-out: heading ────────────────────────────────────────
+      // ── Depth recession on scroll ──
+      // Scales back (recedes), drifts DOWN, no fade
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: "50% top",
+        start: "top top",
         end: "bottom top",
-        scrub: 1.2,
+        scrub: 1.4,
         onUpdate: (self) => {
           const p = self.progress;
-          gsap.set(headingRef.current, {
-            y: -100 * p,
-            opacity: 1 - p,
+
+          gsap.set(contentRef.current, {
+            scale:           1 - (0.18 * p),   // recedes backward
+            y:               380 * p,           // drifts down
+            transformOrigin: "50% 60%",
           });
         },
         onLeaveBack: () => {
-          gsap.to(headingRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
+          gsap.to(contentRef.current, {
+            scale: 1, y: 0,
+            duration: 0.5, ease: "power2.out",
             overwrite: true,
           });
         },
       });
 
-      // ── Scroll-out: badge ──────────────────────────────────────────
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "30% top",
-        end: "60% top",
-        scrub: 1,
-        onUpdate: (self) => {
-          const p = self.progress;
-          gsap.set(badgeRef.current, {
-            y: -50 * p,
-            opacity: 1 - p,
-          });
-        },
-        onLeaveBack: () => {
-          gsap.to(badgeRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            overwrite: true,
-          });
-        },
-      });
-
-      // ── Video parallax ─────────────────────────────────────────────
+      // ── Video parallax ──
       gsap.to(videoRef.current, {
         yPercent: -12,
         ease: "none",
@@ -251,18 +192,17 @@ export default function HeroSection({ onQuoteClick }) {
     <section
       ref={containerRef}
       className="relative w-full h-screen min-h-[600px] bg-[#162D24]"
-      style={{ overflow: "clip" }}
+      style={{
+        overflow: "clip",
+        perspective: "1200px",
+      }}
     >
       {/* Background Video */}
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         src="https://icomat.cdn.prismic.io/icomat/aWZQUwIvOtkhBcXM_ICOMAT-HOMEPAGE_1.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
+        autoPlay muted loop playsInline preload="auto"
       />
 
       {/* Gradient Overlay */}
@@ -278,27 +218,23 @@ export default function HeroSection({ onQuoteClick }) {
       {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, rgba(0,0,0,0.55))",
-        }}
+        style={{ background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.55))" }}
       />
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pt-84 pb-16 md:pb-20">
+      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pb-16 md:pb-20">
 
-        {/* Spacer */}
         <div className="flex-1" />
 
-        {/* Bottom-left heading */}
-        <div>
+        {/* contentRef wraps heading + badge — recedes together as one unit */}
+        <div
+          ref={contentRef}
+          style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+        >
           <h1
             ref={headingRef}
             className="text-white font-extrabold tracking-tight leading-[0.95]"
-            style={{
-              fontSize: "clamp(2rem, 4.5vw, 4rem)",
-              fontWeight: 600,
-            }}
+            style={{ fontSize: "clamp(2rem, 4.5vw, 4rem)", fontWeight: 600 }}
           >
             The WordPress
             <br />
@@ -316,10 +252,7 @@ export default function HeroSection({ onQuoteClick }) {
             </sup>
           </h1>
 
-          <div
-            ref={badgeRef}
-            className="mt-4 max-w-[760px]"
-          >
+          <div ref={badgeRef} className="mt-4 max-w-[760px]">
             <p
               className="text-[14px] sm:text-[15px] lg:text-[17px] leading-relaxed"
               style={{ color: "rgba(255,255,255,0.72)" }}
@@ -330,6 +263,7 @@ export default function HeroSection({ onQuoteClick }) {
             <HeroQuoteButton onClick={onQuoteClick} />
           </div>
         </div>
+
       </div>
 
       {/* Scroll Indicator */}
@@ -341,16 +275,10 @@ export default function HeroSection({ onQuoteClick }) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-4 h-4 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+            fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" strokeWidth={2}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 5v14M6 13l6 6 6-6"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M6 13l6 6 6-6" />
           </svg>
         </div>
       </div>
