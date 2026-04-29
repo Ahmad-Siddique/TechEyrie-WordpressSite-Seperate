@@ -290,13 +290,13 @@ export default function CustomersSection() {
             const op2 = op1 * 0.5;
             bgGradientRef.current.style.background = `
               radial-gradient(ellipse 60% 45% at 50% 50%,
-                rgba(27, 71, 50, ${0.2 + p * 0.35}) 0%,
-                rgba(27, 71, 50, ${0.1 + p * 0.2}) 45%,
+                rgba(67, 87, 44, ${0.2 + p * 0.35}) 0%,
+                rgba(67, 87, 44, ${0.1 + p * 0.2}) 45%,
                 transparent 70%
               ),
               radial-gradient(ellipse ${bW}% ${bH}% at 50% 110%,
-                rgba(27, 71, 50, ${op1}) 0%,
-                rgba(27, 71, 50, ${op2}) 40%,
+                rgba(67, 87, 44, ${op1}) 0%,
+                rgba(67, 87, 44, ${op2}) 40%,
                 transparent 68%
               )
             `;
@@ -375,13 +375,13 @@ export default function CustomersSection() {
             pointerEvents: "none", zIndex: 0,
             background: `
               radial-gradient(ellipse 55% 40% at 50% 50%,
-                rgba(27, 71, 50, 0.24) 0%,
-                rgba(27, 71, 50, 0.12) 45%,
+                rgba(67, 87, 44, 0.24) 0%,
+                rgba(67, 87, 44, 0.12) 45%,
                 transparent 70%
               ),
               radial-gradient(ellipse 55% 28% at 50% 110%,
-                rgba(27, 71, 50, 0.45) 0%,
-                rgba(27, 71, 50, 0.22) 40%,
+                rgba(67, 87, 44, 0.45) 0%,
+                rgba(67, 87, 44, 0.22) 40%,
                 transparent 68%
               )
             `,

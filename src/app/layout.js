@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from 'next/script'
+import GlobalLoadingWrapper from "../../components/icomat1/GlobalLoadingWrapper";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
           src="https://cdn.jsdelivr.net/npm/three-bas@2.0.1/dist/bas.min.js"
           strategy="lazyOnload"
         />
-        {children}
+        <GlobalLoadingWrapper>{children}</GlobalLoadingWrapper>
       </body>
     </html>
   )
