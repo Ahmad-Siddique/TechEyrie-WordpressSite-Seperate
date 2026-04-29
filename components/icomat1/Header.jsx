@@ -320,7 +320,7 @@ function QuoteDrawer({ open, onClose }) {
               aria-label="Close"
               style={{
                 width: "32px", height: "32px",
-                borderRadius: "50%",
+                borderRadius: "30%",
                 border: "1px solid rgba(255,255,255,0.12)",
                 background: "rgba(255,255,255,0.05)",
                 color: "rgba(255,255,255,0.45)",
@@ -528,28 +528,31 @@ function ServiceItem({ service, bottomBorder }) {
     <Link href={service.href} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       style={{
         display: "flex", flexDirection: "column", gap: "14px",
-        padding: "36px 24px 36px 0",
+        padding: "36px 24px 36px 20px",
         borderBottom: bottomBorder ? "1px solid rgba(255,255,255,0.08)" : "none",
+        backgroundColor: hovered ? "#ffffff" : "transparent",
+        borderRadius: "14px",
         textDecoration: "none", cursor: "pointer",
+        transition: "background-color 0.22s ease, border-color 0.22s ease",
       }}
     >
       <div style={{ display: "flex", alignItems: "flex-start", gap: "18px" }}>
         <span style={{
-          color: hovered ? "#c8f04a" : "rgba(255,255,255,0.7)",
+          color: hovered ? "#0a0a09" : "rgba(255,255,255,0.7)",
           flexShrink: 0, marginTop: "2px", display: "block",
           transform: hovered ? "translateY(-3px)" : "translateY(0)",
           transition: "transform 0.25s ease, color 0.25s ease",
         }}>{service.icon}</span>
         <span style={{
-          color: hovered ? "#ffffff" : "rgba(255,255,255,0.88)",
-          fontSize: "0.82rem", fontWeight: 300, fontFamily: "Akkurat, sans-serif",
+          color: hovered ? "#0a0a09" : "rgba(255,255,255,0.88)",
+          fontSize: "0.86rem", fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
           letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.3,
           transition: "color 0.2s",
         }}>{service.title}</span>
       </div>
       <p style={{
-        color: hovered ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.35)",
-        fontSize: "0.86rem", fontFamily: "Akkurat, sans-serif", fontWeight: 300,
+        color: hovered ? "rgba(10,10,9,0.68)" : "rgba(255,255,255,0.35)",
+        fontSize: "0.86rem", fontFamily: "'Akkurat Mono', sans-serif", fontWeight: 300,
         lineHeight: 1.6, margin: 0, paddingLeft: "62px", transition: "color 0.2s",
       }}>{service.desc}</p>
     </Link>
@@ -662,14 +665,16 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
         display: "inline-flex", alignItems: "center", justifyContent: "center",
         padding: "8px 8px",
         color: dimmed ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.82)",
-        fontSize: "0.67rem", fontWeight: 200, fontFamily: "Akkurat, sans-serif",
+        fontSize: "0.72rem", fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
         letterSpacing: "0.13em", textTransform: "uppercase",
         textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer",
         transition: "color 0.22s ease",
       }}
     >
       <span ref={textRef} style={{ display: "block", lineHeight: 1.15, whiteSpace: "nowrap" }}>
+        <span style={{ fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif" }}>
         {label}
+        </span>
         {hasMega && (
           <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ display: "inline-block", marginLeft: "5px", verticalAlign: "middle", transition: "transform 0.25s", transform: megaOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
             <path d="M1 1l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -677,7 +682,9 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
         )}
       </span>
       <span ref={cloneRef} aria-hidden="true" style={{ display: "block", lineHeight: 1.15, whiteSpace: "nowrap", color: "#ffffff", position: "absolute" }}>
+        <span style={{ fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif" }}>
         {label}
+        </span>
         {hasMega && (
           <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ display: "inline-block", marginLeft: "5px", verticalAlign: "middle" }}>
             <path d="M1 1l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -770,14 +777,14 @@ function AnimatedMobileMenuLink({ label, href, onClose }) {
         display: "block", lineHeight: 1.1, whiteSpace: "nowrap",
         color: "rgba(255,255,255,0.82)",
         fontSize: "clamp(1.4rem, 4.05vw, 1.87rem)",
-        fontWeight: 300, fontFamily: "Akkurat, sans-serif",
+        fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
         letterSpacing: "-0.005em", textTransform: "uppercase",
       }}>{label}</span>
       <span ref={cloneRef} aria-hidden="true" style={{
         display: "block", lineHeight: 1.1, whiteSpace: "nowrap",
         color: "#ffffff", position: "absolute", top: "14px", left: 0,
         fontSize: "clamp(1.4rem, 4.05vw, 1.87rem)",
-        fontWeight: 300, fontFamily: "Akkurat, sans-serif",
+        fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
         letterSpacing: "-0.005em", textTransform: "uppercase",
       }}>{label}</span>
     </a>
@@ -874,7 +881,7 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
   return (
     <>
       <header ref={headerRef} style={{
-        position: "fixed", top: 0, left: 0, right: 0,
+        position: "fixed", top: "8px", left: 0, right: 0,
         zIndex: 150, height: "64px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "0 clamp(20px, 3vw, 40px)",
@@ -899,7 +906,7 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
             background: "rgba(0,0,0,0.72)",
             backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
             border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "10px", padding: "8px 8px 8px 20px",
+            borderRadius: "10px", padding: "4px 8px",
           }}>
             {NAV_ITEMS.map((item) => (
               <div key={item.label}

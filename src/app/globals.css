@@ -1,6 +1,22 @@
 /* app/globals.css */
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Akkurat Light';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/akkurat-light.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Akkurat Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/AkkuratMono.woff2') format('woff2');
+  font-display: swap;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

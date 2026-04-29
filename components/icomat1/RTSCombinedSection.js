@@ -17,7 +17,7 @@ function CardVideo({ src, badge, footerContent }) {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden" style={{ borderRadius: "10px" }}>
       <div
         className="relative w-full bg-black overflow-hidden cursor-pointer group"
         style={{ aspectRatio: "16/8.5" }}

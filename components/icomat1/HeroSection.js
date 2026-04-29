@@ -66,10 +66,12 @@ function HeroQuoteButton({ onClick }) {
       ref={wrapRef}
       type="button"
       onClick={onClick}
-      className="mt-6 inline-flex items-center justify-center rounded-[38px] px-14 py-9 text-[14px] sm:text-[15px] tracking-[0.09em] font-semibold uppercase"
+      className="mt-6 inline-flex items-center justify-center text-[14px] sm:text-[15px] tracking-[0.09em] font-semibold uppercase"
       style={{
         position: "relative",
         overflow: "hidden",
+        padding: "15px 60px",
+        borderRadius: "12px",
         background: "rgba(255,255,255,0.12)",
         border: "1px solid rgba(255,255,255,0.34)",
         backdropFilter: "blur(10px)",
@@ -333,9 +335,9 @@ export default function HeroSection({ onQuoteClick }) {
       {/* Scroll Indicator */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-8 right-6 sm:right-10 md:right-16 lg:right-20 z-20"
+        className="absolute bottom-8 right-2 sm:right-4 md:right-8 lg:right-10 z-20"
       >
-        <div className="w-9 h-9 rounded-full border border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer hover:bg-white/20 transition-colors duration-300">
+        <div className="w-20 h-12 rounded-[10px] flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer hover:bg-white/20 transition-colors duration-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-4 h-4 text-white"
@@ -347,7 +349,7 @@ export default function HeroSection({ onQuoteClick }) {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M19 9l-7 7-7-7"
+              d="M12 5v14M6 13l6 6 6-6"
             />
           </svg>
         </div>
