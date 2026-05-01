@@ -13,7 +13,7 @@
   font-family: 'Akkurat Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/AkkuratMono.woff2') format('woff2');
+  src: url('/fonts/AkkuratMono-Regular.ttf') format('ttf');
   font-display: swap;
 }
 

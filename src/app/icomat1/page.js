@@ -99,7 +99,7 @@ export default function IcomatPage() {
       <IndustriesSection />
       <BuildWithIcomatSection />
       <UnlockingSection />
-      <CTASection />
+      {/* <CTASection /> */}
       <FooterSection />
       {/* <Footer theme="dark" /> */}
     </div>

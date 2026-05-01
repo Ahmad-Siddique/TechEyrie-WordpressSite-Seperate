@@ -178,34 +178,41 @@ function WaveLines() {
   );
 }
 
+/** Matches UnlockingSection page end so the veil reads as the prior section sliding away. */
+const PRE_FOOTER_SURFACE = "#f7f7f5";
+
 // ── Footer ─────────────────────────────────────────────────────
 export default function FooterSection() {
-  const footerRef   = useRef(null);
-  const logoRef     = useRef(null);
-  const wordmarkRef = useRef(null);
-  const navRef      = useRef(null);
-  const taglineRef  = useRef(null);
-  const bottomRef   = useRef(null);
+  const footerRef = useRef(null);
+  const veilRef   = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const els = [logoRef.current, wordmarkRef.current, navRef.current].filter(Boolean);
-      gsap.set(els, { opacity: 0, y: 24 });
-      gsap.set([taglineRef.current, bottomRef.current], { opacity: 0 });
+      const footer = footerRef.current;
+      const veil   = veilRef.current;
+      if (!footer || !veil) return;
+
+      gsap.set(veil, { yPercent: 0 });
 
       ScrollTrigger.create({
-        trigger: footerRef.current,
-        start: "top 92%",
-        once: true,
-        onEnter: () => {
-          gsap.to(els, {
-            opacity: 1, y: 0,
-            duration: 0.9, ease: "power3.out", stagger: 0.12,
+        trigger: footer,
+        start: "top bottom",
+        end: "top 22%",
+        scrub: 1.15,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const p = self.progress;
+          gsap.set(veil, {
+            yPercent: -100 * p,
+            force3D: true,
           });
-          gsap.to([taglineRef.current, bottomRef.current], {
-            opacity: 1,
-            duration: 1.1, ease: "power2.out",
-            delay: 0.3, stagger: 0.15,
+        },
+        onLeaveBack: () => {
+          gsap.to(veil, {
+            yPercent: 0,
+            duration: 0.55,
+            ease: "power2.out",
+            overwrite: true,
           });
         },
       });
@@ -229,6 +236,19 @@ export default function FooterSection() {
         justifyContent: "space-between",
       }}
     >
+
+      {/* All footer chrome + copy: fixed in layout; revealed by veil sliding up (inverse of RTS panel sliding over). */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          flex: 1,
+          minHeight: 0,
+        }}
+      >
 
       <WaveLines />
 
@@ -256,10 +276,10 @@ export default function FooterSection() {
             marginBottom: "22px",
           }}
         >
-          <div ref={logoRef} style={{ marginTop: 0, paddingTop: 0 }}>
+          <div style={{ marginTop: 0, paddingTop: 0 }}>
             <WavesLogo />
           </div>
-          <div ref={wordmarkRef} style={{ marginTop: 0, paddingTop: 0, textAlign: "right" }}>
+          <div style={{ marginTop: 0, paddingTop: 0, textAlign: "right" }}>
             <span style={{
               display: "block",
               fontFamily: "'Arial Black', 'Arial', sans-serif",
@@ -276,7 +296,7 @@ export default function FooterSection() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
-          <div ref={navRef} style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: "20px", width: "100%", marginTop: "48px" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: "20px", width: "100%", marginTop: "48px" }}>
             <nav aria-label="Footer navigation">
               <div
                 style={{
@@ -352,7 +372,6 @@ export default function FooterSection() {
         }} />
 
         <div
-          ref={bottomRef}
           style={{
             display: "flex",
             alignItems: "flex-end",
@@ -361,7 +380,7 @@ export default function FooterSection() {
             gap: "16px",
           }}
         >
-          <div ref={taglineRef} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <div>
               <p style={{
                 color: "rgba(255,255,255,0.9)",
@@ -446,6 +465,22 @@ export default function FooterSection() {
 
         </div>
       </div>
+
+      </div>
+
+      {/* Continuation of Unlocking surface — slides up (opposite of RTS panel B rising over content). */}
+      <div
+        ref={veilRef}
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 4,
+          background: PRE_FOOTER_SURFACE,
+          pointerEvents: "none",
+          willChange: "transform",
+        }}
+      />
     </footer>
   );
 }

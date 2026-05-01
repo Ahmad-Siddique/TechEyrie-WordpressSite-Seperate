@@ -35,13 +35,13 @@ function CardVideo({ src, badge, footerContent }) {
         />
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/0 transition-all duration-500 pointer-events-none" />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-[#2a2a2a]/80 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 flex items-center gap-2 group-hover:opacity-60 transition-opacity duration-300">
+          <div className="bg-[#2a2a2a]/80 backdrop-blur-sm border border-white/10 rounded-sm px-4 py-1.5 flex items-center gap-2 group-hover:opacity-60 transition-opacity duration-300">
             <span className="text-white text-[11px] font-semibold tracking-[0.12em] uppercase">{badge}</span>
-            <span className="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center text-white text-[10px]">+</span>
+            <span className="w-5 h-5 rounded-sm border border-white/40 flex items-center justify-center text-white text-[10px]">+</span>
           </div>
         </div>
         <div className="absolute bottom-4 right-4 pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 flex items-center gap-1.5">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-sm px-3 py-1 flex items-center gap-1.5">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
             </svg>
@@ -376,7 +376,7 @@ export default function RTSCombinedSection() {
 
         <div
           ref={midColRef}
-          className="mt-1 mx-6 sm:mx-10 md:mx-16 lg:mx-20 border border-[#ddd] rounded-sm py-1.5 px-4 mb-4"
+          className="mt-1 mx-6 sm:mx-10 md:mx-16 lg:mx-20 border border-[#ddd] rounded-none py-1.5 px-4 mb-4"
         >
           <p className="text-[11px] sm:text-[12px] font-medium text-[#aaa] tracking-[0.18em] uppercase">
             Freshy / WordPress Service Platform

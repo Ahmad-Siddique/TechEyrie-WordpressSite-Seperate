@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,18 +11,21 @@ const CARDS = [
   {
     id: "production",
     label: "WordPress website design",
+    href: "/wordpress/design",
     src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=80",
     alt: "Automated composite production machinery",
   },
   {
     id: "design",
     label: "WordPress development",
+    href: "/wordpress/development",
     src: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1400&q=80",
     alt: "Engineers reviewing 3D design on screen",
   },
   {
     id: "tailored",
     label: "Hosting, support, and SEO",
+    href: "/wordpress/hosting",
     src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80",
     alt: "Engineer inspecting manufacturing machine",
   },
@@ -124,11 +128,17 @@ export default function IcomatSolutionSection() {
         className="grid grid-cols-1 sm:grid-cols-3 gap-3"
       >
         {CARDS.map((card, i) => (
-          <div key={card.id} className="flex flex-col gap-4">
-
+          <Link
+            key={card.id}
+            href={card.href}
+            ref={(el) => {
+              cardRefs.current[i] = el;
+            }}
+            aria-label={`${card.label} — view service`}
+            className="flex flex-col gap-4 text-left no-underline text-inherit cursor-pointer outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/45 rounded-2xl"
+          >
             {/* Image card */}
             <div
-              ref={(el) => (cardRefs.current[i] = el)}
               className="relative overflow-hidden"
               style={{
                 borderRadius: "16px",
@@ -138,7 +148,7 @@ export default function IcomatSolutionSection() {
             >
               <img
                 src={card.src}
-                alt={card.alt}
+                alt=""
                 loading="lazy"
                 decoding="async"
                 style={{
@@ -165,18 +175,19 @@ export default function IcomatSolutionSection() {
 
             {/* Label — increased size */}
             <p
-              ref={(el) => (labelRefs.current[i] = el)}
+              ref={(el) => {
+                labelRefs.current[i] = el;
+              }}
               className="font-medium"
               style={{
-                fontSize: "clamp(0.92rem, 1.1vw, 1.05rem)",  /* ← was 0.78rem → 0.88rem */
+                fontSize: "clamp(0.92rem, 1.1vw, 1.05rem)", /* ← was 0.78rem → 0.88rem */
                 color: "rgba(255,255,255,0.6)",
                 paddingLeft: "2px",
               }}
             >
               {card.label}
             </p>
-
-          </div>
+          </Link>
         ))}
       </div>
 

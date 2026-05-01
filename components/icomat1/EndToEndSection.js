@@ -156,95 +156,115 @@ export default function EndToEndSection() {
           className="flex will-change-transform"
           style={{ gap: `${CARD_GAP}px` }}
         >
-          {CARDS.map((card, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 flex flex-col"
-              style={{ width: `${CARD_W}px` }}
-            >
-              {/* Number + dotted rule */}
-              <div className="flex items-center gap-4 mb-5">
-                <span
-                  className="font-mono font-bold tracking-[0.18em] flex-shrink-0"
-                  style={{
-                    fontSize: "clamp(1rem, 1.4vw, 1.4rem)",
-                    color: "rgba(255,255,255,0.35)",
-                    fontFamily: "'Doto', monospace",
-                    fontVariationSettings: "'wght' 700, 'ROND' 100",
-                  }}
-                >
-                  {card.num}
-                </span>
-                <div
-                  className="flex-1 h-px"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(to right, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 4px, transparent 4px, transparent 10px)",
-                  }}
-                />
-              </div>
-
-              {/* Image */}
-              <div
-                className="relative w-full overflow-hidden rounded-xl bg-[#1a1a1a]"
-                style={{ aspectRatio: "4/3" }}
-              >
-                <img
-                  src={card.img}
-                  alt={card.label}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.style.display = "none"; }}
-                />
-              </div>
-
-              {/* Label */}
-              <div className="mt-4 flex flex-col gap-1">
-                <p
-                  className="text-[12px] tracking-[0.14em] uppercase leading-snug"
-                  style={{ color: "rgba(255,255,255,0.55)" }}
-                >
-                  {card.sub ? card.sub : card.label}
-                </p>
-                {card.sub && (
-                  <p
-                    className="text-[11px] tracking-[0.1em] uppercase"
-                    style={{ color: "rgba(255,255,255,0.25)" }}
+          {CARDS.map((card, i) => {
+            const actionPillClass =
+              "inline-flex items-center justify-center rounded-full px-4 py-2 text-[11px] tracking-[0.12em] uppercase";
+            const body = (
+              <>
+                {/* Number + dotted rule */}
+                <div className="flex items-center gap-4 mb-5">
+                  <span
+                    className="font-mono font-bold tracking-[0.18em] flex-shrink-0"
+                    style={{
+                      fontSize: "clamp(1rem, 1.4vw, 1.4rem)",
+                      color: "rgba(255,255,255,0.35)",
+                      fontFamily: "'Doto', monospace",
+                      fontVariationSettings: "'wght' 700, 'ROND' 100",
+                    }}
                   >
-                    {card.label}
-                  </p>
-                )}
-              </div>
+                    {card.num}
+                  </span>
+                  <div
+                    className="flex-1 h-px"
+                    style={{
+                      backgroundImage:
+                        "repeating-linear-gradient(to right, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 4px, transparent 4px, transparent 10px)",
+                    }}
+                  />
+                </div>
 
-              {/* Action */}
-              <div className="mt-4">
+                {/* Image */}
+                <div
+                  className="relative w-full overflow-hidden rounded-xl bg-[#1a1a1a]"
+                  style={{ aspectRatio: "4/3" }}
+                >
+                  <img
+                    src={card.img}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+
+                {/* Label */}
+                <div className="mt-4 flex flex-col gap-1">
+                  <p
+                    className="text-[12px] tracking-[0.14em] uppercase leading-snug"
+                    style={{ color: "rgba(255,255,255,0.55)" }}
+                  >
+                    {card.sub ? card.sub : card.label}
+                  </p>
+                  {card.sub && (
+                    <p
+                      className="text-[11px] tracking-[0.1em] uppercase"
+                      style={{ color: "rgba(255,255,255,0.25)" }}
+                    >
+                      {card.label}
+                    </p>
+                  )}
+                </div>
+
+                {/* Action (decorative when whole card is a link) */}
+                <div className="mt-4">
+                  {card.href ? (
+                    <span
+                      className={actionPillClass}
+                      style={{
+                        color: "#fff",
+                        border: "1px solid rgba(255,255,255,0.28)",
+                        background: "rgba(255,255,255,0.08)",
+                      }}
+                    >
+                      View Project
+                    </span>
+                  ) : (
+                    <span
+                      className={actionPillClass}
+                      style={{
+                        color: "rgba(255,255,255,0.5)",
+                        border: "1px solid rgba(255,255,255,0.15)",
+                        background: "rgba(255,255,255,0.03)",
+                      }}
+                    >
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
+              </>
+            );
+
+            return (
+              <div
+                key={i}
+                className="flex-shrink-0 flex flex-col"
+                style={{ width: `${CARD_W}px` }}
+              >
                 {card.href ? (
                   <Link
                     href={card.href}
-                    className="inline-flex items-center justify-center rounded-full px-4 py-2 text-[11px] tracking-[0.12em] uppercase"
-                    style={{
-                      color: "#fff",
-                      border: "1px solid rgba(255,255,255,0.28)",
-                      background: "rgba(255,255,255,0.08)",
-                      textDecoration: "none",
-                    }}
+                    aria-label={`${card.label} case study`}
+                    className="flex flex-col text-left no-underline text-inherit cursor-pointer rounded-xl outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50"
                   >
-                    View Project
+                    {body}
                   </Link>
                 ) : (
-                  <span
-                    className="inline-flex items-center justify-center rounded-full px-4 py-2 text-[11px] tracking-[0.12em] uppercase"
-                    style={{
-                      color: "rgba(255,255,255,0.5)",
-                      border: "1px solid rgba(255,255,255,0.15)",
-                      background: "rgba(255,255,255,0.03)",
-                    }}
-                  >
-                    Coming Soon
-                  </span>
+                  <div className="flex flex-col">{body}</div>
                 )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       <style jsx global>{`

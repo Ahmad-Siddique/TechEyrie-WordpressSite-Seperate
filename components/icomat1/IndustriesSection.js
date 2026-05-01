@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -45,17 +45,25 @@ const INDUSTRIES = [
   },
 ];
 
+/** Time each tab stays visible before auto-advancing (ms). */
+const AUTO_TAB_INTERVAL_MS = 6000;
+
+/** Scroll-out only: uniform scale. ~1.6% smaller at full progress (still “almost” full width). */
+const PIC_SCROLLOUT_SCALE_MIN = 0.7;
+const PIC_SCROLLOUT_END_RADIUS_PX = 6;
+
 export default function IndustriesSection() {
   const sectionRef   = useRef(null);
   const containerRef = useRef(null);
+  const picInnerRef  = useRef(null);
   const contentRef   = useRef(null);
   const headingRef   = useRef(null);
   const subRef       = useRef(null);
   const learnRef     = useRef(null);
-  const tabsRef      = useRef(null);
   const imgLayersRef = useRef([]);
 
   const [active, setActive] = useState(0);
+  const activeRef           = useRef(0);
   const isAnimating         = useRef(false);
 
   // ── Scroll expand ──────────────────────────────────────────
@@ -99,19 +107,60 @@ export default function IndustriesSection() {
     return () => ctx.revert();
   }, []);
 
+  // ── Scroll out: photo stack only (own effect — avoids gsap.context + ST quirks) ──
+  useEffect(() => {
+    const section = sectionRef.current;
+    const pic = picInnerRef.current;
+    if (!section || !pic) return;
+
+    gsap.set(pic, {
+      transformOrigin: "50% 50%",
+      scale: 1,
+      borderRadius: "0px",
+    });
+
+    const tween = gsap.fromTo(
+      pic,
+      { scale: 1, borderRadius: "0px" },
+      {
+        scale: PIC_SCROLLOUT_SCALE_MIN,
+        borderRadius: `${PIC_SCROLLOUT_END_RADIUS_PX}px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          /* "bottom bottom" + relative end often never scrubs with sticky 200vh — use section bottom crossing viewport */
+          start: "bottom 92%",
+          end: "bottom top",
+          scrub: 1.2,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
+
+    const id = requestAnimationFrame(() => ScrollTrigger.refresh());
+
+    return () => {
+      cancelAnimationFrame(id);
+      tween.scrollTrigger?.kill();
+      tween.kill();
+      gsap.set(pic, { scale: 1, borderRadius: "0px" });
+    };
+  }, []);
+
   // ── Tab switch ─────────────────────────────────────────────
-  const switchTo = (idx) => {
-    if (idx === active || isAnimating.current) return;
+  const switchTo = useCallback((idx) => {
+    if (idx === activeRef.current || isAnimating.current) return;
     isAnimating.current = true;
 
-    const oldIdx  = active;
+    const oldIdx = activeRef.current;
+    activeRef.current = idx;
+    setActive(idx);
+
     const newImg  = imgLayersRef.current[idx];
     const oldImg  = imgLayersRef.current[oldIdx];
     const heading = headingRef.current;
     const sub     = subRef.current;
     const learn   = learnRef.current;
-
-    setActive(idx);
 
     // Image: clips from top → reveals downward
     gsap.set(newImg, { zIndex: 2, clipPath: "inset(0% 0% 100% 0%)" });
@@ -140,7 +189,17 @@ export default function IndustriesSection() {
         opacity: 1, y: 0,
         duration: 0.45, ease: "power3.out", stagger: 0.06,
       });
-  };
+  }, []);
+
+  // ── Auto-advance tabs (loop); interval resets when tab changes ──
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (isAnimating.current) return;
+      const next = (activeRef.current + 1) % INDUSTRIES.length;
+      switchTo(next);
+    }, AUTO_TAB_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [active, switchTo]);
 
   return (
     <section
@@ -180,42 +239,52 @@ export default function IndustriesSection() {
           }}
         >
 
-          {/* Image layers */}
-          {INDUSTRIES.map((ind, i) => (
-            <img
-              key={ind.id}
-              ref={(el) => (imgLayersRef.current[i] = el)}
-              src={ind.src}
-              alt={ind.alt}
-              loading={i === 0 ? "eager" : "lazy"}
-              decoding="async"
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                zIndex: i === 0 ? 1 : 0,
-                clipPath: i === 0
-                  ? "inset(0% 0% 0% 0%)"
-                  : "inset(0% 0% 100% 0%)",
-              }}
-            />
-          ))}
-
-          {/* Gradient overlay */}
+          {/* Images + vignette only — this layer shrinks on scroll-out; overlay stays full size. */}
           <div
+            ref={picInnerRef}
             style={{
               position: "absolute",
               inset: 0,
-              zIndex: 3,
-              pointerEvents: "none",
-              background: `
-                linear-gradient(135deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 45%, transparent 70%),
-                linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)
-              `,
+              overflow: "hidden",
+              borderRadius: 0,
+              zIndex: 1,
             }}
-          />
+          >
+            {INDUSTRIES.map((ind, i) => (
+              <img
+                key={ind.id}
+                ref={(el) => (imgLayersRef.current[i] = el)}
+                src={ind.src}
+                alt={ind.alt}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  zIndex: i === 0 ? 1 : 0,
+                  clipPath: i === 0
+                    ? "inset(0% 0% 0% 0%)"
+                    : "inset(0% 0% 100% 0%)",
+                }}
+              />
+            ))}
+
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                zIndex: 3,
+                pointerEvents: "none",
+                background: `
+                  linear-gradient(135deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 45%, transparent 70%),
+                  linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 35%)
+                `,
+              }}
+            />
+          </div>
 
           {/* ── Content overlay ── */}
           <div
@@ -300,7 +369,6 @@ export default function IndustriesSection() {
 
             {/* BOTTOM LEFT — flat text tabs, anchored to bottom-left */}
             <div
-              ref={tabsRef}
               style={{
                 position: "absolute",
                 bottom: "clamp(28px, 4vw, 56px)",
