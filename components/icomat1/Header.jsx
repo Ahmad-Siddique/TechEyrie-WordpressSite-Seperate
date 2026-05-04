@@ -13,6 +13,18 @@ const NAV_ITEMS = [
   { label: "About Us",     href: "/about-us" },
 ];
 
+// AkkuratMono nav: weight 400, wide tracking, geometricPrecision (reference-style)
+const NAV_MONO_LABEL = {
+  fontFamily: "'AkkuratMono', ui-monospace, monospace",
+  fontWeight: 400,
+  fontStyle: "normal",
+  letterSpacing: "0.1em",
+  textTransform: "uppercase",
+  textRendering: "geometricPrecision",
+  WebkitFontSmoothing: "antialiased",
+  MozOsxFontSmoothing: "grayscale",
+};
+
 const SERVICES = [
   {
     icon: (
@@ -545,15 +557,19 @@ function ServiceItem({ service, bottomBorder }) {
         }}>{service.icon}</span>
         <span style={{
           color: hovered ? "#0a0a09" : "rgba(255,255,255,0.88)",
-          fontSize: "0.86rem", fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
-          letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.3,
-          transition: "color 0.2s",
+          fontSize: "0.86rem", lineHeight: 1.6, transition: "color 0.2s",
+          ...NAV_MONO_LABEL,
         }}>{service.title}</span>
       </div>
       <p style={{
         color: hovered ? "rgba(10,10,9,0.68)" : "rgba(255,255,255,0.35)",
-        fontSize: "0.86rem", fontFamily: "'Akkurat Mono', sans-serif", fontWeight: 300,
-        lineHeight: 1.6, margin: 0, paddingLeft: "62px", transition: "color 0.2s",
+        fontSize: "0.86rem", lineHeight: 1.6, margin: 0, paddingLeft: "62px",
+        transition: "color 0.2s",
+        fontFamily: "'AkkuratMono', ui-monospace, monospace",
+        fontWeight: 400, fontStyle: "normal",
+        letterSpacing: "0.06em",
+        textRendering: "geometricPrecision",
+        WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale",
       }}>{service.desc}</p>
     </Link>
   );
@@ -577,7 +593,7 @@ function MegaDropdown({ visible, onMouseEnter, onMouseLeave, onQuoteClick }) {
   return (
     <div ref={panelRef} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
       style={{
-        position: "fixed", top: "64px", left: 0, right: 0, zIndex: 140,
+        position: "fixed", top: "56px", left: 0, right: 0, zIndex: 140,
         background: "#0a0a09", borderBottom: "1px solid rgba(255,255,255,0.07)",
         boxShadow: "0 32px 80px rgba(0,0,0,0.6)", opacity: 0, pointerEvents: "none",
         padding: "0 clamp(32px, 5vw, 80px)",
@@ -663,16 +679,17 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
       style={{
         position: "relative", overflow: "hidden",
         display: "inline-flex", alignItems: "center", justifyContent: "center",
-        padding: "8px 8px",
+        padding: "5px 6px",
         color: dimmed ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.82)",
-        fontSize: "0.72rem", fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
-        letterSpacing: "0.13em", textTransform: "uppercase",
+        fontSize: "0.8rem", lineHeight: 1.6,
         textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer",
         transition: "color 0.22s ease",
+        willChange: "transform",
+        ...NAV_MONO_LABEL,
       }}
     >
-      <span ref={textRef} style={{ display: "block", lineHeight: 1.15, whiteSpace: "nowrap" }}>
-        <span style={{ fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif" }}>
+      <span ref={textRef} style={{ display: "block", lineHeight: 1.6, whiteSpace: "nowrap" }}>
+        <span style={NAV_MONO_LABEL}>
         {label}
         </span>
         {hasMega && (
@@ -681,8 +698,8 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
           </svg>
         )}
       </span>
-      <span ref={cloneRef} aria-hidden="true" style={{ display: "block", lineHeight: 1.15, whiteSpace: "nowrap", color: "#ffffff", position: "absolute" }}>
-        <span style={{ fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif" }}>
+      <span ref={cloneRef} aria-hidden="true" style={{ display: "block", lineHeight: 1.6, whiteSpace: "nowrap", color: "#ffffff", position: "absolute" }}>
+        <span style={NAV_MONO_LABEL}>
         {label}
         </span>
         {hasMega && (
@@ -730,9 +747,9 @@ function AnimatedCTAButton({ label, href, onClick }) {
       style={{
         position: "relative", overflow: "hidden",
         display: "inline-flex", alignItems: "center", justifyContent: "center",
-        padding: "8px 16px",
+        padding: "6px 12px",
         background: "#ffffff", border: "1px solid #ffffff", borderRadius: "7px",
-        color: "#0a0a09", fontSize: "0.67rem", fontWeight: 700,
+        color: "#0a0a09", fontSize: "0.72rem", fontWeight: 700,
         fontFamily: "Akkurat, sans-serif", letterSpacing: "0.13em",
         textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer",
       }}
@@ -774,18 +791,18 @@ function AnimatedMobileMenuLink({ label, href, onClose }) {
       textDecoration: "none", cursor: "pointer",
     }}>
       <span ref={textRef} style={{
-        display: "block", lineHeight: 1.1, whiteSpace: "nowrap",
+        display: "block", lineHeight: 1.6, whiteSpace: "nowrap",
         color: "rgba(255,255,255,0.82)",
         fontSize: "clamp(1.4rem, 4.05vw, 1.87rem)",
-        fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
-        letterSpacing: "-0.005em", textTransform: "uppercase",
+        willChange: "transform",
+        ...NAV_MONO_LABEL,
       }}>{label}</span>
       <span ref={cloneRef} aria-hidden="true" style={{
-        display: "block", lineHeight: 1.1, whiteSpace: "nowrap",
+        display: "block", lineHeight: 1.6, whiteSpace: "nowrap",
         color: "#ffffff", position: "absolute", top: "14px", left: 0,
         fontSize: "clamp(1.4rem, 4.05vw, 1.87rem)",
-        fontWeight: 300, fontFamily: "'Akkurat Mono', sans-serif",
-        letterSpacing: "-0.005em", textTransform: "uppercase",
+        willChange: "transform",
+        ...NAV_MONO_LABEL,
       }}>{label}</span>
     </a>
   );
@@ -849,16 +866,9 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
   const headerRef                      = useRef(null);
   const megaRef                        = useRef(null);
   const closeTimerRef                  = useRef(null);
-  const [scrolled,    setScrolled]     = useState(false);
   const [menuOpen,    setMenuOpen]     = useState(false);
   const [hoveredNav,  setHoveredNav]   = useState(null);
   const [megaOpen,    setMegaOpen]     = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = (menuOpen || quoteOpen) ? "hidden" : "";
@@ -882,15 +892,15 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
     <>
       <header ref={headerRef} style={{
         position: "fixed", top: 0, left: 0, right: 0,
-        zIndex: 150, height: "64px",
+        zIndex: 150, height: "56px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "8px clamp(20px, 3vw, 40px) 0",
-        background: scrolled || megaOpen
+        padding: "4px clamp(14px, 2.5vw, 28px) 0",
+        background: megaOpen
           ? "rgba(10,10,9,0.96)"
           : "linear-gradient(to bottom, rgba(10,10,9,0.55) 0%, transparent 100%)",
-        backdropFilter: scrolled || megaOpen ? "blur(14px)" : "none",
-        WebkitBackdropFilter: scrolled || megaOpen ? "blur(14px)" : "none",
-        borderBottom: scrolled || megaOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
+        backdropFilter: megaOpen ? "blur(14px)" : "none",
+        WebkitBackdropFilter: megaOpen ? "blur(14px)" : "none",
+        borderBottom: megaOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
         transition: "background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease",
       }}>
         <Link href="/" aria-label="ICOMAT — Back home"
@@ -903,10 +913,11 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
           <nav aria-label="Primary navigation" className="header-desktop-nav" style={{
             display: "flex", alignItems: "center",
             gap: "clamp(6px, 1.4vw, 22px)",
+            marginTop: "16px",
             background: "rgba(0,0,0,0.72)",
             backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
             border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "10px", padding: "4px 8px",
+            borderRadius: "10px", padding: "6px 10px",
           }}>
             {NAV_ITEMS.map((item) => (
               <div key={item.label}

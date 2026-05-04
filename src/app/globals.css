@@ -4,17 +4,21 @@
 @font-face {
   font-family: 'Akkurat Light';
   font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/akkurat-light.ttf') format('truetype');
+  font-weight: 400;
+  src: url('/fonts/Akkurat-Light.ttf') format('truetype');
   font-display: swap;
 }
 
+/* AkkuratMono — same naming as reference sites; optional woff2/woff first for crisper outlines */
 @font-face {
-  font-family: 'Akkurat Mono';
+  font-family: 'AkkuratMono';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/AkkuratMono-Regular.ttf') format('ttf');
   font-display: swap;
+  src:
+    url('/fonts/AkkuratMono.woff2') format('woff2'),
+    url('/fonts/AkkuratMono.woff') format('woff'),
+    url('/fonts/AkkuratMono-Regular.ttf') format('truetype');
 }
 
 @layer base {
