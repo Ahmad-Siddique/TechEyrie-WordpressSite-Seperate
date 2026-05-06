@@ -259,7 +259,7 @@ export default function HeroSection({ onQuoteClick }) {
               fontWeight: 600,
             }}
           >
-            Why Freshy
+            Why Eyrion
           </h1>
 
           <div ref={badgeRef} className="mt-4 max-w-[760px]">

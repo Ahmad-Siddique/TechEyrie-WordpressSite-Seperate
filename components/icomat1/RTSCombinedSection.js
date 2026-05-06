@@ -87,7 +87,7 @@ const CARD_ITEMS = [
       <p className="text-[14px] sm:text-[15px] font-semibold text-[#111] leading-snug">
         WordPress development
         <br />
-        Full WordPress development team with deep technical experience
+        A dedicated WordPress development team with strong technical expertise
       </p>
     ),
   },
@@ -109,7 +109,7 @@ const CARD_ITEMS = [
       <p className="text-[14px] sm:text-[15px] font-semibold text-[#111] leading-snug">
         WordPress managed hosting
         <br />
-        High-level security and performance
+        Optimized for top-tier security and performance
       </p>
     ),
   },
@@ -120,7 +120,7 @@ const CARD_ITEMS = [
       <p className="text-[14px] sm:text-[15px] font-semibold text-[#111] leading-snug">
         Premium support
         <br />
-        <span className="font-normal text-[#666]">Dedicated point of contact and priority support</span>
+        <span className="font-normal text-[#666]">A dedicated contact with fast, priority assistance whenever you need it</span>
       </p>
     ),
   },
@@ -131,7 +131,7 @@ const CARD_ITEMS = [
       <p className="text-[14px] sm:text-[15px] font-semibold text-[#111] leading-snug">
         Search engine optimization
         <br />
-        Set your website up for long-term growth
+        Position your website for sustainable, long-term growth
       </p>
     ),
   },
@@ -379,7 +379,7 @@ export default function RTSCombinedSection() {
           className="mt-1 mx-6 sm:mx-10 md:mx-16 lg:mx-20 border border-[#ddd] rounded-none py-1.5 px-4 mb-4"
         >
           <p className="text-[11px] sm:text-[12px] font-medium text-[#aaa] tracking-[0.18em] uppercase">
-            Freshy / WordPress Service Platform
+            Eyrion / WordPress Service Platform
           </p>
         </div>
       </div>

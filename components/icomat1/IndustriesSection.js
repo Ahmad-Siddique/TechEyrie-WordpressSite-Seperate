@@ -16,15 +16,7 @@ const INDUSTRIES = [
     src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=85&fit=crop",
     alt: "Web team planning WordPress project",
   },
-  {
-    id: "team",
-    label: "Team",
-    heading: "Best-in-industry\nexpertise and reliability.",
-    subheading:
-      "Erin (12 yrs WP experience), Alisa (16 yrs WP experience), Nick (16 yrs WP experience), Jared (18 yrs WP experience).",
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=85&fit=crop",
-    alt: "WordPress team collaboration",
-  },
+
   {
     id: "testimonials",
     label: "Testimonials",

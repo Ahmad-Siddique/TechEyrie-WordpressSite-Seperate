@@ -114,7 +114,7 @@ export default function IcomatSolutionSection() {
           className="text-white font-semibold leading-[1.05] tracking-tight"
           style={{ fontSize: "clamp(2rem, 4vw, 4rem)" }}
         >
-          The ICOMAT<br />solution
+          The Eyrion<br />solution
         </h2>
       </div>
 

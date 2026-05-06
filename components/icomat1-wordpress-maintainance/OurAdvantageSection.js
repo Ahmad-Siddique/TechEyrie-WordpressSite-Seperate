@@ -114,7 +114,7 @@ const FEATURES = [
   },
   {
     title: "Malware cleanup & removal",
-    desc: "Malware incidents can occur unexpectedly. Freshy’s professional WordPress maintenance services include quick malware repair and cleanup performed by expert developers. As your trusted WordPress service provider, we swiftly restore your website, minimizing downtime for your business or agency.",
+    desc: "Malware incidents can occur unexpectedly. Eyrion’s professional WordPress maintenance services include quick malware repair and cleanup performed by expert developers. As your trusted WordPress service provider, we swiftly restore your website, minimizing downtime for your business or agency.",
   },
   {
     title: "Backup, security, & vulnerability protection",
@@ -122,11 +122,13 @@ const FEATURES = [
   },
   {
     title: "Managed by real people, not machines",
-    desc: "Our WordPress management services are delivered by real professional human developers and designers, not just automated tools. Freshy’s team of experts offers ongoing, comprehensive WordPress maintenance support, delivering a personalized touch unmatched by standard agencies or companies.",
+    desc: "Our WordPress management services are delivered by real professional human developers and designers, not just automated tools. Eyrion’s team of experts offers ongoing, comprehensive WordPress maintenance support, delivering a personalized touch unmatched by standard agencies or companies.",
   },
 ];
 
-export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
+export default function OurAdvantageSection({
+  onQuoteClick = () => window.dispatchEvent(new Event("open-quote-drawer")),
+}) {
   const sectionRef = useRef(null);
   const labelRef = useRef(null);
   const headingRef = useRef(null);
@@ -234,7 +236,7 @@ export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
             className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]"
             style={{ color: "rgba(255,255,255,0.92)" }}
           >
-            Choose Freshy’s professional WordPress website maintenance packages
+            Choose Eyrion’s professional WordPress website maintenance packages
             to maximize your website’s performance, security, and ongoing
             reliability.
           </p>

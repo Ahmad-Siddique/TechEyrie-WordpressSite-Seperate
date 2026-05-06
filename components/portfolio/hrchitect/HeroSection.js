@@ -124,7 +124,7 @@ export default function PortfolioHeroSection({ screenshotSrc = "/hrchitect-scree
                 maxWidth: "540px",
               }}
             >
-              When Freshy began working with HRchitect, there were many
+              When Eyrion began working with HRchitect, there were many
               discussions on how to best service their website. There was a
               need for immediate design updates as well as longer term
               structural changes. Both teams wanted to take a deeper dive

@@ -162,7 +162,7 @@ export default function BuildWithIcomatSection() {
               margin: 0,
             }}
           >
-            ICOMAT enables the structural foundation for the
+            Eyrion enables the structural foundation for the
             next era of mobility.
           </p>
 
@@ -171,6 +171,10 @@ export default function BuildWithIcomatSection() {
             <a
               ref={btnRef}
               href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new Event("open-quote-drawer"));
+              }}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -203,7 +207,7 @@ export default function BuildWithIcomatSection() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Build with ICOMAT
+              Build with Eyrion
             </a>
           </div>
 

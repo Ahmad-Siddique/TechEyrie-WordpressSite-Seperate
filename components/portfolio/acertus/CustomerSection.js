@@ -11,17 +11,17 @@ const CLIENTS = [
     id: "blog-post-set-up-optimization",
     logo: "Blog post set up & optimization",
     quote:
-      "After running the website infrastructure audit and discussing the ACERTUS team's past issues with blog posts, Freshy was able to identify which posts contained bad html markup and retroactively fix all necessary posts.",
+      "After running the website infrastructure audit and discussing the ACERTUS team's past issues with blog posts, Eyrion was able to identify which posts contained bad html markup and retroactively fix all necessary posts.",
     author:
-      "After providing a new post workflow, Freshy also provided thorough documentation so the ACERTUS team is able to manage all posts in-house.",
+      "After providing a new post workflow, Eyrion also provided thorough documentation so the ACERTUS team is able to manage all posts in-house.",
   },
   {
     id: "landing-pages",
     logo: "Landing pages",
     quote:
-      "The development and launching of new landing pages, and a custom home page has been a primary and ongoing project for the Freshy and ACERTUS teams.",
+      "The development and launching of new landing pages, and a custom home page has been a primary and ongoing project for the Eyrion and ACERTUS teams.",
     author:
-      "Focusing on the main solutions ACERTUS offers, Freshy has developed many outdated pages with fresh designs and helped to create 20+ new custom landing pages.",
+      "Focusing on the main solutions ACERTUS offers, Eyrion has developed many outdated pages with fresh designs and helped to create 20+ new custom landing pages.",
   },
   {
     id: "custom-forms-salesforce-integration",
@@ -29,13 +29,13 @@ const CLIENTS = [
     quote:
       "Many of the pages throughout the ACERTUS site had the need for custom forms with Salesforce and Pardot, the marketing automation platform by Salesforce, integration.",
     author:
-      "To solve this need, Freshy added custom styled forms on the necessary pages, many with advanced tracking. The forms allow the ACERTUS team to quickly and easily retrieve the form submission data within their desired CRM and sales systems.",
+      "To solve this need, Eyrion added custom styled forms on the necessary pages, many with advanced tracking. The forms allow the ACERTUS team to quickly and easily retrieve the form submission data within their desired CRM and sales systems.",
   },
   {
     id: "advanced-tracking",
     logo: "Advanced tracking",
     quote:
-      "With the addition of custom forms throughout the site, Freshy also helped integrate custom code to allow for internal advertising ID's and cost-per-click campaign UTM tracking information to be parsed through the forms and into Google Analytics & Pardot/Salesforce.",
+      "With the addition of custom forms throughout the site, Eyrion also helped integrate custom code to allow for internal advertising ID's and cost-per-click campaign UTM tracking information to be parsed through the forms and into Google Analytics & Pardot/Salesforce.",
     author:
       "",
   },

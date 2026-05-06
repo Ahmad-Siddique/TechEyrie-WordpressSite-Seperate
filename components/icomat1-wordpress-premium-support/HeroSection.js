@@ -78,7 +78,7 @@ export default function HeroSection() {
             maxWidth: "16ch",
           }}
         >
-          Freshy+ premium support
+          Premium support
         </h1>
 
         <p
@@ -90,7 +90,7 @@ export default function HeroSection() {
             maxWidth: "56ch",
           }}
         >
-          Get a dedicated point of contact and priority support with Freshy+
+          Get a dedicated point of contact and priority support with Eyrion+
         </p>
         </div>
 

@@ -19,7 +19,7 @@ const CLIENTS = [
     id: "find-a-location",
     logo: "Find a location",
     quote:
-      "A key feature of the TigerWash is the ability to search for locations. The interactive map developed by Freshy shows users where to find a specific TigerWash and the subsequent location pages highlight the amenities of each.",
+      "A key feature of the TigerWash is the ability to search for locations. The interactive map developed by Eyrion shows users where to find a specific TigerWash and the subsequent location pages highlight the amenities of each.",
     author:
       "",
   },

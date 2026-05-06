@@ -185,7 +185,7 @@ const STATS = [
 // ── Main Section ──────────────────────────────────────────────
 export default function FactorySection({
   heading      = "We're focused on creating value through service",
-  description1 = "At Freshy, we believe we're a team of guides. We are focused on solving problems in order to make our clients' lives easier and their work more effective. Every process we build, every system we implement, every team member we add, aims to further that mission.",
+  description1 = "At Eyrion, we believe we're a team of guides. We are focused on solving problems in order to make our clients' lives easier and their work more effective. Every process we build, every system we implement, every team member we add, aims to further that mission.",
   description2 = "",
   stats        = STATS,
 }) {

@@ -130,9 +130,9 @@ export default function RTSSection() {
             color: "#c0c0c0", // initial gray — GSAP overrides per char
           }}
         >
-          Freshy builds WordPress.
+          Eyrion builds WordPress solutions.
           <br />
-          Design, development, and support.
+          Design, development, and ongoing support.
         </p>
       </div>
     </section>

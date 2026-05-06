@@ -110,7 +110,7 @@ function GlassQuoteButton({ onClick }) {
 const FEATURES = [
   {
     title: "Custom WordPress development",
-    desc: "Custom design, solid security, and plenty of bandwidth -- Freshy provides it all. Whether you're migrating to WordPress, starting from scratch, or looking for something unique, our development studio is here to help.",
+    desc: "Custom design, solid security, and plenty of bandwidth -- Eyrion provides it all. Whether you're migrating to WordPress, starting from scratch, or looking for something unique, our development studio is here to help.",
   },
   {
     title: "Unparalleled user experience",
@@ -126,7 +126,9 @@ const FEATURES = [
   },
 ];
 
-export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
+export default function OurAdvantageSection({
+  onQuoteClick = () => window.dispatchEvent(new Event("open-quote-drawer")),
+}) {
   const sectionRef = useRef(null);
   const labelRef = useRef(null);
   const headingRef = useRef(null);
@@ -218,7 +220,7 @@ export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            Why work with Freshy?
+            Why work with Eyrion?
           </p>
 
           <h2

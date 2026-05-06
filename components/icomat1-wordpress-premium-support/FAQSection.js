@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     id: 3,
-    question: "How long does the Freshy+ onboarding process take?",
+    question: "How long does the Eyrion+ onboarding process take?",
     answer:
       "Onboarding is usually completed in a few business days, depending on access and project complexity. Once credentials and priorities are confirmed, the team sets up workflows, communication channels, and your initial work queue.",
   },
@@ -265,7 +265,7 @@ export default function FAQSection() {
               opacity: 0,
             }}
           >
-            Freshy+ FAQs
+            Eyrion+ FAQs
           </h2>
           <p
             ref={subtitleRef}

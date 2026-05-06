@@ -124,11 +124,11 @@ export default function PortfolioHeroSection({ screenshotSrc = "/hrchitect-scree
                 maxWidth: "540px",
               }}
             >
-              When ACERTUS came to Freshy they were looking for a partner for
+              When ACERTUS came to Eyrion they were looking for a partner for
               web design and development, and strategies for site optimization.
-              After reviewing their existing site and hosting platform, Freshy
+              After reviewing their existing site and hosting platform, Eyrion
               ran a full website migration. This included moving the site and
-              all of its assets to Freshy's premium hosting platform and tools.
+              all of its assets to Eyrion's premium hosting platform and tools.
             </p>
           </div>
 

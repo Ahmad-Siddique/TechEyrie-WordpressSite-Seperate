@@ -8,9 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const BODY_PARAS = [
-  "Freshy is the world's leading WordPress company and WordPress agency.",
-  "We focus on website design, development, support, maintenance, and retainer services for WordPress CMS.",
-  "We pride ourselves on best-in-industry expertise and reliability.",
+  "Eyrion is a premier WordPress specialist agency, leading the industry in custom design, development, hosting, and high-performance maintenance.",
+  "We deliver high-quality WordPress web design and development tailored to your business needs.",
+  "We provide end-to-end management of your digital ecosystem to ensure your brand benefits from unrivaled technical mastery.",
   "We have supported over 2,400 amazing clients since our launch in 2011.",
 ];
 
@@ -21,18 +21,18 @@ const CLIENT_BENEFITS = [
   },
   {
     title: "WordPress development",
-    desc: "Full WordPress development team with deep technical experience.",
+    desc: "A dedicated WordPress development team with strong technical expertise",
   },
   {
     title: "WordPress managed hosting",
-    desc: "High-level security, ultra-fast speeds, fully managed updates.",
+    desc: "Optimized for top-tier security and performance",
   },
 ];
 
 const COMPARISON_ROWS = [
   { others: "WordPress maintenance", icomat: "Our sites are always secured, always up and always fully functional" },
-  { others: "Freshy+ premium support", icomat: "A dedicated point of contact, priority support and more" },
-  { others: "Search engine optimization", icomat: "Set your website up for success with our SEO programs" },
+  { others: "Premium support", icomat: "A dedicated contact with fast, priority assistance whenever you need it" },
+  { others: "Search engine optimization", icomat: "Position your website for sustainable, long-term growth" },
 ];
 
 export default function BusinessModelSection() {
@@ -266,7 +266,7 @@ export default function BusinessModelSection() {
           </div>
         </div>
 
-        {/* ── RIGHT COL: benefits + ICOMAT Way comparison ──────── */}
+        {/* ── RIGHT COL: benefits + Eyrion Way comparison ──────── */}
         <div ref={benefitsRef} className="flex flex-col pl-0 md:pl-12">
 
           {/* Benefits label */}
@@ -307,10 +307,10 @@ export default function BusinessModelSection() {
             ))}
           </div>
 
-          {/* ICOMAT Way comparison — directly under benefits */}
+          {/* Eyrion Way comparison — directly under benefits */}
           <div className="mt-60">
 
-            {/* THE ICOMAT WAY header */}
+            {/* THE Eyrion WAY header */}
             <div
               ref={(el) => (colHeaderRefs.current[1] = el)}
               className="py-2.5 px-4 rounded-xl mb-2"
@@ -323,11 +323,11 @@ export default function BusinessModelSection() {
                   color: "rgba(0,0,0,0.75)",
                 }}
               >
-                The Freshy Way
+                The Eyrion Way
               </p>
             </div>
 
-            {/* ICOMAT rows */}
+            {/* Eyrion rows */}
             <div className="flex flex-col">
               {COMPARISON_ROWS.map((row, i) => (
                 <div key={i}>

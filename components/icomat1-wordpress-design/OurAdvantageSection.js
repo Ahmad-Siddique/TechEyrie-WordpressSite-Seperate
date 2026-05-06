@@ -110,11 +110,11 @@ function GlassQuoteButton({ onClick }) {
 const FEATURES = [
   {
     title: "Your all in one solution",
-    desc: "Freshy will expertly build, host and maintain your new or redesigned WordPress site.",
+    desc: "Eyrion will expertly build, host and maintain your new or redesigned WordPress site.",
   },
   {
     title: "Highly experienced team",
-    desc: "With over 2,500 projects completed, the Freshy team has a wide range of experience and expertise",
+    desc: "With over 2,500 projects completed, the Eyrion team has a wide range of experience and expertise",
   },
   {
     title: "Dedicated project manager",
@@ -122,11 +122,13 @@ const FEATURES = [
   },
   {
     title: "Ongoing support",
-    desc: "Need help after your project is completed? The Freshy support team is always ready and available to assist.",
+    desc: "Need help after your project is completed? The Eyrion support team is always ready and available to assist.",
   },
 ];
 
-export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
+export default function OurAdvantageSection({
+  onQuoteClick = () => window.dispatchEvent(new Event("open-quote-drawer")),
+}) {
   const sectionRef = useRef(null);
   const labelRef = useRef(null);
   const headingRef = useRef(null);
@@ -211,7 +213,7 @@ export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            Why Freshy as your WordPress partner?
+            Why Eyrion as your WordPress partner?
           </p>
 
           <h2

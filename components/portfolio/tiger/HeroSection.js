@@ -124,7 +124,7 @@ export default function PortfolioHeroSection({ screenshotSrc = "/hrchitect-scree
                 maxWidth: "540px",
               }}
             >
-              Since 2019 Freshy and the Tiger team have partnered to fully
+              Since 2019 Eyrion and the Tiger team have partnered to fully
               redesign their five company websites.
             </p>
           </div>

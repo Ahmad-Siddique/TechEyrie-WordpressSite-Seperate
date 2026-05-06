@@ -124,7 +124,7 @@ export default function PortfolioHeroSection({ screenshotSrc = "/hrchitect-scree
                 maxWidth: "540px",
               }}
             >
-              Freshy worked with the Azelis team to combine two distinct
+              Eyrion worked with the Azelis team to combine two distinct
               websites into one cohesive ecommerce storefront website. Both
               sites were previously based in WordPress and WooCommerce on
               individual installations with upwards of 250 total products

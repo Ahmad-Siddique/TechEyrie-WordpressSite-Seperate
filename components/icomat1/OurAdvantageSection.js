@@ -107,7 +107,7 @@ export default function OurAdvantageSection() {
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            Why Freshy as your expert WordPress agency?
+            Why choose Eyrion as your trusted WordPress agency?
           </p>
 
           <h2
@@ -115,11 +115,11 @@ export default function OurAdvantageSection() {
             className="text-white font-bold leading-[1.0] tracking-tight"
             style={{ fontSize: "clamp(2.8rem, 4vw, 4rem)" }}
           >
-            Say hello to
+            Experience the
             <br />
-            best-in-industry
+            pinnacle of digital
             <br />
-            expertise and reliability.
+            performance and trust.
           </h2>
         </div>
 
@@ -142,16 +142,18 @@ export default function OurAdvantageSection() {
                 className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
-                Freshy is a WP specialist firm and the world's leading agency
-                for WordPress web design, development, hosting, maintenance,
-                support, and comprehensive services -- managing every aspect of
-                WordPress to deliver unmatched expertise.
+                Eyrion is a premier WordPress specialist agency, leading the
+                industry in custom design, development, hosting, and
+                high-performance maintenance. We provide end-to-end management
+                of your digital ecosystem to ensure your brand benefits from
+                unrivaled technical mastery.
               </p>
               <p
                 className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
-                We promise the best WordPress web design and development services.
+                We guarantee elite WordPress solutions that set the global
+                standard for design and functional excellence.
               </p>
             </div>
 

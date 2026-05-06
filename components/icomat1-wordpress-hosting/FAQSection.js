@@ -15,7 +15,7 @@ const FAQS = [
   },
   {
     id: 2,
-    question: "Is Freshy WordPress hosting shared?",
+    question: "Is Eyrion WordPress hosting shared?",
     answer:
       "Hosting environments can vary depending on the selected plan and workload needs. Some plans may use isolated shared infrastructure, while others are provisioned with dedicated resources for stronger performance consistency.",
   },

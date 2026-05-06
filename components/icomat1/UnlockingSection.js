@@ -46,40 +46,40 @@ const IconCog = () => (
 const CARDS = [
   {
     id: "build",
-    eyebrow: "Leading web design & development solutions in the USA",
-    title: "Industry-leading web providers in the USA",
-    desc: "As trusted providers of WordPress, we deliver premium, professional, and responsive web services tailored to your needs. From skilled programmers to expert developers, our team ensures high-quality designs that set your brand apart.",
+    eyebrow: "Premier web design & development solutions in Qatar",
+    title: "Elite digital providers in Doha",
+    desc: "As a premier WordPress authority, we deliver high-performance, professional, and fully responsive web ecosystems engineered for your specific goals. From senior technical architects to creative design experts, our team crafts sophisticated digital experiences that elevate your brand's prestige.",
     icon: null,
     isHero: true,
   },
   {
     id: "steered",
-    title: "Expert web designers & developers",
-    desc: "Our team of skilled designers, developers, and specialists delivers innovative web solutions for businesses of all sizes. We partner with firms, agencies, and companies across the United States to create high-performing WordPress websites.",
+    title: "Experienced WordPress designers & developers",
+    desc: "Our team of talented designers, developers, and WordPress specialists creates innovative, high-performance websites for businesses of all sizes. We collaborate with companies, agencies, and organizations across the Middle East to deliver custom WordPress solutions that drive results.",
     icon: <IconWaves />,
   },
   {
     id: "lighter",
-    title: "Custom web design services",
-    desc: "As a leading studio, we specialize in designing custom websites that align with your brand identity. Our expert designer team ensures each project is visually stunning and optimized for performance.",
+    title: "Custom WordPress web design services",
+    desc: "As an elite design studio, we specialize in engineering custom websites that mirror your unique brand identity. Our expert design team ensures every project is visually breathtaking, technically superior, and meticulously optimized for peak performance.",
     icon: <IconLayers />,
   },
   {
     id: "speed",
     title: "Ecommerce & WooCommerce development",
-    desc: "We provide cutting-edge ecommerce solutions, including WooCommerce integration and customization. Our developers build seamless online stores that enhance user experience and drive conversions.",
+    desc: "We deliver advanced eCommerce solutions, including WooCommerce setup and custom development tailored to your business. Our WordPress developers create smooth, user-friendly online stores designed to improve the shopping experience and increase conversions.",
     icon: <IconBolt />,
   },
   {
     id: "precision",
-    title: "Fully managed web services",
-    desc: "Our company offers managed website services, ensuring your WordPress site remains secure, up-to-date, and optimized. We handle everything from maintenance to performance improvements, so you can focus on growing your business.",
+    title: "Comprehensive managed web services",
+    desc: "Eyrion provides elite managed solutions, ensuring your WordPress ecosystem remains impenetrable, current, and performance-optimized. We oversee every technical detail - from proactive maintenance to speed enhancements - allowing you to focus exclusively on scaling your enterprise.",
     icon: <IconTarget />,
   },
   {
     id: "integrated",
-    title: "Consulting & strategic web solutions",
-    desc: "We provide expert consulting services to help businesses navigate the digital landscape. Whether you’re looking for a recommended web strategy or need guidance on developing a new site, our team is here to help.",
+    title: "Consulting & strategic WordPress solutions",
+    desc: "We offer expert consulting to help businesses make the right decisions in the digital space. Whether you need a clear WordPress strategy or guidance for building a new website, our team provides practical insights and direction every step of the way.",
     icon: <IconCog />,
   },
 ];
@@ -523,7 +523,7 @@ export default function UnlockingSection() {
             color: "rgba(0,0,0,0.1)",
           }}
         >
-          Leading WordPress web design and development solutions in the USA.
+          Premier WordPress design and development services in the Middle East.
         </h2>
       </div>
 

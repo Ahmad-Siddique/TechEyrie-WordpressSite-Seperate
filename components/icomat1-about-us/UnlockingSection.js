@@ -53,19 +53,19 @@ const CARDS = [
   {
     id: "all-in-one",
     title: "Your all in one solution",
-    desc: "Freshy will expertly build, host, and maintain your new or redesigned WordPress site.",
+    desc: "Eyrion will expertly build, host, and maintain your new or redesigned WordPress site.",
     icon: <IconLayers />,
   },
   {
     id: "experienced",
     title: "Highly experienced team",
-    desc: "With over 2,500 projects completed, the Freshy team has a wide range of experience and expertise",
+    desc: "With over 2,500 projects completed, the Eyrion team has a wide range of experience and expertise",
     icon: <IconTarget />,
   },
   {
     id: "service",
     title: "Service over everything",
-    desc: "The Freshy team is committed to serving our clients and going the extra mile, every time.",
+    desc: "The Eyrion team is committed to serving our clients and going the extra mile, every time.",
     icon: <IconBolt />,
   },
 ];

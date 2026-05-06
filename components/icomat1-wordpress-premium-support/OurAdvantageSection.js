@@ -107,11 +107,13 @@ const FEATURES = [
   },
   {
     title: "Reduced hourly rate",
-    desc: "As a part of the Freshy+ system all projects or initiatives will be billed at a discounted hourly rate.",
+    desc: "As a part of the Eyrion+ system all projects or initiatives will be billed at a discounted hourly rate.",
   },
 ];
 
-export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
+export default function OurAdvantageSection({
+  onQuoteClick = () => window.dispatchEvent(new Event("open-quote-drawer")),
+}) {
   const sectionRef = useRef(null);
   const labelRef = useRef(null);
   const headingRef = useRef(null);
@@ -193,10 +195,10 @@ export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
           </h2>
 
           <p className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]" style={{ color: "rgba(255,255,255,0.92)" }}>
-            With Freshy+ you&apos;ll have direct access to our team, with a dedicated point of contact, 24 hour response time guaranteed, and priority support.
+            With Eyrion+ you&apos;ll have direct access to our team, with a dedicated point of contact, 24 hour response time guaranteed, and priority support.
           </p>
 
-          <GlassQuoteButton onClick={onQuoteClick} label="Get Freshy+ support quote" />
+          <GlassQuoteButton onClick={onQuoteClick} label="Get Eyrion+ support quote" />
         </div>
 
         <div className="mt-14 md:mt-0 w-full md:flex-1 flex justify-end">

@@ -16,7 +16,7 @@ const CLIENTS = [
   {
     id: "premise",
     logo: "PREMISE",
-    quote: '"None compare to the level of expertise and professionalism that the Freshy team brings to the table."',
+    quote: '"None compare to the level of expertise and professionalism that the Eyrion team brings to the table."',
     author: "ERIC VAZQUEZ @PREMISE",
   },
   {
@@ -28,7 +28,7 @@ const CLIENTS = [
   {
     id: "akumen",
     logo: "AKUMEN, INC.",
-    quote: '"Everything that I asked for was delivered by the Freshy team of WordPress experts. I’m very pleased and recommend Freshy based on my own experience."',
+    quote: '"Everything that I asked for was delivered by the Eyrion team of WordPress experts. I’m very pleased and recommend Eyrion based on my own experience."',
     author: "CARL GARCIA @AKUMEN, INC.",
   },
 ];
@@ -413,7 +413,7 @@ export default function CustomersSection1() {
               {/* RIGHT */}
               <div className="flex flex-col">
                 <p className="text-[12px] font-medium mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>
-                  Freshy testimonial highlights ↓
+                  Eyrion testimonial highlights ↓
                 </p>
                 <div className="flex flex-col gap-2">
                   {CLIENTS.map((client, i) => (

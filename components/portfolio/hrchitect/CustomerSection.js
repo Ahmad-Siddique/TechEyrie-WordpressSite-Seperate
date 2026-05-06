@@ -11,7 +11,7 @@ const CLIENTS = [
     id: "site-health-check",
     logo: "Site health check",
     quote:
-      "Freshy first migrated the HRchitect site to an optimized hosting platform and then reviewed the basics of site health. This included benchmark speed testing, status of all pages and posts and post types and a review of all broken links found throughout the site.",
+      "Eyrion first migrated the HRchitect site to an optimized hosting platform and then reviewed the basics of site health. This included benchmark speed testing, status of all pages and posts and post types and a review of all broken links found throughout the site.",
     author:
       "This allowed both teams to develop an understanding of what could be done within the existing website platform, and what would prove more difficult without updating the site as a whole. We were able to weigh the pros and cons of each of the three resulting design options: Full rebuild, incremental updates, Re-theme.",
   },
@@ -27,17 +27,17 @@ const CLIENTS = [
     id: "website-architecture-structure",
     logo: "Website architecture & structure",
     quote:
-      "After removing all excess content from the site, Freshy provided recommendations on an updated sitemap, main menu, and footer menu. This revealed further opportunities to optimize and reorganize the site, as well as better cater to core audiences.",
+      "After removing all excess content from the site, Eyrion provided recommendations on an updated sitemap, main menu, and footer menu. This revealed further opportunities to optimize and reorganize the site, as well as better cater to core audiences.",
     author:
-      "Freshy created a prospective home page wireframe to show the optimal page structure from top to bottom. This included rearranging existing content as well bringing in new sections that we felt were missing from the original site.",
+      "Eyrion created a prospective home page wireframe to show the optimal page structure from top to bottom. This included rearranging existing content as well bringing in new sections that we felt were missing from the original site.",
   },
   {
     id: "design-ux-ui-review",
     logo: "Design UX/UI review",
     quote:
-      "After a briefing session, Freshy did a deep dive into HRchitect's competitor websites and explored how the current site served its user base. We also provided sample sites that we felt were accomplishing similar goals as described by the HRchitect team. We also identified what brand design elements were working well and what could be improved on in phase II of the redesign project.",
+      "After a briefing session, Eyrion did a deep dive into HRchitect's competitor websites and explored how the current site served its user base. We also provided sample sites that we felt were accomplishing similar goals as described by the HRchitect team. We also identified what brand design elements were working well and what could be improved on in phase II of the redesign project.",
     author:
-      "Another major part of the design review was to take a look at mobile responsiveness and how the website experience could be improved. Freshy found that the site was not well optimized for mobile and identified specific changes to be made throughout.",
+      "Another major part of the design review was to take a look at mobile responsiveness and how the website experience could be improved. Eyrion found that the site was not well optimized for mobile and identified specific changes to be made throughout.",
   },
 ];
 

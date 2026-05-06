@@ -81,10 +81,11 @@ export default function HowWeOperateSection() {
             visually distinct — GSAP will still split all chars uniformly,
             but the label phrase sits inline before the main copy.
           */}
-          We promise the best WordPress web design and development services.{" "}
-          WordPress website design, WordPress development, WordPress managed
-          hosting, WordPress maintenance, WordPress support, and search engine
-          optimization.
+          We deliver high-quality WordPress web design and development tailored
+          to your business needs. From custom WordPress website design and
+          development to managed hosting, maintenance, support, and search
+          engine optimization - we provide everything you need to build, grow,
+          and maintain a powerful online presence.
         </p>
       </div>
 
@@ -99,7 +100,7 @@ export default function HowWeOperateSection() {
         >
           <img
             src="/wp-content/uploads/icomat-img/aWZQUwIvOtkhBcXM_robot.jpg"
-            alt="Freshy design and development workflow"
+            alt="Eyrion design and development workflow"
             className="absolute inset-0 w-full h-full object-cover"
             onError={(e) => {
               // Fallback gradient if image 404s
@@ -115,7 +116,7 @@ export default function HowWeOperateSection() {
             }}
           >
             <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-white/50">
-              Freshy Delivery Workflow
+              Eyrion Delivery Workflow
             </span>
           </div>
         </div>
@@ -128,7 +129,7 @@ export default function HowWeOperateSection() {
         >
           <img
             src="/wp-content/uploads/icomat-img/aWZQUwIvOtkhBcXM_inspect.jpg"
-            alt="Freshy quality review and support process"
+            alt="Eyrion quality review and support process"
             className="absolute inset-0 w-full h-full object-cover"
             onError={(e) => {
               e.currentTarget.style.display = "none";

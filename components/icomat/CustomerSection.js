@@ -10,25 +10,25 @@ const CLIENTS = [
   {
     id: "joby",
     logo: "JOBY AVIATION",
-    quote: '"I believe that ICOMAT has unlocked the full potential of composites. Thanks to their unique Rapid Tow Shearing manufacturing process, Engineers can now design and produce composite structures with unparalleled fiber optimization."',
+    quote: '"I believe that Eyrion has unlocked the full potential of composites. Thanks to their unique Rapid Tow Shearing manufacturing process, Engineers can now design and produce composite structures with unparalleled fiber optimization."',
     author: "JOHN GERIGUIS, AD @JOBY AVIATION",
   },
   {
     id: "bae",
     logo: "BAE SYSTEMS",
-    quote: '"Delivering cost effective and innovative solutions across our manufacturing operations is critical to maintaining a leading position in the UK combat air sector. Working alongside organisations like iCOMAT, and drawing upon their expertise in RTS helps us to ensure we\'re able to maintain that edge for our customers."',
+    quote: '"Delivering cost effective and innovative solutions across our manufacturing operations is critical to maintaining a leading position in the UK combat air sector. Working alongside organisations like Eyrion, and drawing upon their expertise in RTS helps us to ensure we\'re able to maintain that edge for our customers."',
     author: "PAUL, HEAD OF AIRFRAME TECHNOLOGY @BAE SYSTEMS",
   },
   {
     id: "niar",
     logo: "NIAR",
-    quote: '"At NIAR, we work with some of the most advanced manufacturing technologies in the world, and iCOMAT stands out as a true innovator. Their novel approach to composite manufacturing represents a significant leap forward in performance and design flexibility. We\'ve been impressed not only by the capabilities of their technology, but also by the engineering depth and collaborative spirit of their team. iCOMAT is redefining what\'s possible in composites manufacturing."',
+    quote: '"At NIAR, we work with some of the most advanced manufacturing technologies in the world, and Eyrion stands out as a true innovator. Their novel approach to composite manufacturing represents a significant leap forward in performance and design flexibility. We\'ve been impressed not only by the capabilities of their technology, but also by the engineering depth and collaborative spirit of their team. Eyrion is redefining what\'s possible in composites manufacturing."',
     author: "WARUNA SENEVIRATNE, DIRECTOR @NIAR",
   },
   {
     id: "pall",
     logo: "Pall Corporation",
-    quote: '"Impressed with ICOMAT\'s first production delivery: quality parts, reliable timelines, and responsive support. A great start to our partnership."',
+    quote: '"Impressed with Eyrion\'s first production delivery: quality parts, reliable timelines, and responsive support. A great start to our partnership."',
     author: "CRAIG EASON, SUPPLIER RELATIONSHIP MANAGER @PALL AEROSPACE",
   },
 ];

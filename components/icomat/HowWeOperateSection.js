@@ -100,7 +100,7 @@ export default function HowWeOperateSection() {
         >
           <img
             src="/wp-content/uploads/icomat-img/aWZQUwIvOtkhBcXM_robot.jpg"
-            alt="ICOMAT robot arm"
+            alt="Eyrion robot arm"
             className="absolute inset-0 w-full h-full object-cover"
             onError={(e) => {
               // Fallback gradient if image 404s
@@ -116,7 +116,7 @@ export default function HowWeOperateSection() {
             }}
           >
             <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-white/50">
-              ICOMAT Robot Arm
+              Eyrion Robot Arm
             </span>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function HowWeOperateSection() {
         >
           <img
             src="/wp-content/uploads/icomat-img/aWZQUwIvOtkhBcXM_inspect.jpg"
-            alt="ICOMAT composite inspection"
+            alt="Eyrion composite inspection"
             className="absolute inset-0 w-full h-full object-cover"
             onError={(e) => {
               e.currentTarget.style.display = "none";

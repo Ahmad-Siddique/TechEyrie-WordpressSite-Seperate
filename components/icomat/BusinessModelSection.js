@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const BODY_PARAS = [
-  "ICOMAT eliminates compromise in composites production.",
+  "Eyrion eliminates compromise in composites production.",
   "We provide an end-to-end solution from structural design to finished composite parts.",
   "Our proprietary system unites design software, materials engineering, and automated production into one integrated process.",
   "It is tailored to the needs of each customer. We can supply preforms or finished parts and can set-up production lines near our clients for high-volume output.",
@@ -266,7 +266,7 @@ export default function BusinessModelSection() {
           </div>
         </div>
 
-        {/* ── RIGHT COL: benefits + ICOMAT Way comparison ──────── */}
+        {/* ── RIGHT COL: benefits + Eyrion Way comparison ──────── */}
         <div ref={benefitsRef} className="flex flex-col pl-0 md:pl-12">
 
           {/* Benefits label */}
@@ -307,10 +307,10 @@ export default function BusinessModelSection() {
             ))}
           </div>
 
-          {/* ICOMAT Way comparison — directly under benefits */}
+          {/* Eyrion Way comparison — directly under benefits */}
           <div className="mt-46">
 
-            {/* THE ICOMAT WAY header */}
+            {/* THE Eyrion WAY header */}
             <div
               ref={(el) => (colHeaderRefs.current[1] = el)}
               className="py-2.5 px-4 rounded-xl mb-2"
@@ -323,11 +323,11 @@ export default function BusinessModelSection() {
                   color: "rgba(0,0,0,0.75)",
                 }}
               >
-                The ICOMAT Way
+                The Eyrion Way
               </p>
             </div>
 
-            {/* ICOMAT rows */}
+            {/* Eyrion rows */}
             <div className="flex flex-col">
               {COMPARISON_ROWS.map((row, i) => (
                 <div key={i}>

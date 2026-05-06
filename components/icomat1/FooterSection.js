@@ -6,9 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ── SVG: ICOMAT stacked-waves logo ────────────────────────────
+// ── SVG: Eyrion stacked-waves logo ────────────────────────────
 const WavesLogo = () => (
-  <svg width="88" height="72" viewBox="0 0 88 72" fill="none" aria-label="ICOMAT waves mark">
+  <svg width="88" height="72" viewBox="0 0 88 72" fill="none" aria-label="Eyrion waves mark">
     <path d="M4  14 Q22  2 44 14 Q66  2 84 14" stroke="white" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.55"/>
     <path d="M4  26 Q22 14 44 26 Q66 14 84 26" stroke="white" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.68"/>
     <path d="M4  38 Q22 26 44 38 Q66 26 84 38" stroke="white" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.82"/>
@@ -74,7 +74,7 @@ const NAV_MAIN = [
     label: "ABOUT US",
     href: "/about-us",
     sub: [
-      "Why Freshy",
+      "Why Eyrion",
       "Read the blog",
       "How to sell your agency guide",
       "WordPress resource guides",
@@ -277,7 +277,11 @@ export default function FooterSection() {
           }}
         >
           <div style={{ marginTop: 0, paddingTop: 0 }}>
-            <WavesLogo />
+            <img
+              src="/logo/Eyrion_real_logo.png"
+              alt="Eyrion"
+              style={{ height: "42px", width: "auto", objectFit: "contain" }}
+            />
           </div>
           <div style={{ marginTop: 0, paddingTop: 0, textAlign: "right" }}>
             <span style={{
@@ -290,7 +294,7 @@ export default function FooterSection() {
               lineHeight: 1,
               userSelect: "none",
             }}>
-              FRESHY
+              Eyrion
             </span>
           </div>
         </div>
@@ -400,7 +404,7 @@ export default function FooterSection() {
               fontSize: "clamp(0.58rem, 0.65vw, 0.65rem)",
               fontWeight: 500, letterSpacing: "0.04em", margin: 0,
             }}>
-              ©2026 Freshy. All rights reserved.
+              ©2026 Eyrion. All rights reserved.
             </p>
           </div>
 

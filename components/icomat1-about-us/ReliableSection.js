@@ -162,7 +162,7 @@ function LogoCard({ logo, index }) {
 // ── Main Section ──────────────────────────────────────────────
 export default function ReliableSection({
   heading       = "Reliable by design.",
-  primaryText   = "They choose ICOMAT because we deliver what was previously considered impossible: steered fiber, defect-free composite structures, produced at industrial speed and with certainty.",
+  primaryText   = "They choose Eyrion because we deliver what was previously considered impossible: steered fiber, defect-free composite structures, produced at industrial speed and with certainty.",
   secondaryText = "We work with engineers operating where performance, reliability, and scale are non-negotiable.",
   logos         = LOGOS,
 }) {

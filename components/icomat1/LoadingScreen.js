@@ -173,37 +173,16 @@ export default function LoadingScreen({ onComplete }) {
           transform: "scale(0.85)",
         }}
       >
-        <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-          <circle cx="36" cy="52" r="3.5" fill="#1a1a1a" />
-          <path
-            d="M24 46 Q36 34 48 46"
-            stroke="#1a1a1a"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            fill="none"
-          />
-          <path
-            d="M18 38 Q36 22 54 38"
-            stroke="#1a1a1a"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            fill="none"
-          />
-          <path
-            d="M12 30 Q36 10 60 30"
-            stroke="#1a1a1a"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            fill="none"
-          />
-          <path
-            d="M6 22 Q36 -2 66 22"
-            stroke="#1a1a1a"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            fill="none"
-          />
-        </svg>
+        <img
+          src="/logo/Eyrion_real_logo.png"
+          alt="Eyrion"
+          style={{
+            width: "clamp(160px, 20vw, 280px)",
+            height: "auto",
+            objectFit: "contain",
+            filter: "brightness(0) saturate(100%)",
+          }}
+        />
       </div>
     </div>
   );

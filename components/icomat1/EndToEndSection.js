@@ -36,7 +36,7 @@ const CARDS = [
   {
     num: "04",
     label: "ACERTUS",
-    sub: "WordPress website migrated, optimized for long term expansion via Freshy retained services.",
+    sub: "WordPress website migrated, optimized for long term expansion via Eyrion retained services.",
     href: "/portfolio/acertus",
     img: "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=1400&q=85&fit=crop",
     color: "#1a1a2e",

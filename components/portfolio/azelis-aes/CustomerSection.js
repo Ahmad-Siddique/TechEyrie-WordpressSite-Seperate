@@ -21,13 +21,13 @@ const CLIENTS = [
     quote:
       "One major challenge Azelis faced was getting their customers to the right product quickly. The product finder allows the user to narrow down based on criteria they know best such as active ingredient.",
     author:
-      "With widely varying market segments, this functionality is vital to ensure the end user has the best browsing experience possible. Freshy's product finder makes use of several data inputs to guide the user through the process.",
+      "With widely varying market segments, this functionality is vital to ensure the end user has the best browsing experience possible. Eyrion's product finder makes use of several data inputs to guide the user through the process.",
   },
   {
     id: "request-a-quote",
     logo: "Request a quote functionality",
     quote:
-      "Azelis wanted their site users to be able to place and pay for orders and request a quote on specific products. To accommodate the large volume of products, the Freshy team enabled an on/off function behind the 'Request a Quote' element of the site.",
+      "Azelis wanted their site users to be able to place and pay for orders and request a quote on specific products. To accommodate the large volume of products, the Eyrion team enabled an on/off function behind the 'Request a Quote' element of the site.",
     author:
       "This feature is customizable by category, allowing for easy expansion and growth over time.",
   },
@@ -35,7 +35,7 @@ const CLIENTS = [
     id: "custom-product-page-design",
     logo: "Custom product page design based on product category",
     quote:
-      "Like the 'Request a Quote' function, the team needed to create a visual distinction distinguish between products. To address this, the Freshy team created two custom product page templates.",
+      "Like the 'Request a Quote' function, the team needed to create a visual distinction distinguish between products. To address this, the Eyrion team created two custom product page templates.",
     author:
       "Each product displays the appropriate template based on its category, allowing the Azelis team to showcase various product features without modifying any code.",
   },
@@ -45,7 +45,7 @@ const CLIENTS = [
     quote:
       "Through our team's research and discovery process, we identified a need to educate Azelis' customer base.",
     author:
-      "Because Azelis already had a great base of content and articles to pull from, the Freshy team imported existing content from the original sites, categorized each post, and included relevant, valuable content throughout the website.",
+      "Because Azelis already had a great base of content and articles to pull from, the Eyrion team imported existing content from the original sites, categorized each post, and included relevant, valuable content throughout the website.",
   },
 ];
 

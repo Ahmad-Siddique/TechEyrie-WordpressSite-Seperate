@@ -102,7 +102,7 @@ export default function BuildWithIcomatSection() {
               margin: 0,
             }}
           >
-            Ready to start your WordPress project?
+            Ready to launch your WordPress project?
           </h2>
         </div>
 
@@ -130,7 +130,7 @@ export default function BuildWithIcomatSection() {
               margin: 0,
             }}
           >
-            The WordPress partner you've been looking for.
+            The strategic WordPress partner your brand deserves.
           </p>
 
           {/* Para 1 */}
@@ -144,9 +144,10 @@ export default function BuildWithIcomatSection() {
               margin: 0,
             }}
           >
-            Freshy is the world's leading WordPress company and WordPress agency.
-            We focus on website design, development, support, maintenance, and
-            retainer services for WordPress CMS.
+            Eyrion is a premier WordPress development agency, delivering
+            high-end website design, custom engineering, and dedicated retainer
+            services. We specialize in scaling the WordPress CMS for clients
+            who demand technical precision and seamless performance.
           </p>
 
           {/* Para 2 */}
@@ -160,8 +161,10 @@ export default function BuildWithIcomatSection() {
               margin: 0,
             }}
           >
-            We pride ourselves on best-in-industry expertise and reliability.
-            We have supported over 2,400 amazing clients since our launch in 2011.
+            We lead the industry with elite craftsmanship and unwavering
+            reliability. Our team has successfully empowered over hundreds of
+            global brands with sophisticated digital solutions since our
+            inception.
           </p>
 
           {/* CTA Button */}
@@ -169,6 +172,10 @@ export default function BuildWithIcomatSection() {
             <a
               ref={btnRef}
               href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new Event("open-quote-drawer"));
+              }}
               style={{
                 display: "inline-flex",
                 alignItems: "center",

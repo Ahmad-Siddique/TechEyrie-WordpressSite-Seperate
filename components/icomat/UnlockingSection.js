@@ -47,7 +47,7 @@ const CARDS = [
   {
     id: "build",
     eyebrow: "A new way to Build",
-    title: "What sets ICOMAT apart",
+    title: "What sets Eyrion apart",
     desc: null,
     icon: null,
     isHero: true,

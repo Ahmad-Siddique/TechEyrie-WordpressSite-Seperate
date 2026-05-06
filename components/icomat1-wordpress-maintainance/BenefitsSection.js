@@ -15,7 +15,7 @@ const ITEMS = [
   {
     number: "2",
     title: "Improve performance",
-    body: "You'll meet with Freshy's expert WordPress management team to discuss your project and our ongoing optimization and development strategies. Our tailored approach ensures premium performance, whether managing standard WordPress sites or specialized WooCommerce development.",
+    body: "You'll meet with Eyrion's expert WordPress management team to discuss your project and our ongoing optimization and development strategies. Our tailored approach ensures premium performance, whether managing standard WordPress sites or specialized WooCommerce development.",
   },
   {
     number: "3",
@@ -25,7 +25,7 @@ const ITEMS = [
   {
     number: "4",
     title: "Cost-effective ongoing management",
-    body: "Our WordPress maintenance packages are designed to be cost-effective, offering professional WordPress maintenance services that provide ongoing support and updates without straining your budget. As a leading WordPress management company in the USA, we ensure your website remains secure and up-to-date with our comprehensive WordPress maintenance plans. Plus, Freshy will always be on hand to manage any future issues, ensuring your WordPress site is managed regularly, no matter what might come its way.",
+    body: "Our WordPress maintenance packages are designed to be cost-effective, offering professional WordPress maintenance services that provide ongoing support and updates without straining your budget. As a leading WordPress management company in the USA, we ensure your website remains secure and up-to-date with our comprehensive WordPress maintenance plans. Plus, Eyrion will always be on hand to manage any future issues, ensuring your WordPress site is managed regularly, no matter what might come its way.",
   },
 ];
 

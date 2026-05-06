@@ -124,11 +124,11 @@ const FEATURES = [
   },
   {
     title: "Managed WordPress hosting",
-    desc: "When you host with Freshy you have a robust and experienced team of WordPress hosting experts to back you up. Our support team is on-hand to resolve any unexpected problems or issues that might come your way.",
+    desc: "When you host with Eyrion you have a robust and experienced team of WordPress hosting experts to back you up. Our support team is on-hand to resolve any unexpected problems or issues that might come your way.",
   },
   {
     title: "WordPress backups, done right",
-    desc: "At Freshy, we take WordPress backups seriously — that's why we take full nightly snapshots of your WordPress install at the file set and database level and store them with double redundancy for 90 days. Don't worry, we got you covered.",
+    desc: "At Eyrion, we take WordPress backups seriously — that's why we take full nightly snapshots of your WordPress install at the file set and database level and store them with double redundancy for 90 days. Don't worry, we got you covered.",
   },
   {
     title: "WordPress security experts",
@@ -137,7 +137,9 @@ const FEATURES = [
 ];
 
 // ─── Main Section ─────────────────────────────────────────────────────────────
-export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
+export default function OurAdvantageSection({
+  onQuoteClick = () => window.dispatchEvent(new Event("open-quote-drawer")),
+}) {
   const sectionRef = useRef(null);
   const leftColRef = useRef(null);
   const labelRef = useRef(null);
@@ -265,7 +267,7 @@ export default function OurAdvantageSection({ onQuoteClick = () => {} }) {
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            Fully managed WordPress hosting from Freshy
+            Fully managed WordPress hosting from Eyrion
           </p>
 
           <h2

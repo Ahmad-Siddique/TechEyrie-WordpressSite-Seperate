@@ -36,7 +36,7 @@ const SERVICES = [
       </svg>
     ),
     title: "WordPress website design",
-    desc: "Beautiful websites made by top WordPress designers",
+    desc: "Stunning, high-quality websites crafted by expert WordPress designers",
     href: "/wordpress/design",
   },
   {
@@ -47,7 +47,7 @@ const SERVICES = [
       </svg>
     ),
     title: "WordPress development",
-    desc: "Full WordPress development team with deep technical experience.",
+    desc: "A dedicated WordPress development team with strong technical expertise",
     href: "/wordpress/development",
   },
   {
@@ -71,7 +71,7 @@ const SERVICES = [
       </svg>
     ),
     title: "WordPress managed hosting",
-    desc: "High level security, ultra-fast speeds, fully managed updates.",
+    desc: "Optimized for top-tier security and performance",
     href: "/wordpress/hosting",
   },
   {
@@ -83,8 +83,8 @@ const SERVICES = [
         <path d="M20 10l.8.8L22.2 9" stroke="#0a3a1a" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: "Freshy+ premium support",
-    desc: "A dedicated point of contact, priority support and more",
+    title: "Premium support",
+    desc: "A dedicated contact with fast, priority assistance whenever you need it",
     href: "/wordpress/premium-support",
   },
   {
@@ -96,26 +96,22 @@ const SERVICES = [
       </svg>
     ),
     title: "Search engine optimization",
-    desc: "Set your website up for success with our SEO programs",
+    desc: "Position your website for sustainable, long-term growth",
     href: "/wordpress/search-engine-optimization",
   },
 ];
 
-function WavesLogo() {
+function BrandLogo({ height = "30px" }) {
   return (
-    <svg width="30" height="30" viewBox="0 0 24 21" fill="none" aria-hidden="true">
-      <path d="M4.93561 20.277C8.90405 18.1244 14.4418 18.1244 18.4102 20.277L18.3688 20.4163C17.825 20.2601 17.2756 20.1246 16.7224 20.0098C13.4088 19.2986 9.93896 19.2986 6.62535 20.0098C6.07214 20.1246 5.52269 20.262 4.97889 20.4163L4.9375 20.277H4.93561Z" fill="#F8F8F8"/>
-      <path d="M2.54027 18.0303C7.96888 14.7186 15.3789 14.7186 20.8075 18.0303L20.751 18.1639C20.0322 17.8666 19.3003 17.607 18.557 17.3831C14.105 16.0245 9.24465 16.0245 4.79074 17.3831C4.04749 17.6051 3.31364 17.8666 2.59672 18.1639L2.54027 18.0303Z" fill="#F8F8F8"/>
-      <path d="M1.04246 15.62C7.22186 11.3844 16.1259 11.3844 22.3053 15.62L22.2394 15.7479C21.4228 15.3377 20.5817 14.9783 19.7218 14.6679C14.5792 12.7824 8.76858 12.7824 3.62599 14.6679C2.76607 14.9783 1.92684 15.3377 1.10832 15.7479L1.04246 15.62Z" fill="#F8F8F8"/>
-      <path d="M0.186365 12.9706C6.75903 8.12719 16.587 8.12719 23.1596 12.9706L23.0881 13.0967C22.2188 12.615 21.3194 12.1878 20.3955 11.8209C14.8671 9.58737 8.47887 9.58737 2.95053 11.8209C2.02664 12.1878 1.1272 12.6131 0.257868 13.0967L0.186365 12.9706Z" fill="#F8F8F8"/>
-      <path d="M0 9.96744C6.65545 4.98479 16.6904 4.98479 23.3458 9.96744L23.2743 10.0916C22.3937 9.59299 21.4811 9.1508 20.544 8.7707C14.9329 6.45813 8.41481 6.45813 2.80368 8.7707C1.86661 9.1508 0.954005 9.59111 0.073385 10.0916L0.00188167 9.96744H0Z" fill="#F8F8F8"/>
-      <path d="M0.811009 6.41106C7.09954 2.01548 16.2482 2.01548 22.5367 6.41106L22.469 6.53901C21.6373 6.10999 20.7793 5.73178 19.9043 5.40813C14.6563 3.43238 8.69143 3.43238 3.44346 5.40813C2.5666 5.73178 1.71045 6.10999 0.878749 6.53901L0.811009 6.41106Z" fill="#F8F8F8"/>
-      <path d="M4.03998 1.90448C8.56539 -0.633887 14.7805 -0.635768 19.3059 1.90448L19.2589 2.04184C18.6474 1.83862 18.0283 1.66175 17.4036 1.50933C13.6591 0.581671 9.68686 0.581671 5.94235 1.50933C5.31763 1.65987 4.69856 1.83862 4.08702 2.04184L4.03998 1.90448Z" fill="#F8F8F8"/>
-    </svg>
+    <img
+      src="/logo/Eyrion_real_logo.png"
+      alt="Eyrion"
+      style={{ height, width: "auto", objectFit: "contain" }}
+    />
   );
 }
 
-function IcomatWordmark() {
+function BrandWordmark() {
   return (
     <span style={{
       fontFamily: "'Arial Black', Arial, sans-serif",
@@ -126,7 +122,7 @@ function IcomatWordmark() {
       lineHeight: 1,
       userSelect: "none",
     }}>
-      ICOMAT
+      Eyrion
     </span>
   );
 }
@@ -326,7 +322,7 @@ function QuoteDrawer({ open, onClose }) {
             padding: "28px 32px 0",
             flexShrink: 0,
           }}>
-            <WavesLogo />
+            <BrandLogo height="39px" />
             <button
               onClick={onClose}
               aria-label="Close"
@@ -809,7 +805,7 @@ function AnimatedMobileMenuLink({ label, href, onClose }) {
 }
 
 // ── Mobile menu ───────────────────────────────────────────────
-function MobileMenu({ open, onClose }) {
+function MobileMenu({ open, onClose, onQuoteClick }) {
   return (
     <div style={{
       position: "fixed", inset: 0, zIndex: 200,
@@ -828,11 +824,11 @@ function MobileMenu({ open, onClose }) {
         cursor: "pointer", lineHeight: 1, padding: "8px",
       }}>✕</button>
       <nav style={{ display: "flex", flexDirection: "column" }}>
-        {[...NAV_ITEMS, { label: "Get a Quote", href: "/#contact" }].map((item) => (
+        {NAV_ITEMS.map((item) => (
           <AnimatedMobileMenuLink key={item.label} label={item.label} href={item.href} onClose={onClose} />
         ))}
       </nav>
-      <a href="/#contact" onClick={onClose} style={{
+      <a href="#contact" onClick={(e) => { e.preventDefault(); onQuoteClick?.(); onClose?.(); }} style={{
         marginTop: "40px", display: "inline-block",
         padding: "14px 32px", border: "1px solid rgba(255,255,255,0.5)",
         borderRadius: "999px", color: "#fff", fontSize: "0.7rem",
@@ -862,23 +858,36 @@ function BurgerIcon({ open }) {
 }
 
 // ── Header ────────────────────────────────────────────────────
-export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
+export default function Header({ quoteOpen, setQuoteOpen }) {
   const headerRef                      = useRef(null);
   const megaRef                        = useRef(null);
   const closeTimerRef                  = useRef(null);
   const [menuOpen,    setMenuOpen]     = useState(false);
   const [hoveredNav,  setHoveredNav]   = useState(null);
   const [megaOpen,    setMegaOpen]     = useState(false);
+  const [internalQuoteOpen, setInternalQuoteOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
   const lastScrollYRef                 = useRef(0);
+  const isQuoteControlled = typeof quoteOpen === "boolean" && typeof setQuoteOpen === "function";
+  const resolvedQuoteOpen = isQuoteControlled ? quoteOpen : internalQuoteOpen;
+
+  const openQuoteDrawer = () => {
+    if (isQuoteControlled) setQuoteOpen(true);
+    else setInternalQuoteOpen(true);
+  };
+
+  const closeQuoteDrawer = () => {
+    if (isQuoteControlled) setQuoteOpen(false);
+    else setInternalQuoteOpen(false);
+  };
 
   useEffect(() => {
-    document.body.style.overflow = (menuOpen || quoteOpen) ? "hidden" : "";
+    document.body.style.overflow = (menuOpen || resolvedQuoteOpen) ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [menuOpen, quoteOpen]);
+  }, [menuOpen, resolvedQuoteOpen]);
 
   useEffect(() => {
-    if (megaOpen || menuOpen || quoteOpen) {
+    if (megaOpen || menuOpen || resolvedQuoteOpen) {
       setHeaderHidden(false);
       lastScrollYRef.current = typeof window !== "undefined" ? window.scrollY : 0;
       return;
@@ -901,7 +910,13 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
     lastScrollYRef.current = window.scrollY || 0;
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [megaOpen, menuOpen, quoteOpen]);
+  }, [megaOpen, menuOpen, resolvedQuoteOpen]);
+
+  useEffect(() => {
+    const onOpenQuoteDrawer = () => openQuoteDrawer();
+    window.addEventListener("open-quote-drawer", onOpenQuoteDrawer);
+    return () => window.removeEventListener("open-quote-drawer", onOpenQuoteDrawer);
+  }, [isQuoteControlled, setQuoteOpen]);
 
   useEffect(() => {
     const onClick = (e) => {
@@ -945,10 +960,10 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
         borderBottom: megaOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
         transition: "background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease",
       }}>
-        <Link href="/" aria-label="ICOMAT — Back home"
+        <Link href="/" aria-label="Eyrion — Back home"
           style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
-          <WavesLogo />
-          <IcomatWordmark />
+          <BrandLogo height="48px" />
+          <BrandWordmark />
         </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 1.5vw, 16px)" }}>
@@ -981,7 +996,7 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
             <AnimatedCTAButton
               label="GET A QUOTE"
               href="#contact"
-              onClick={() => setQuoteOpen(true)}
+              onClick={() => openQuoteDrawer()}
             />
           </nav>
 
@@ -1014,13 +1029,13 @@ export default function Header({ quoteOpen = false, setQuoteOpen = () => {} }) {
           onMouseLeave={closeMega}
           onQuoteClick={() => {
             setMegaOpen(false);
-            setQuoteOpen(true);
+            openQuoteDrawer();
           }}
         />
       </div>
       </div>
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <QuoteDrawer open={quoteOpen} onClose={() => setQuoteOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} onQuoteClick={openQuoteDrawer} />
+      <QuoteDrawer open={resolvedQuoteOpen} onClose={closeQuoteDrawer} />
 
       <style>{`
         @media (max-width: 768px) { .header-desktop-nav { display: none !important; } }

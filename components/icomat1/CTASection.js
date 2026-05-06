@@ -406,7 +406,10 @@ export default function CTASection({ onQuoteOpen }) {
           ref={btnRef}
           suppressHydrationWarning
           type="button"
-          onClick={() => onQuoteOpen?.()}
+          onClick={() => {
+            if (onQuoteOpen) onQuoteOpen();
+            else window.dispatchEvent(new Event("open-quote-drawer"));
+          }}
           style={{
             position:             "relative",
             overflow:             "hidden",

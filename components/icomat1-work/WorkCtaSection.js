@@ -17,11 +17,15 @@ export default function WorkCtaSection() {
           fontWeight: 500,
         }}
       >
-        Ready to start your WordPress project?
+        Ready to launch your WordPress project?
       </p>
       <div style={{ marginTop: "10px" }}>
         <a
           href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.dispatchEvent(new Event("open-quote-drawer"));
+          }}
           style={{
             display: "inline-flex",
             alignItems: "center",
