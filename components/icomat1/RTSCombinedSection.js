@@ -87,7 +87,7 @@ const CARD_ITEMS = [
       <p className="text-[14px] sm:text-[15px] font-semibold text-[#111] leading-snug">
         WordPress development
         <br />
-        A dedicated WordPress development team with strong technical expertise
+        <span className="font-normal text-[#666]">A dedicated WordPress development team with strong technical expertise</span>
       </p>
     ),
   },
@@ -109,7 +109,7 @@ const CARD_ITEMS = [
       <p className="text-[14px] sm:text-[15px] font-semibold text-[#111] leading-snug">
         WordPress managed hosting
         <br />
-        Optimized for top-tier security and performance
+        <span className="font-normal text-[#666]">Optimized for top-tier security and performance</span>
       </p>
     ),
   },
@@ -131,7 +131,7 @@ const CARD_ITEMS = [
       <p className="text-[14px] sm:text-[15px] font-semibold text-[#111] leading-snug">
         Search engine optimization
         <br />
-        Position your website for sustainable, long-term growth
+        <span className="font-normal text-[#666]">Position your website for sustainable, long-term growth</span>
       </p>
     ),
   },

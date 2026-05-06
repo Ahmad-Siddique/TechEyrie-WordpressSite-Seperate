@@ -177,7 +177,7 @@ export default function LoadingScreen({ onComplete }) {
           src="/logo/Eyrion_real_logo.png"
           alt="Eyrion"
           style={{
-            width: "clamp(160px, 20vw, 280px)",
+            width: "clamp(47px, 5.9vw, 83px)",
             height: "auto",
             objectFit: "contain",
             filter: "brightness(0) saturate(100%)",

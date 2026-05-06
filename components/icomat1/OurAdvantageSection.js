@@ -139,7 +139,7 @@ export default function OurAdvantageSection() {
             {/* Body copy */}
             <div ref={rightColRef} className="flex flex-col gap-5">
               <p
-                className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
+                className="text-[13px] sm:text-[18px] font-normal leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
                 Eyrion is a premier WordPress specialist agency, leading the
@@ -149,7 +149,7 @@ export default function OurAdvantageSection() {
                 unrivaled technical mastery.
               </p>
               <p
-                className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
+                className="text-[13px] sm:text-[18px] font-normal leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
                 We guarantee elite WordPress solutions that set the global

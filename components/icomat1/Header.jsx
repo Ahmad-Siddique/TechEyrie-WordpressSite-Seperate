@@ -16,7 +16,7 @@ const NAV_ITEMS = [
 // Inter nav: medium weight, wide tracking, geometric precision
 const NAV_MONO_LABEL = {
   fontFamily: "Inter, Arial, sans-serif",
-  fontWeight: 400,
+  fontWeight: 200,
   fontStyle: "normal",
   letterSpacing: "0.1em",
   textTransform: "uppercase",
@@ -114,10 +114,10 @@ function BrandLogo({ height = "30px" }) {
 function BrandWordmark() {
   return (
     <span style={{
-      fontFamily: "'Arial Black', Arial, sans-serif",
-      fontWeight: 500,
+      fontFamily: "Inter, Arial, sans-serif",
+      fontWeight: 600,
       fontSize: "1.8rem",
-      letterSpacing: "0.12em",
+      letterSpacing: "0.06em",
       color: "#f8f8f8",
       lineHeight: 1,
       userSelect: "none",
@@ -677,7 +677,7 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
         display: "inline-flex", alignItems: "center", justifyContent: "center",
         padding: "5px 6px",
         color: dimmed ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.82)",
-        fontSize: "0.8rem", lineHeight: 1.6,
+        fontSize: "10px", lineHeight: 1.6,
         textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer",
         transition: "color 0.22s ease",
         willChange: "transform",

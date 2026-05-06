@@ -223,7 +223,7 @@ export default function HeroSection({ onQuoteClick }) {
       />
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pb-16 md:pb-20">
+      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pb-6 md:pb-8">
 
         <div className="flex-1" />
 
@@ -234,12 +234,16 @@ export default function HeroSection({ onQuoteClick }) {
         >
           <h1
             ref={headingRef}
-            className="text-white font-extrabold tracking-tight leading-[0.95]"
-            style={{ fontSize: "clamp(2rem, 4.5vw, 4rem)", fontWeight: 600 }}
+            className="text-white tracking-tight leading-[0.95]"
+            style={{
+              fontSize: "clamp(2rem, 4.5vw, 4rem)",
+              fontWeight: 600,
+              fontFamily: "Inter, Arial, sans-serif",
+            }}
           >
             The WordPress
             <br />
-            agency you've been looking for.
+            agency you've been looking for
             <sup
               style={{
                 fontSize: "0.22em",

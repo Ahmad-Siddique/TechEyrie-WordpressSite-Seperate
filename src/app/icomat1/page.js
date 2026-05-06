@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Montserrat } from 'next/font/google'
 
 
 import HeroSection from '../../../components/icomat1/HeroSection'
@@ -25,6 +26,10 @@ import Header from '../../../components/icomat1/Header'
 import CTASection from '../../../components/icomat1/CTASection'
 
 gsap.registerPlugin(ScrollTrigger)
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+})
 
 export default function IcomatPage() {
   const [theme] = useState('dark')
@@ -72,7 +77,7 @@ export default function IcomatPage() {
   }, [])
 
   return (
-    <div data-theme="dark" className="icomat1-laygrotesk" style={{ backgroundColor: '#162D24', minHeight: '100vh' }}>
+    <div data-theme="dark" className={`icomat1-laygrotesk ${montserrat.variable}`} style={{ backgroundColor: '#162D24', minHeight: '100vh' }}>
       <style jsx global>{`
         html, body {
           -ms-overflow-style: none;
@@ -84,23 +89,25 @@ export default function IcomatPage() {
         }
       `}</style>
 
-        <Header quoteOpen={quoteOpen} setQuoteOpen={setQuoteOpen} />
-      <HeroSection onQuoteClick={() => setQuoteOpen(true)} />
-      <RTSSection />
-      {/* <RTSRevolutionSection />
-      <CompositeShowcaseSection /> */}
-      <RTSCombinedSection />
-      <HowWeOperateSection />
-      <OurAdvantageSection />
-      <EndToEndSection />
-      <CustomersSection />
-      {/* <BusinessModelSection /> */}
-      <IcomatSolutionSection />
-      <IndustriesSection />
-      <BuildWithIcomatSection />
-      <UnlockingSection />
-      {/* <CTASection /> */}
-      <FooterSection />
+      <Header quoteOpen={quoteOpen} setQuoteOpen={setQuoteOpen} />
+      <div className="homepage-font-scope">
+        <HeroSection onQuoteClick={() => setQuoteOpen(true)} />
+        <RTSSection />
+        {/* <RTSRevolutionSection />
+        <CompositeShowcaseSection /> */}
+        <RTSCombinedSection />
+        <HowWeOperateSection />
+        <OurAdvantageSection />
+        <EndToEndSection />
+        <CustomersSection />
+        {/* <BusinessModelSection /> */}
+        <IcomatSolutionSection />
+        <IndustriesSection />
+        <BuildWithIcomatSection />
+        <UnlockingSection />
+        {/* <CTASection /> */}
+        <FooterSection />
+      </div>
       {/* <Footer theme="dark" /> */}
     </div>
   )

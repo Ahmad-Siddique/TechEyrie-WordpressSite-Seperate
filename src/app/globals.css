@@ -83,14 +83,6 @@
     font-family: 'Yantramanav', var(--font-inter), Inter, Arial, sans-serif;
   }
 
-  /* Keep title-like text consistent even when not semantic headings */
-  .font-semibold,
-  .font-bold,
-  .font-extrabold,
-  .font-black {
-    font-family: 'Yantramanav', var(--font-inter), Inter, Arial, sans-serif;
-  }
-
   nav, nav * {
     font-family: var(--font-inter), Inter, Arial, sans-serif;
   }
@@ -439,11 +431,7 @@
 .icomat1-laygrotesk h3,
 .icomat1-laygrotesk h4,
 .icomat1-laygrotesk h5,
-.icomat1-laygrotesk h6,
-.icomat1-laygrotesk .font-semibold,
-.icomat1-laygrotesk .font-bold,
-.icomat1-laygrotesk .font-extrabold,
-.icomat1-laygrotesk .font-black {
+.icomat1-laygrotesk h6 {
   font-family: 'Yantramanav', var(--font-inter), Inter, Arial, sans-serif !important;
 }
 
@@ -454,6 +442,46 @@
 .icomat1-laygrotesk h5 *,
 .icomat1-laygrotesk h6 * {
   font-family: inherit;
+}
+
+/* Homepage typography scope: Montserrat body, Inter titles (nav excluded in page layout) */
+.homepage-font-scope,
+.homepage-font-scope p,
+.homepage-font-scope span,
+.homepage-font-scope a,
+.homepage-font-scope li,
+.homepage-font-scope button,
+.homepage-font-scope input,
+.homepage-font-scope textarea,
+.homepage-font-scope label,
+.homepage-font-scope small,
+.homepage-font-scope div {
+  font-family: var(--font-montserrat), Montserrat, Arial, sans-serif;
+}
+
+.homepage-font-scope h1,
+.homepage-font-scope h2,
+.homepage-font-scope h3,
+.homepage-font-scope h4,
+.homepage-font-scope h5,
+.homepage-font-scope h6 {
+  font-family: var(--font-inter), Inter, Arial, sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.homepage-font-scope h1 *,
+.homepage-font-scope h2 *,
+.homepage-font-scope h3 *,
+.homepage-font-scope h4 *,
+.homepage-font-scope h5 *,
+.homepage-font-scope h6 * {
+  font-family: inherit;
+}
+
+.homepage-font-scope .font-bold,
+.homepage-font-scope .font-extrabold,
+.homepage-font-scope .font-black {
+  font-weight: 600 !important;
 }
 
 
