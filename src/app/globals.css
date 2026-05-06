@@ -2,6 +2,54 @@
 @import "tailwindcss";
 
 @font-face {
+  font-family: 'Yantramanav';
+  font-style: normal;
+  font-weight: 100;
+  src: url('/fonts/Yantramanav-Thin.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/Yantramanav-Light.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Yantramanav-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/Yantramanav-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Yantramanav-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/Yantramanav-Black.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Akkurat Light';
   font-style: normal;
   font-weight: 400;
@@ -27,12 +75,29 @@
   }
   
   body {
+    font-family: var(--font-inter), Inter, Arial, sans-serif;
     background-color: #E8E8E8; /* Light gray background for the whole page */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Yantramanav', var(--font-inter), Inter, Arial, sans-serif;
+  }
+
+  /* Keep title-like text consistent even when not semantic headings */
+  .font-semibold,
+  .font-bold,
+  .font-extrabold,
+  .font-black {
+    font-family: 'Yantramanav', var(--font-inter), Inter, Arial, sans-serif;
+  }
+
+  nav, nav * {
+    font-family: var(--font-inter), Inter, Arial, sans-serif;
   }
 
   /* Force Helvetica font stack */
   .font-helvetica {
-    font-family: 'Helvetica Now Text', Arial, sans-serif;
+    font-family: var(--font-inter), Inter, Arial, sans-serif;
   }
 }
 
@@ -365,9 +430,8 @@
 .icomat1-laygrotesk input,
 .icomat1-laygrotesk textarea,
 .icomat1-laygrotesk label,
-.icomat1-laygrotesk small,
-.icomat1-laygrotesk div {
-  font-family: LayGrotesk-Regular,sans-serif;
+.icomat1-laygrotesk small {
+  font-family: var(--font-inter), Inter, Arial, sans-serif;
 }
 
 .icomat1-laygrotesk h1,
@@ -380,7 +444,16 @@
 .icomat1-laygrotesk .font-bold,
 .icomat1-laygrotesk .font-extrabold,
 .icomat1-laygrotesk .font-black {
-  font-family: LayGrotesk-Semibold,sans-serif;
+  font-family: 'Yantramanav', var(--font-inter), Inter, Arial, sans-serif !important;
+}
+
+.icomat1-laygrotesk h1 *,
+.icomat1-laygrotesk h2 *,
+.icomat1-laygrotesk h3 *,
+.icomat1-laygrotesk h4 *,
+.icomat1-laygrotesk h5 *,
+.icomat1-laygrotesk h6 * {
+  font-family: inherit;
 }
 
 

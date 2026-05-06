@@ -6,7 +6,7 @@ export default function PortfolioDemoSection() {
         background: "#0f241d",
         color: "#f5f7f6",
         padding: "64px 24px",
-        fontFamily: "Akkurat, Arial, sans-serif",
+        fontFamily: "Inter, Arial, sans-serif",
       }}
     >
       <section style={{ maxWidth: "960px", margin: "0 auto" }}>

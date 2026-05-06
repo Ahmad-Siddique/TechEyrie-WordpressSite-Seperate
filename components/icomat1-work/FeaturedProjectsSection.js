@@ -165,7 +165,7 @@ function CaseStudyBtn({ href }) {
         background: "#c8f04a",
         borderRadius: "999px",
         textDecoration: "none",
-        fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+        fontFamily: "Inter, Arial, sans-serif",
         fontSize: "0.82rem",
         fontWeight: 600,
         color: "#0a2a12",
@@ -243,7 +243,7 @@ function BigCard({ project }) {
       }}>
         <div>
           <p style={{
-            fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+            fontFamily: "Inter, Arial, sans-serif",
             fontSize: "0.68rem", fontWeight: 700,
             letterSpacing: "0.14em", textTransform: "uppercase",
             color: "#1B4732", margin: "0 0 18px",
@@ -251,7 +251,7 @@ function BigCard({ project }) {
             {project.category}
           </p>
           <h3 style={{
-            fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+            fontFamily: "'Yantramanav', Inter, Arial, sans-serif",
             fontSize: "clamp(1.5rem, 2.2vw, 2.2rem)",
             fontWeight: 300, lineHeight: 1.14,
             letterSpacing: "-0.025em", color: "#0a0a09", margin: 0,
@@ -347,7 +347,7 @@ function SmallCard({ project }) {
         alignItems: "flex-start", gap: "16px",
       }}>
         <p style={{
-          fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+          fontFamily: "Inter, Arial, sans-serif",
           fontSize: "0.68rem", fontWeight: 700,
           letterSpacing: "0.14em", textTransform: "uppercase",
           color: "#1B4732", margin: 0,
@@ -355,7 +355,7 @@ function SmallCard({ project }) {
           {project.category}
         </p>
         <h3 style={{
-          fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+          fontFamily: "'Yantramanav', Inter, Arial, sans-serif",
           fontSize: "clamp(1.25rem, 2vw, 1.75rem)",
           fontWeight: 300, lineHeight: 1.22,
           letterSpacing: "-0.02em", color: "#0a0a09", margin: 0,
@@ -437,7 +437,7 @@ export default function WorkSection() {
           <h2
             ref={headingRef}
             style={{
-              fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+              fontFamily: "'Yantramanav', Inter, Arial, sans-serif",
               fontSize: "clamp(2.4rem, 5vw, 5rem)",
               fontWeight: 700, lineHeight: 1.04,
               letterSpacing: "-0.03em", color: "#0d2b1e",
@@ -449,7 +449,7 @@ export default function WorkSection() {
           <p
             ref={subRef}
             style={{
-              fontFamily: "Akkurat, 'Helvetica Neue', sans-serif",
+              fontFamily: "Inter, Arial, sans-serif",
               fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
               fontWeight: 300, color: "rgba(10,10,9,0.5)",
               margin: 0, lineHeight: 1.7,

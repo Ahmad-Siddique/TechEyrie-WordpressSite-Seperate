@@ -13,9 +13,9 @@ const NAV_ITEMS = [
   { label: "About Us",     href: "/about-us" },
 ];
 
-// AkkuratMono nav: weight 400, wide tracking, geometricPrecision (reference-style)
+// Inter nav: medium weight, wide tracking, geometric precision
 const NAV_MONO_LABEL = {
-  fontFamily: "'AkkuratMono', ui-monospace, monospace",
+  fontFamily: "Inter, Arial, sans-serif",
   fontWeight: 400,
   fontStyle: "normal",
   letterSpacing: "0.1em",
@@ -218,7 +218,7 @@ function QuoteDrawer({ open, onClose }) {
     padding: isTextarea ? "15px 17px" : "13px 17px",
     color: "#f8f8f4",
     fontSize: "0.875rem",
-    fontFamily: "Akkurat, sans-serif",
+    fontFamily: "Inter, Arial, sans-serif",
     fontWeight: 300,
     lineHeight: isTextarea ? 1.65 : 1,
     outline: "none",
@@ -234,7 +234,7 @@ function QuoteDrawer({ open, onClose }) {
     display: "block",
     color: "rgba(255,255,255,0.4)",
     fontSize: "0.62rem",
-    fontFamily: "Akkurat, sans-serif",
+    fontFamily: "Inter, Arial, sans-serif",
     fontWeight: 500,
     letterSpacing: "0.12em",
     textTransform: "uppercase",
@@ -245,7 +245,7 @@ function QuoteDrawer({ open, onClose }) {
     display: "block",
     color: "rgba(255,100,80,0.9)",
     fontSize: "0.64rem",
-    fontFamily: "Akkurat, sans-serif",
+    fontFamily: "Inter, Arial, sans-serif",
     fontWeight: 400,
     marginTop: "5px",
     letterSpacing: "0.03em",
@@ -361,7 +361,7 @@ function QuoteDrawer({ open, onClose }) {
               color: "#f8f8f4",
               fontSize: "clamp(1.9rem, 3vw, 2.6rem)",
               fontWeight: 300,
-              fontFamily: "Akkurat, sans-serif",
+              fontFamily: "'Yantramanav', Inter, Arial, sans-serif",
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
               margin: "0 0 10px",
@@ -371,7 +371,7 @@ function QuoteDrawer({ open, onClose }) {
             <p style={{
               color: "rgba(255,255,255,0.38)",
               fontSize: "0.8rem",
-              fontFamily: "Akkurat, sans-serif",
+              fontFamily: "Inter, Arial, sans-serif",
               fontWeight: 300,
               lineHeight: 1.7,
               margin: "0 0 22px",
@@ -406,14 +406,14 @@ function QuoteDrawer({ open, onClose }) {
                   </svg>
                 </div>
                 <div>
-                  <p style={{ color: "#f8f8f4", fontSize: "1.1rem", fontWeight: 400, fontFamily: "Akkurat, sans-serif", margin: "0 0 8px", letterSpacing: "-0.01em" }}>Message sent!</p>
-                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.82rem", fontFamily: "Akkurat, sans-serif", fontWeight: 300, lineHeight: 1.65, margin: 0 }}>We'll be in touch within 24 hours.</p>
+                  <p style={{ color: "#f8f8f4", fontSize: "1.1rem", fontWeight: 400, fontFamily: "Inter, Arial, sans-serif", margin: "0 0 8px", letterSpacing: "-0.01em" }}>Message sent!</p>
+                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.82rem", fontFamily: "Inter, Arial, sans-serif", fontWeight: 300, lineHeight: 1.65, margin: 0 }}>We'll be in touch within 24 hours.</p>
                 </div>
                 <button onClick={onClose} style={{
                   marginTop: "8px", padding: "13px 36px",
                   background: "#c8f04a", border: "none", borderRadius: "8px",
                   color: "#0a3a1a", fontSize: "0.68rem", fontWeight: 700,
-                  fontFamily: "Akkurat, sans-serif", letterSpacing: "0.12em",
+                  fontFamily: "Inter, Arial, sans-serif", letterSpacing: "0.12em",
                   textTransform: "uppercase", cursor: "pointer",
                   transition: "background 0.2s, transform 0.15s",
                 }}
@@ -476,7 +476,7 @@ function QuoteDrawer({ open, onClose }) {
                   marginTop: "6px", width: "100%", padding: "16px 24px",
                   background: "#c8f04a", border: "none", borderRadius: "10px",
                   color: "#0a2a12", fontSize: "0.7rem", fontWeight: 700,
-                  fontFamily: "Akkurat, sans-serif", letterSpacing: "0.14em",
+                  fontFamily: "Inter, Arial, sans-serif", letterSpacing: "0.14em",
                   textTransform: "uppercase", cursor: "pointer",
                   display: "flex", alignItems: "center", justifyContent: "center", gap: "10px",
                   transition: "background 0.2s, transform 0.15s, box-shadow 0.2s",
@@ -495,7 +495,7 @@ function QuoteDrawer({ open, onClose }) {
 
                 <p style={{
                   color: "rgba(255,255,255,0.2)", fontSize: "0.62rem",
-                  fontFamily: "Akkurat, sans-serif", fontWeight: 300,
+                  fontFamily: "Inter, Arial, sans-serif", fontWeight: 300,
                   lineHeight: 1.7, textAlign: "center", margin: 0,
                 }}>
                   By submitting you agree to our{" "}
@@ -519,10 +519,10 @@ function QuoteDrawer({ open, onClose }) {
             marginTop: "auto",
             borderTop: "1px solid rgba(255,255,255,0.06)",
           }}>
-            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.57rem", fontFamily: "Akkurat, sans-serif", fontWeight: 400, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.57rem", fontFamily: "Inter, Arial, sans-serif", fontWeight: 400, letterSpacing: "0.06em", textTransform: "uppercase" }}>
               COMPANY REG NO. 11771620
             </span>
-            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.57rem", fontFamily: "Akkurat, sans-serif", fontWeight: 400, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.57rem", fontFamily: "Inter, Arial, sans-serif", fontWeight: 400, letterSpacing: "0.06em", textTransform: "uppercase" }}>
               VAT REG. NO. 326574685
             </span>
           </div>
@@ -565,7 +565,7 @@ function ServiceItem({ service, bottomBorder }) {
         color: hovered ? "rgba(10,10,9,0.68)" : "rgba(255,255,255,0.35)",
         fontSize: "0.86rem", lineHeight: 1.6, margin: 0, paddingLeft: "62px",
         transition: "color 0.2s",
-        fontFamily: "'AkkuratMono', ui-monospace, monospace",
+        fontFamily: "Inter, Arial, sans-serif",
         fontWeight: 400, fontStyle: "normal",
         letterSpacing: "0.06em",
         textRendering: "geometricPrecision",
@@ -620,7 +620,7 @@ function MegaDropdown({ visible, onMouseEnter, onMouseLeave, onQuoteClick }) {
             <p style={{
               color: "#162D24", fontSize: "0.92rem", fontWeight: 500,
               letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.5,
-              fontFamily: "Akkurat, sans-serif", margin: 0,
+              fontFamily: "Inter, Arial, sans-serif", margin: 0,
             }}>Get a quote</p>
             <button
               type="button"
@@ -750,7 +750,7 @@ function AnimatedCTAButton({ label, href, onClick }) {
         padding: "6px 12px",
         background: "#ffffff", border: "1px solid #ffffff", borderRadius: "7px",
         color: "#0a0a09", fontSize: "0.72rem", fontWeight: 700,
-        fontFamily: "Akkurat, sans-serif", letterSpacing: "0.13em",
+        fontFamily: "Inter, Arial, sans-serif", letterSpacing: "0.13em",
         textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer",
       }}
     >

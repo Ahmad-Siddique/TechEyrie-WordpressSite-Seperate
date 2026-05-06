@@ -222,7 +222,7 @@ export default function NotFound() {
                 isDark ? "text-[#74F5A1]" : "text-[#3BC972]"
               }`}
               style={{
-                fontFamily: "Fellix, -apple-system, sans-serif",
+                fontFamily: "'Yantramanav', Inter, Arial, sans-serif",
                 textShadow: isDark
                   ? "0 0 40px rgba(116, 245, 161, 0.3)"
                   : "0 0 20px rgba(59, 201, 114, 0.2)",
@@ -237,7 +237,7 @@ export default function NotFound() {
             ref={titleRef}
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
             style={{
-              fontFamily: "Fellix, -apple-system, sans-serif",
+              fontFamily: "'Yantramanav', Inter, Arial, sans-serif",
             }}
           >
             Page Not Found
@@ -250,7 +250,7 @@ export default function NotFound() {
               isDark ? "text-gray-300" : "text-gray-600"
             }`}
             style={{
-              fontFamily: "Helvetica Now Text, Helvetica, Arial, sans-serif",
+              fontFamily: "Inter, Arial, sans-serif",
             }}
           >
             The page you're looking for seems to have vanished into the digital
@@ -270,7 +270,7 @@ export default function NotFound() {
                   : "bg-[#3BC972] text-white hover:bg-[#2FA85F] hover:scale-105"
               }`}
               style={{
-                fontFamily: "Helvetica Now Text, Helvetica, Arial, sans-serif",
+                fontFamily: "Inter, Arial, sans-serif",
               }}
             >
               <Home className="w-5 h-5" />
@@ -300,7 +300,7 @@ export default function NotFound() {
                   : "border-black/20 bg-white/80 text-black hover:bg-white hover:border-black/30"
               } hover:scale-105`}
               style={{
-                fontFamily: "Helvetica Now Text, Helvetica, Arial, sans-serif",
+                fontFamily: "Inter, Arial, sans-serif",
               }}
             >
               <AlertCircle className="w-5 h-5" />
@@ -315,7 +315,7 @@ export default function NotFound() {
                 isDark ? "text-gray-400" : "text-gray-500"
               }`}
               style={{
-                fontFamily: "Helvetica Now Text, Helvetica, Arial, sans-serif",
+                fontFamily: "Inter, Arial, sans-serif",
               }}
             >
               Popular pages:
@@ -337,8 +337,7 @@ export default function NotFound() {
                       : "text-gray-600 hover:text-[#3BC972]"
                   }`}
                   style={{
-                    fontFamily:
-                      "Helvetica Now Text, Helvetica, Arial, sans-serif",
+                    fontFamily: "Inter, Arial, sans-serif",
                   }}
                 >
                   {link.label}

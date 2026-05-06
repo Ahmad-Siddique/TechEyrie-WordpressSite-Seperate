@@ -1,14 +1,9 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from 'next/script'
 import GlobalLoadingWrapper from "../../components/icomat1/GlobalLoadingWrapper";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -31,7 +26,7 @@ export default function RootLayout({ children }) {
         />
         <link rel="alternate" type="application/rss+xml" title="TechEyrie" href="/feed/" />
       </head>
-      <body>
+      <body className={inter.variable}>
         <Script
           src="/wp-includes/js/wp-embed.min.js"
           strategy="beforeInteractive"
