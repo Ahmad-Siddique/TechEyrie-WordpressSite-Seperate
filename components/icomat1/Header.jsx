@@ -134,6 +134,17 @@ const HEADER_THEMES = {
     wordmarkGradient: "linear-gradient(115deg, #a89467 0%, #c2b188 45%, #8b7b57 100%)",
     wordmarkOpacity: 0.9,
   },
+  adaptive: {
+    // Mixed/split backgrounds in the same section (e.g. CTA transitions):
+    // use blend-driven auto-contrast so mark stays visible over light and dark.
+    logoFilter: "brightness(0) invert(1)",
+    logoOpacity: 0.98,
+    logoBlendMode: "difference",
+    wordmarkColor: "#ffffff",
+    wordmarkGradient: "",
+    wordmarkOpacity: 0.98,
+    wordmarkBlendMode: "difference",
+  },
 };
 
 // Keep navigation controls visually fixed; only logo + wordmark shift by section.
@@ -157,13 +168,13 @@ function BrandLogo({ height = "30px", logoFilter = "none", logoOpacity = 1, logo
         filter: logoFilter,
         opacity: logoOpacity,
         mixBlendMode: logoBlendMode,
-        transition: "filter 0.5s ease, opacity 0.5s ease, mix-blend-mode 0.5s ease",
+        transition: "filter 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), mix-blend-mode 1.1s cubic-bezier(0.22, 1, 0.36, 1)",
       }}
     />
   );
 }
 
-function BrandWordmark({ color = "#f8f8f8", gradient = "", opacity = 1 }) {
+function BrandWordmark({ color = "#f8f8f8", gradient = "", opacity = 1, blendMode = "normal" }) {
   return (
     <span style={{
       fontFamily: "Inter, Arial, sans-serif",
@@ -176,8 +187,9 @@ function BrandWordmark({ color = "#f8f8f8", gradient = "", opacity = 1 }) {
       WebkitBackgroundClip: gradient ? "text" : "border-box",
       lineHeight: 1,
       opacity,
+      mixBlendMode: blendMode,
       userSelect: "none",
-      transition: "color 0.5s ease, opacity 0.5s ease, background-image 0.5s ease",
+      transition: "color 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), background-image 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
     }}>
       Eyrion
     </span>
@@ -954,17 +966,28 @@ export default function Header({ quoteOpen, setQuoteOpen }) {
       const prev = lastScrollYRef.current;
       const delta = y - prev;
       lastScrollYRef.current = y;
-      if (y < 32)            { setHeaderHidden(false); return; }
-      if (delta > 10 && y > 72) setHeaderHidden(true);
-      else if (delta < -6)      setHeaderHidden(false);
+      if (y < 36) {
+        setHeaderHidden(false);
+        return;
+      }
+
+      // Hide only on intentional downward scroll; reveal quickly on slight reverse scroll.
+      if (delta > 18 && y > 150) setHeaderHidden(true);
+      else if (delta < -2) setHeaderHidden(false);
     };
     lastScrollYRef.current = window.scrollY || 0;
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [megaOpen, menuOpen, resolvedQuoteOpen]);
 
-  // ── ICOMAT-style: watch sections to shift logo/nav color ────
+  // ── Section-aware brand theming (logo + wordmark only) ──────
   useEffect(() => {
+    const normalizeTheme = (theme) => {
+      if (theme === "light" || theme === "dark" || theme === "media" || theme === "adaptive") return theme;
+      if (theme === "deep-dark") return "dark";
+      return "dark";
+    };
+
     const parseRgb = (bg) => {
       const m = bg?.match?.(/rgba?\(([^)]+)\)/i);
       if (!m) return null;
@@ -983,11 +1006,16 @@ export default function Header({ quoteOpen, setQuoteOpen }) {
     const inferThemeFromElement = (el) => {
       let node = el;
       while (node && node !== document.body) {
-        if (node?.dataset?.header) return node.dataset.header;
+        if (node?.dataset?.header) return normalizeTheme(node.dataset.header);
+
+        const tag = node?.tagName?.toLowerCase?.();
+        if (tag === "video" || tag === "canvas" || tag === "img") return "media";
+
         const cs = window.getComputedStyle(node);
-        if (cs.backgroundImage && cs.backgroundImage !== "none") return "media";
+        const opacity = Number(cs.opacity || "1");
+        if (cs.backgroundImage && cs.backgroundImage !== "none" && opacity > 0.08) return "media";
         const rgb = parseRgb(cs.backgroundColor);
-        if (rgb && rgb.a > 0.18) {
+        if (rgb && rgb.a * opacity > 0.12) {
           return getLuminance(rgb) > 0.6 ? "light" : "dark";
         }
         node = node.parentElement;
@@ -995,45 +1023,101 @@ export default function Header({ quoteOpen, setQuoteOpen }) {
       return "dark";
     };
 
+    const inferThemeFromStack = (stack) => {
+      for (const el of stack) {
+        if (
+          el === document.documentElement ||
+          el === document.body ||
+          headerRef.current?.contains(el) ||
+          megaRef.current?.contains(el)
+        ) {
+          continue;
+        }
+
+        // First try element itself; if it's just text/transparent, fallback to ancestors.
+        const theme = inferThemeFromElement(el);
+        if (theme) return theme;
+      }
+      return "dark";
+    };
+
+    let raf = null;
+    const lastAppliedThemeRef = { current: "dark" };
+    const pendingThemeRef = { current: "dark" };
+    const stableCountRef = { current: 0 };
+
+    const commitTheme = (nextTheme) => {
+      if (nextTheme !== lastAppliedThemeRef.current) {
+        lastAppliedThemeRef.current = nextTheme;
+        setHeaderTheme(nextTheme);
+      }
+    };
+
     const updateTheme = () => {
       const headerH = 56;
-      const midY = window.scrollY + headerH / 2;
-      const sections = document.querySelectorAll("section[data-header], div[data-header]");
+      // Sample around the actual logo + wordmark region so theme follows what brand sits over.
+      const brandLeft = 28;
+      const brandRight = Math.min(360, window.innerWidth - 20);
+      const sampleXs = [brandLeft, 88, 148, 220, 300, brandRight]
+        .map((x) => Math.max(18, Math.min(Math.round(x), window.innerWidth - 18)));
+      const sampleYs = [headerH + 6, headerH + 18, headerH + 32]
+        .map((y) => Math.max(8, Math.min(y, window.innerHeight - 2)));
 
-      let matched = "";
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const top  = rect.top  + window.scrollY;
-        const bot  = rect.bottom + window.scrollY;
-        if (midY >= top && midY <= bot) {
-          matched = section.dataset.header || "dark";
-        }
+      const score = { light: 0, dark: 0, media: 0 };
+      sampleXs.forEach((x) => {
+        sampleYs.forEach((y) => {
+          const stack = document.elementsFromPoint(x, y);
+          const theme = inferThemeFromStack(stack);
+          score[theme] += 1;
+        });
       });
 
-      if (!matched) {
-        // Sample *below* the fixed header; otherwise elementFromPoint often returns the header itself.
-        const sampleX = Math.max(24, Math.min(window.innerWidth * 0.22, window.innerWidth - 24));
-        const sampleY = Math.max(headerH + 10, Math.min(headerH + 26, window.innerHeight - 2));
-        const stack = document.elementsFromPoint(sampleX, sampleY);
-        const sampleEl = stack.find(
-          (el) =>
-            el !== document.documentElement &&
-            el !== document.body &&
-            !headerRef.current?.contains(el) &&
-            !megaRef.current?.contains(el)
-        );
-        matched = inferThemeFromElement(sampleEl || document.elementFromPoint(sampleX, sampleY));
+      // If section is visually mixed (split bg/gradients), use adaptive contrast mode.
+      const lightHits = score.light;
+      const darkHits = score.dark;
+      const mediaHits = score.media;
+      const totalHits = lightHits + darkHits + mediaHits || 1;
+      const mixedLightDark =
+        lightHits / totalHits > 0.25 &&
+        darkHits / totalHits > 0.25 &&
+        Math.abs(lightHits - darkHits) <= Math.max(2, Math.round(totalHits * 0.25));
+
+      let matched = "dark";
+      if (mixedLightDark) {
+        matched = "adaptive";
+      } else {
+        matched = Object.entries(score).sort((a, b) => b[1] - a[1])[0]?.[0] || "dark";
       }
 
-      setHeaderTheme(matched);
+      const nextTheme = normalizeTheme(matched);
+      if (nextTheme === pendingThemeRef.current) {
+        stableCountRef.current += 1;
+      } else {
+        pendingThemeRef.current = nextTheme;
+        stableCountRef.current = 1;
+      }
+
+      // Require more stable reads for smoother, slower transitions.
+      if (stableCountRef.current >= 3 || nextTheme === lastAppliedThemeRef.current) {
+        commitTheme(nextTheme);
+      }
+    };
+
+    const requestUpdate = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = null;
+        updateTheme();
+      });
     };
 
     updateTheme(); // run once on mount
-    window.addEventListener("scroll", updateTheme, { passive: true });
-    window.addEventListener("resize", updateTheme);
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
     return () => {
-      window.removeEventListener("scroll", updateTheme);
-      window.removeEventListener("resize", updateTheme);
+      if (raf) window.cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
     };
   }, []);
 
@@ -1098,6 +1182,7 @@ export default function Header({ quoteOpen, setQuoteOpen }) {
               color={logoTheme.wordmarkColor}
               gradient={logoTheme.wordmarkGradient}
               opacity={logoTheme.wordmarkOpacity}
+              blendMode={logoTheme.wordmarkBlendMode || "normal"}
             />
           </Link>
 
