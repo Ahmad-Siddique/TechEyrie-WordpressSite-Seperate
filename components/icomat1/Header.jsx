@@ -13,7 +13,6 @@ const NAV_ITEMS = [
   { label: "About Us",     href: "/about-us" },
 ];
 
-// Inter nav: medium weight, wide tracking, geometric precision
 const NAV_MONO_LABEL = {
   fontFamily: "Inter, Arial, sans-serif",
   fontWeight: 200,
@@ -101,26 +100,84 @@ const SERVICES = [
   },
 ];
 
-function BrandLogo({ height = "30px" }) {
+// ── Logo color themes ─────────────────────────────────────────
+// These are driven by IntersectionObserver watching sections with data-header="light|dark|deep-dark"
+// light   → dark charcoal logo (on white/gray sections)
+// dark    → logo visible as-is / white (on dark bg sections)
+// The logo is a PNG so we use CSS filter to tint it; wordmark color shifts directly
+
+const HEADER_THEMES = {
+  dark: {
+    // Over dark sections: bright neutral mark/text.
+    logoFilter: "brightness(0) invert(1)",
+    logoOpacity: 0.95,
+    logoBlendMode: "normal",
+    wordmarkColor: "#f0f0ee",
+    wordmarkGradient: "",
+    wordmarkOpacity: 0.95,
+  },
+  light: {
+    // Over light sections: charcoal mark/text.
+    logoFilter: "brightness(0) saturate(100%) invert(12%) sepia(8%) saturate(328%) hue-rotate(8deg) brightness(98%) contrast(90%)",
+    logoOpacity: 0.72,
+    logoBlendMode: "multiply",
+    wordmarkColor: "#54595e",
+    wordmarkGradient: "",
+    wordmarkOpacity: 0.78,
+  },
+  media: {
+    // Over vivid media/gradients: warm metallic tint similar to reference.
+    logoFilter: "brightness(0) saturate(100%) invert(67%) sepia(10%) saturate(1024%) hue-rotate(355deg) brightness(95%) contrast(89%)",
+    logoOpacity: 0.92,
+    logoBlendMode: "screen",
+    wordmarkColor: "#b4a47d",
+    wordmarkGradient: "linear-gradient(115deg, #a89467 0%, #c2b188 45%, #8b7b57 100%)",
+    wordmarkOpacity: 0.9,
+  },
+};
+
+// Keep navigation controls visually fixed; only logo + wordmark shift by section.
+const HEADER_CONTROLS = {
+  navLinkColor: "rgba(255,255,255,0.82)",
+  ctaBg: "#ffffff",
+  ctaColor: "#0a0a09",
+  ctaBorder: "#ffffff",
+  burgerColor: "rgba(255,255,255,0.82)",
+};
+
+function BrandLogo({ height = "30px", logoFilter = "none", logoOpacity = 1, logoBlendMode = "normal" }) {
   return (
     <img
       src="/logo/Eyrion_real_logo.png"
       alt="Eyrion"
-      style={{ height, width: "auto", objectFit: "contain" }}
+      style={{
+        height,
+        width: "auto",
+        objectFit: "contain",
+        filter: logoFilter,
+        opacity: logoOpacity,
+        mixBlendMode: logoBlendMode,
+        transition: "filter 0.5s ease, opacity 0.5s ease, mix-blend-mode 0.5s ease",
+      }}
     />
   );
 }
 
-function BrandWordmark() {
+function BrandWordmark({ color = "#f8f8f8", gradient = "", opacity = 1 }) {
   return (
     <span style={{
       fontFamily: "Inter, Arial, sans-serif",
       fontWeight: 600,
       fontSize: "1.8rem",
       letterSpacing: "0.06em",
-      color: "#f8f8f8",
+      color: gradient ? "transparent" : color,
+      backgroundImage: gradient || "none",
+      backgroundClip: gradient ? "text" : "border-box",
+      WebkitBackgroundClip: gradient ? "text" : "border-box",
       lineHeight: 1,
+      opacity,
       userSelect: "none",
+      transition: "color 0.5s ease, opacity 0.5s ease, background-image 0.5s ease",
     }}>
       Eyrion
     </span>
@@ -264,7 +321,6 @@ function QuoteDrawer({ open, onClose }) {
         }}
       />
 
-      {/* Floating drawer — NO overflow scroll on the outer shell */}
       <div
         ref={drawerRef}
         style={{
@@ -284,12 +340,9 @@ function QuoteDrawer({ open, onClose }) {
             0 0 0 1px rgba(255,255,255,0.04),
             inset 0 1px 0 rgba(255,255,255,0.06)
           `,
-          /* ── Key fix: hide scrollbar on the outer shell ── */
           overflow: "hidden",
         }}
       >
-
-        {/* Lime glow orb */}
         <div style={{
           position: "absolute",
           bottom: "-60px", right: "-40px",
@@ -300,7 +353,6 @@ function QuoteDrawer({ open, onClose }) {
           zIndex: 0,
         }} />
 
-        {/* All content — this inner div scrolls without showing a scrollbar */}
         <div
           className="quote-scroll-inner"
           style={{
@@ -309,12 +361,10 @@ function QuoteDrawer({ open, onClose }) {
             display: "flex",
             flexDirection: "column",
             flex: 1,
-            /* scroll lives here, hidden via CSS class below */
             overflowY: "scroll",
             overflowX: "hidden",
           }}
         >
-          {/* Top bar */}
           <div style={{
             display: "flex",
             alignItems: "center",
@@ -351,7 +401,6 @@ function QuoteDrawer({ open, onClose }) {
             >✕</button>
           </div>
 
-          {/* Heading block */}
           <div style={{ padding: "22px 32px 0", flexShrink: 0 }}>
             <h2 style={{
               color: "#f8f8f4",
@@ -381,9 +430,7 @@ function QuoteDrawer({ open, onClose }) {
             }} />
           </div>
 
-          {/* Form body */}
           <div style={{ padding: "22px 32px 28px", flex: 1 }}>
-
             {submitted ? (
               <div style={{
                 display: "flex", flexDirection: "column",
@@ -417,10 +464,8 @@ function QuoteDrawer({ open, onClose }) {
                   onMouseLeave={(e) => { e.currentTarget.style.background = "#c8f04a"; e.currentTarget.style.transform = "translateY(0)"; }}
                 >Close</button>
               </div>
-
             ) : (
               <form onSubmit={handleSubmit} noValidate style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-
                 <div>
                   <label style={labelStyle}>Full name <span style={{ color: "#c8f04a" }}>*</span></label>
                   <input type="text" placeholder="Jane Smith" value={form.fullName}
@@ -500,12 +545,10 @@ function QuoteDrawer({ open, onClose }) {
                   </a>
                   . We'll never share your data.
                 </p>
-
               </form>
             )}
           </div>
 
-          {/* Bottom reg bar — sticky at bottom inside the scroll container */}
           <div style={{
             flexShrink: 0,
             display: "flex",
@@ -522,8 +565,7 @@ function QuoteDrawer({ open, onClose }) {
               VAT REG. NO. 326574685
             </span>
           </div>
-
-        </div>{/* end quote-scroll-inner */}
+        </div>
       </div>
     </>
   );
@@ -622,10 +664,10 @@ function MegaDropdown({ visible, onMouseEnter, onMouseLeave, onQuoteClick }) {
               type="button"
               onClick={() => onQuoteClick?.()}
               style={{
-              marginTop: "36px", display: "inline-flex", alignItems: "center", justifyContent: "center",
-              width: "56px", height: "56px", borderRadius: "50%", background: "#162D24",
-              border: "none", textDecoration: "none", transition: "transform 0.22s, background 0.22s", cursor: "pointer",
-            }}
+                marginTop: "36px", display: "inline-flex", alignItems: "center", justifyContent: "center",
+                width: "56px", height: "56px", borderRadius: "50%", background: "#162D24",
+                border: "none", textDecoration: "none", transition: "transform 0.22s, background 0.22s", cursor: "pointer",
+              }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.12)"; e.currentTarget.style.background = "#1f4638"; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.background = "#162D24"; }}
             >
@@ -641,7 +683,7 @@ function MegaDropdown({ visible, onMouseEnter, onMouseLeave, onQuoteClick }) {
 }
 
 // ── Animated nav link ─────────────────────────────────────────
-function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd, hasMega, megaOpen }) {
+function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd, hasMega, megaOpen, linkColor }) {
   const wrapRef = useRef(null), textRef = useRef(null), cloneRef = useRef(null), tlRef = useRef(null);
   useEffect(() => {
     const wrap = wrapRef.current, text = textRef.current, clone = cloneRef.current;
@@ -676,17 +718,19 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
         position: "relative", overflow: "hidden",
         display: "inline-flex", alignItems: "center", justifyContent: "center",
         padding: "5px 6px",
-        color: dimmed ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.82)",
+        color: dimmed
+          ? (linkColor ? linkColor.replace("0.82", "0.35") : "rgba(255,255,255,0.35)")
+          : (linkColor || "rgba(255,255,255,0.82)"),
         fontSize: "10px", lineHeight: 1.6,
         textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer",
-        transition: "color 0.22s ease",
+        transition: "color 0.5s ease",
         willChange: "transform",
         ...NAV_MONO_LABEL,
       }}
     >
       <span ref={textRef} style={{ display: "block", lineHeight: 1.6, whiteSpace: "nowrap" }}>
         <span style={NAV_MONO_LABEL}>
-        {label}
+          {label}
         </span>
         {hasMega && (
           <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ display: "inline-block", marginLeft: "5px", verticalAlign: "middle", transition: "transform 0.25s", transform: megaOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
@@ -694,9 +738,9 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
           </svg>
         )}
       </span>
-      <span ref={cloneRef} aria-hidden="true" style={{ display: "block", lineHeight: 1.6, whiteSpace: "nowrap", color: "#ffffff", position: "absolute" }}>
+      <span ref={cloneRef} aria-hidden="true" style={{ display: "block", lineHeight: 1.6, whiteSpace: "nowrap", color: linkColor || "#ffffff", position: "absolute" }}>
         <span style={NAV_MONO_LABEL}>
-        {label}
+          {label}
         </span>
         {hasMega && (
           <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ display: "inline-block", marginLeft: "5px", verticalAlign: "middle" }}>
@@ -709,8 +753,13 @@ function AnimatedNavLink({ label, href, dimmed = false, onHoverStart, onHoverEnd
 }
 
 // ── Animated CTA button ───────────────────────────────────────
-function AnimatedCTAButton({ label, href, onClick }) {
+function AnimatedCTAButton({ label, href, onClick, ctaBg, ctaColor, ctaBorder }) {
   const wrapRef = useRef(null), textRef = useRef(null), cloneRef = useRef(null), tlRef = useRef(null);
+
+  // Keep a ref to always have latest theme values in the event handlers
+  const themeRef = useRef({ ctaBg, ctaColor, ctaBorder });
+  useEffect(() => { themeRef.current = { ctaBg, ctaColor, ctaBorder }; }, [ctaBg, ctaColor, ctaBorder]);
+
   useEffect(() => {
     const wrap = wrapRef.current, text = textRef.current, clone = cloneRef.current;
     if (!wrap || !text || !clone) return;
@@ -718,16 +767,20 @@ function AnimatedCTAButton({ label, href, onClick }) {
     gsap.set(clone, { y: H, opacity: 1 });
     gsap.set(text,  { y: 0, opacity: 1 });
     const onEnter = () => {
+      const { ctaBg: bg } = themeRef.current;
+      // Invert: hover bg is the text color of current theme
+      const hoverBg = bg === "#ffffff" ? "#0a0a09" : "#ffffff";
       tlRef.current?.kill();
-      gsap.to(wrap, { backgroundColor: "#0a0a09", borderColor: "#0a0a09", duration: 0.35, ease: "power2.out" });
+      gsap.to(wrap, { backgroundColor: hoverBg, borderColor: hoverBg, duration: 0.35, ease: "power2.out" });
       tlRef.current = gsap.timeline({ defaults: { duration: 0.52, ease: "power3.inOut" } });
       tlRef.current.to(text, { y: -H }, 0).to(clone, { y: 0 }, 0)
         .to(clone, { scale: 1.08, duration: 0.14, ease: "power1.out" }, 0.50)
         .to(clone, { scale: 1.0,  duration: 0.13, ease: "power1.inOut" }, 0.64);
     };
     const onLeave = () => {
+      const { ctaBg: bg, ctaBorder: border } = themeRef.current;
       tlRef.current?.kill();
-      gsap.to(wrap, { backgroundColor: "#ffffff", borderColor: "#ffffff", duration: 0.35, ease: "power2.out" });
+      gsap.to(wrap, { backgroundColor: bg, borderColor: border, duration: 0.35, ease: "power2.out" });
       tlRef.current = gsap.timeline({ defaults: { duration: 0.48, ease: "power3.inOut" } });
       tlRef.current.to(clone, { y: H }, 0).to(text, { y: 0 }, 0);
     };
@@ -744,14 +797,18 @@ function AnimatedCTAButton({ label, href, onClick }) {
         position: "relative", overflow: "hidden",
         display: "inline-flex", alignItems: "center", justifyContent: "center",
         padding: "6px 12px",
-        background: "#ffffff", border: "1px solid #ffffff", borderRadius: "7px",
-        color: "#0a0a09", fontSize: "0.72rem", fontWeight: 700,
+        background: ctaBg || "#ffffff",
+        border: `1px solid ${ctaBorder || "#ffffff"}`,
+        borderRadius: "7px",
+        color: ctaColor || "#0a0a09",
+        fontSize: "0.72rem", fontWeight: 700,
         fontFamily: "Inter, Arial, sans-serif", letterSpacing: "0.13em",
         textDecoration: "none", whiteSpace: "nowrap", cursor: "pointer",
+        transition: "background 0.5s ease, border-color 0.5s ease, color 0.5s ease",
       }}
     >
-      <span ref={textRef} style={{ display: "block", lineHeight: 1, color: "#0a0a09", whiteSpace: "nowrap" }}>{label}</span>
-      <span ref={cloneRef} aria-hidden="true" style={{ display: "block", lineHeight: 1, color: "#ffffff", whiteSpace: "nowrap", position: "absolute" }}>{label}</span>
+      <span ref={textRef} style={{ display: "block", lineHeight: 1, color: ctaColor || "#0a0a09", whiteSpace: "nowrap", transition: "color 0.5s ease" }}>{label}</span>
+      <span ref={cloneRef} aria-hidden="true" style={{ display: "block", lineHeight: 1, color: ctaBg === "#0a0a09" ? "#ffffff" : "#ffffff", whiteSpace: "nowrap", position: "absolute" }}>{label}</span>
     </a>
   );
 }
@@ -843,15 +900,16 @@ function MobileMenu({ open, onClose, onQuoteClick }) {
 }
 
 // ── Burger icon ───────────────────────────────────────────────
-function BurgerIcon({ open }) {
+function BurgerIcon({ open, color = "white" }) {
   return (
     <svg viewBox="0 0 14 7" fill="none" width="14" height="7">
       {[0,2,4,6,8,10,12].map((x, i) => (
         <circle key={`t${i}`} cx={x * 0.999 + 0.665} cy="0.665" r="0.665"
-          fill={open ? "rgba(255,255,255,0.4)" : "white"} style={{ transition: "fill 0.2s" }} />
+          fill={open ? "rgba(255,255,255,0.4)" : color} style={{ transition: "fill 0.5s ease" }} />
       ))}
       {[0,2,4,6,8,10,12].map((x, i) => (
-        <circle key={`b${i}`} cx={x * 0.999 + 0.665} cy="5.692" r="0.665" fill="white" />
+        <circle key={`b${i}`} cx={x * 0.999 + 0.665} cy="5.692" r="0.665"
+          fill={color} style={{ transition: "fill 0.5s ease" }} />
       ))}
     </svg>
   );
@@ -859,58 +917,125 @@ function BurgerIcon({ open }) {
 
 // ── Header ────────────────────────────────────────────────────
 export default function Header({ quoteOpen, setQuoteOpen }) {
-  const headerRef                      = useRef(null);
-  const megaRef                        = useRef(null);
-  const closeTimerRef                  = useRef(null);
-  const [menuOpen,    setMenuOpen]     = useState(false);
-  const [hoveredNav,  setHoveredNav]   = useState(null);
-  const [megaOpen,    setMegaOpen]     = useState(false);
-  const [internalQuoteOpen, setInternalQuoteOpen] = useState(false);
-  const [headerHidden, setHeaderHidden] = useState(false);
-  const lastScrollYRef                 = useRef(0);
+  const headerRef       = useRef(null);
+  const megaRef         = useRef(null);
+  const closeTimerRef   = useRef(null);
+
+  const [menuOpen,            setMenuOpen]            = useState(false);
+  const [hoveredNav,          setHoveredNav]          = useState(null);
+  const [megaOpen,            setMegaOpen]            = useState(false);
+  const [internalQuoteOpen,   setInternalQuoteOpen]   = useState(false);
+  const [headerHidden,        setHeaderHidden]        = useState(false);
+
+  // ── NEW: tracks which section the header is currently over ──
+  const [headerTheme, setHeaderTheme] = useState("dark"); // "dark" | "light" | "media"
+
+  const lastScrollYRef = useRef(0);
   const isQuoteControlled = typeof quoteOpen === "boolean" && typeof setQuoteOpen === "function";
   const resolvedQuoteOpen = isQuoteControlled ? quoteOpen : internalQuoteOpen;
 
-  const openQuoteDrawer = () => {
-    if (isQuoteControlled) setQuoteOpen(true);
-    else setInternalQuoteOpen(true);
-  };
-
-  const closeQuoteDrawer = () => {
-    if (isQuoteControlled) setQuoteOpen(false);
-    else setInternalQuoteOpen(false);
-  };
+  const openQuoteDrawer  = () => { if (isQuoteControlled) setQuoteOpen(true);  else setInternalQuoteOpen(true);  };
+  const closeQuoteDrawer = () => { if (isQuoteControlled) setQuoteOpen(false); else setInternalQuoteOpen(false); };
 
   useEffect(() => {
     document.body.style.overflow = (menuOpen || resolvedQuoteOpen) ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen, resolvedQuoteOpen]);
 
+  // ── Hide/show header on scroll ───────────────────────────────
   useEffect(() => {
     if (megaOpen || menuOpen || resolvedQuoteOpen) {
       setHeaderHidden(false);
       lastScrollYRef.current = typeof window !== "undefined" ? window.scrollY : 0;
       return;
     }
-
     const onScroll = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
       const prev = lastScrollYRef.current;
       const delta = y - prev;
       lastScrollYRef.current = y;
-
-      if (y < 32) {
-        setHeaderHidden(false);
-        return;
-      }
+      if (y < 32)            { setHeaderHidden(false); return; }
       if (delta > 10 && y > 72) setHeaderHidden(true);
-      else if (delta < -6) setHeaderHidden(false);
+      else if (delta < -6)      setHeaderHidden(false);
     };
-
     lastScrollYRef.current = window.scrollY || 0;
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [megaOpen, menuOpen, resolvedQuoteOpen]);
+
+  // ── ICOMAT-style: watch sections to shift logo/nav color ────
+  useEffect(() => {
+    const parseRgb = (bg) => {
+      const m = bg?.match?.(/rgba?\(([^)]+)\)/i);
+      if (!m) return null;
+      const [r, g, b, a = "1"] = m[1].split(",").map((v) => v.trim());
+      return { r: Number(r), g: Number(g), b: Number(b), a: Number(a) };
+    };
+
+    const getLuminance = ({ r, g, b }) => {
+      const toLinear = (c) => {
+        const x = c / 255;
+        return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
+      };
+      return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+    };
+
+    const inferThemeFromElement = (el) => {
+      let node = el;
+      while (node && node !== document.body) {
+        if (node?.dataset?.header) return node.dataset.header;
+        const cs = window.getComputedStyle(node);
+        if (cs.backgroundImage && cs.backgroundImage !== "none") return "media";
+        const rgb = parseRgb(cs.backgroundColor);
+        if (rgb && rgb.a > 0.18) {
+          return getLuminance(rgb) > 0.6 ? "light" : "dark";
+        }
+        node = node.parentElement;
+      }
+      return "dark";
+    };
+
+    const updateTheme = () => {
+      const headerH = 56;
+      const midY = window.scrollY + headerH / 2;
+      const sections = document.querySelectorAll("section[data-header], div[data-header]");
+
+      let matched = "";
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const top  = rect.top  + window.scrollY;
+        const bot  = rect.bottom + window.scrollY;
+        if (midY >= top && midY <= bot) {
+          matched = section.dataset.header || "dark";
+        }
+      });
+
+      if (!matched) {
+        // Sample *below* the fixed header; otherwise elementFromPoint often returns the header itself.
+        const sampleX = Math.max(24, Math.min(window.innerWidth * 0.22, window.innerWidth - 24));
+        const sampleY = Math.max(headerH + 10, Math.min(headerH + 26, window.innerHeight - 2));
+        const stack = document.elementsFromPoint(sampleX, sampleY);
+        const sampleEl = stack.find(
+          (el) =>
+            el !== document.documentElement &&
+            el !== document.body &&
+            !headerRef.current?.contains(el) &&
+            !megaRef.current?.contains(el)
+        );
+        matched = inferThemeFromElement(sampleEl || document.elementFromPoint(sampleX, sampleY));
+      }
+
+      setHeaderTheme(matched);
+    };
+
+    updateTheme(); // run once on mount
+    window.addEventListener("scroll", updateTheme, { passive: true });
+    window.addEventListener("resize", updateTheme);
+    return () => {
+      window.removeEventListener("scroll", updateTheme);
+      window.removeEventListener("resize", updateTheme);
+    };
+  }, []);
 
   useEffect(() => {
     const onOpenQuoteDrawer = () => openQuoteDrawer();
@@ -921,24 +1046,25 @@ export default function Header({ quoteOpen, setQuoteOpen }) {
   useEffect(() => {
     const onClick = (e) => {
       const clickedInsideHeader = headerRef.current?.contains(e.target);
-      const clickedInsideMega = megaRef.current?.contains(e.target);
+      const clickedInsideMega   = megaRef.current?.contains(e.target);
       if (!clickedInsideHeader && !clickedInsideMega) setMegaOpen(false);
     };
     document.addEventListener("mousedown", onClick);
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
-  const openMega  = () => { clearTimeout(closeTimerRef.current); setMegaOpen(true); };
+  const openMega  = () => { clearTimeout(closeTimerRef.current); setMegaOpen(true);  };
   const closeMega = () => { closeTimerRef.current = setTimeout(() => setMegaOpen(false), 140); };
+
+  // Derive current theme values — force dark theme when mega is open
+  const logoTheme = megaOpen ? HEADER_THEMES.dark : (HEADER_THEMES[headerTheme] || HEADER_THEMES.dark);
 
   return (
     <>
       <div
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
+          top: 0, left: 0, right: 0,
           zIndex: 150,
           transform: headerHidden ? "translateY(calc(-100% - 40px))" : "translateY(0)",
           transition: "transform 0.95s cubic-bezier(0.33, 1, 0.28, 1)",
@@ -946,94 +1072,108 @@ export default function Header({ quoteOpen, setQuoteOpen }) {
           pointerEvents: headerHidden ? "none" : "auto",
         }}
       >
-      <header ref={headerRef} style={{
-        position: "relative",
-        width: "100%",
-        height: "56px",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "4px clamp(14px, 2.5vw, 28px) 0",
-        background: megaOpen
-          ? "rgba(10,10,9,0.96)"
-          : "linear-gradient(to bottom, rgba(10,10,9,0.55) 0%, transparent 100%)",
-        backdropFilter: megaOpen ? "blur(14px)" : "none",
-        WebkitBackdropFilter: megaOpen ? "blur(14px)" : "none",
-        borderBottom: megaOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
-        transition: "background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease",
-      }}>
-        <Link href="/" aria-label="Eyrion — Back home"
-          style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
-          <BrandLogo height="48px" />
-          <BrandWordmark />
-        </Link>
+        <header ref={headerRef} style={{
+          position: "relative",
+          width: "100%",
+          height: "56px",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "4px clamp(14px, 2.5vw, 28px) 0",
+          background: "transparent",
+          backdropFilter: "none",
+          WebkitBackdropFilter: "none",
+          borderBottom: "none",
+          transition: "none",
+        }}>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 1.5vw, 16px)" }}>
-          <nav aria-label="Primary navigation" className="header-desktop-nav" style={{
-            display: "flex", alignItems: "center",
-            gap: "clamp(6px, 1.4vw, 22px)",
-            marginTop: "16px",
-            background: "rgba(0,0,0,0.72)",
-            backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "10px", padding: "6px 10px",
-          }}>
-            {NAV_ITEMS.map((item) => (
-              <div key={item.label}
-                onMouseEnter={() => { if (item.hasMega) openMega(); setHoveredNav(item.label); }}
-                onMouseLeave={() => { if (item.hasMega) closeMega(); setHoveredNav(null); }}
-                style={{ position: "relative" }}
-              >
-                <AnimatedNavLink
-                  label={item.label}
-                  href={item.href}
-                  hasMega={item.hasMega}
-                  megaOpen={item.hasMega && megaOpen}
-                  dimmed={hoveredNav !== null && hoveredNav !== item.label}
-                  onHoverStart={setHoveredNav}
-                  onHoverEnd={() => setHoveredNav(null)}
-                />
-              </div>
-            ))}
-            <AnimatedCTAButton
-              label="GET A QUOTE"
-              href="#contact"
-              onClick={() => openQuoteDrawer()}
+          {/* ── Logo + Wordmark — colors shift with theme ── */}
+          <Link href="/" aria-label="Eyrion — Back home"
+            style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+            <BrandLogo
+              height="48px"
+              logoFilter={logoTheme.logoFilter}
+              logoOpacity={logoTheme.logoOpacity}
+              logoBlendMode={logoTheme.logoBlendMode}
             />
-          </nav>
+            <BrandWordmark
+              color={logoTheme.wordmarkColor}
+              gradient={logoTheme.wordmarkGradient}
+              opacity={logoTheme.wordmarkOpacity}
+            />
+          </Link>
 
-          <button
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-pressed={menuOpen}
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="header-burger"
-            style={{
-              display: "flex", alignItems: "center", gap: "8px",
-              background: "none", border: "none", cursor: "pointer", padding: "4px",
-            }}
-          >
-            <span style={{
-              fontSize: "0.6rem", fontWeight: 700,
-              letterSpacing: "0.14em", color: "rgba(255,255,255,0.82)",
+          <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 1.5vw, 16px)" }}>
+            <nav aria-label="Primary navigation" className="header-desktop-nav" style={{
+              display: "flex", alignItems: "center",
+              gap: "clamp(6px, 1.4vw, 22px)",
+              marginTop: "16px",
+              background: "rgba(0,0,0,0.72)",
+              backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "10px", padding: "6px 10px",
             }}>
-              {menuOpen ? "CLOSE" : "MENU"}
-            </span>
-            <BurgerIcon open={menuOpen} />
-          </button>
-        </div>
-      </header>
+              {NAV_ITEMS.map((item) => (
+                <div key={item.label}
+                  onMouseEnter={() => { if (item.hasMega) openMega(); setHoveredNav(item.label); }}
+                  onMouseLeave={() => { if (item.hasMega) closeMega(); setHoveredNav(null); }}
+                  style={{ position: "relative" }}
+                >
+                  <AnimatedNavLink
+                    label={item.label}
+                    href={item.href}
+                    hasMega={item.hasMega}
+                    megaOpen={item.hasMega && megaOpen}
+                    dimmed={hoveredNav !== null && hoveredNav !== item.label}
+                    onHoverStart={setHoveredNav}
+                    onHoverEnd={() => setHoveredNav(null)}
+                    linkColor={HEADER_CONTROLS.navLinkColor}
+                  />
+                </div>
+              ))}
+              <AnimatedCTAButton
+                label="GET A QUOTE"
+                href="#contact"
+                onClick={() => openQuoteDrawer()}
+                ctaBg={HEADER_CONTROLS.ctaBg}
+                ctaColor={HEADER_CONTROLS.ctaColor}
+                ctaBorder={HEADER_CONTROLS.ctaBorder}
+              />
+            </nav>
 
-      <div ref={megaRef}>
-        <MegaDropdown
-          visible={megaOpen}
-          onMouseEnter={openMega}
-          onMouseLeave={closeMega}
-          onQuoteClick={() => {
-            setMegaOpen(false);
-            openQuoteDrawer();
-          }}
-        />
+            {/* ── Burger — color shifts with theme ── */}
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-pressed={menuOpen}
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              className="header-burger"
+              style={{
+                display: "flex", alignItems: "center", gap: "8px",
+                background: "none", border: "none", cursor: "pointer", padding: "4px",
+              }}
+            >
+              <span style={{
+                fontSize: "0.6rem", fontWeight: 700,
+                letterSpacing: "0.14em",
+                color: HEADER_CONTROLS.burgerColor,
+                transition: "color 0.5s ease",
+              }}>
+                {menuOpen ? "CLOSE" : "MENU"}
+              </span>
+              <BurgerIcon open={menuOpen} color={HEADER_CONTROLS.burgerColor} />
+            </button>
+          </div>
+        </header>
+
+        <div ref={megaRef}>
+          <MegaDropdown
+            visible={megaOpen}
+            onMouseEnter={openMega}
+            onMouseLeave={closeMega}
+            onQuoteClick={() => { setMegaOpen(false); openQuoteDrawer(); }}
+          />
+        </div>
       </div>
-      </div>
+
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} onQuoteClick={openQuoteDrawer} />
       <QuoteDrawer open={resolvedQuoteOpen} onClose={closeQuoteDrawer} />
 
@@ -1041,9 +1181,8 @@ export default function Header({ quoteOpen, setQuoteOpen }) {
         @media (max-width: 768px) { .header-desktop-nav { display: none !important; } }
         @media (min-width: 769px) { .header-burger      { display: none !important; } }
 
-        /* ── Hide scrollbar on the quote drawer inner scroll area ── */
-        .quote-scroll-inner          { scrollbar-width: none; }
-        .quote-scroll-inner::-webkit-scrollbar { display: none; }
+        .quote-scroll-inner                     { scrollbar-width: none; }
+        .quote-scroll-inner::-webkit-scrollbar  { display: none; }
 
         input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
         input:-webkit-autofill,

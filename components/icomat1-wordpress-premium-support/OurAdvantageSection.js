@@ -95,19 +95,19 @@ function GlassQuoteButton({ onClick, label = "Get a Quote" }) {
 const FEATURES = [
   {
     title: "Dedicated project manager",
-    desc: "You’ll gain a dedicated project manager who will manage your requests, timelines and priorities. Your web projects will stay on track and get completed efficiently",
+    desc: "You’ll have a dedicated project manager overseeing your requests, timelines, and priorities—ensuring your WordPress projects stay organized and are delivered efficiently.",
   },
   {
     title: "Priority support team",
-    desc: "You won’t need to write out a lengthy support request or wait in a ticket queue. Your project manager will see your requests immediately and assign the work out to our team.",
+    desc: "No more long tickets or waiting in queues. Your requests are handled quickly, with your project manager coordinating directly with our WordPress team for fast execution.",
   },
   {
     title: "Custom workboard and workflows",
-    desc: "You’ll be directly integrated into our system so you can work one-on-one with the people doing the work. We’ll also set up a custom workboard to help manage your requests.",
+    desc: "You’ll be connected directly to our workflow system, allowing seamless collaboration with the team. We also create a custom workboard to track progress and manage your requests in real time.",
   },
   {
     title: "Reduced hourly rate",
-    desc: "As a part of the Eyrion+ system all projects or initiatives will be billed at a discounted hourly rate.",
+    desc: "As part of the Eyrion+ program, all projects and tasks are billed at a preferred, discounted hourly rate—giving you more value as you scale.",
   },
 ];
 
@@ -191,21 +191,21 @@ export default function OurAdvantageSection({
           </p>
 
           <h2 ref={headingRef} className="text-white font-bold leading-[1.0] tracking-tight" style={{ fontSize: "clamp(2.8rem, 4vw, 4rem)", maxWidth: "26ch" }}>
-            Don&apos;t spend time writing lengthy support tickets and waiting in the queue.
+            Skip the hassle of long support tickets and waiting in queues.
           </h2>
 
           <p className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]" style={{ color: "rgba(255,255,255,0.92)" }}>
-            With Eyrion+ you&apos;ll have direct access to our team, with a dedicated point of contact, 24 hour response time guaranteed, and priority support.
+            With Eyrion+, you get direct access to our team, a dedicated point of contact, guaranteed 24-hour response times, and priority WordPress support when you need it most.
           </p>
 
-          <GlassQuoteButton onClick={onQuoteClick} label="Get Eyrion+ support quote" />
+          <GlassQuoteButton onClick={onQuoteClick} label="Book a Free Consultation" />
         </div>
 
         <div className="mt-14 md:mt-0 w-full md:flex-1 flex justify-end">
           <div className="w-full max-w-[560px] flex flex-col gap-10">
             <div ref={rightColRef} className="flex flex-col gap-5">
               <p className="text-[13px] sm:text-[18px] font-semibold leading-relaxed" style={{ color: "rgba(255,255,255,0.92)" }}>
-                Fast, direct, high-priority support handled by a dedicated project manager and expert delivery team.
+                Fast, direct, priority WordPress support delivered by a dedicated project manager and expert team
               </p>
             </div>
 

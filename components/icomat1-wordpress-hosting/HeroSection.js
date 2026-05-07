@@ -18,7 +18,7 @@ export default function HeroSection() {
         alignItems: "flex-end",
         position: "relative",
         overflow: "hidden",
-        padding: "clamp(92px, 10vw, 140px) clamp(24px, 5vw, 80px) clamp(56px, 8vw, 100px)",
+        padding: "clamp(92px, 10vw, 140px) clamp(24px, 5vw, 80px) clamp(18px, 3vw, 32px)",
       }}
     >
       <video
@@ -63,7 +63,7 @@ export default function HeroSection() {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: "clamp(28px, 4vw, 44px)",
+          gap: "clamp(16px, 2.6vw, 26px)",
         }}
       >
         <div style={{ maxWidth: "900px" }}>
@@ -71,27 +71,27 @@ export default function HeroSection() {
           style={{
             margin: 0,
             color: "rgba(255,255,255,0.96)",
-            fontSize: "clamp(2.2rem, 5.2vw, 5rem)",
+            fontSize: "60px",
             lineHeight: 1.02,
             letterSpacing: "-0.03em",
             fontWeight: 600,
             maxWidth: "16ch",
           }}
         >
-          Fully managed WordPress hosting
+          Elite managed WordPress hosting
         </h1>
 
         <p
           style={{
-            margin: "20px 0 0",
+            margin: "12px 0 0",
             color: "rgba(255,255,255,0.8)",
-            fontSize: "clamp(0.98rem, 1.2vw, 1.15rem)",
+            fontSize: "18px",
             lineHeight: 1.65,
             maxWidth: "56ch",
           }}
         >
-          Ultra-fast, totally secure, fully managed WordPress hosting services.
-          Rock solid WordPress hosting means your site is always running its best.
+          Experience ultra-fast, impenetrable, and fully managed WordPress hosting environments.
+          Our rock-solid infrastructure ensures your platform maintains peak performance and remains online, every second of the day.
         </p>
         </div>
 

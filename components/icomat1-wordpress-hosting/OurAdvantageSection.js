@@ -111,28 +111,28 @@ function GlassQuoteButton({ onClick, label = "Get a Quote" }) {
 // ─── Features Data ────────────────────────────────────────────────────────────
 const FEATURES = [
   {
-    title: "Highest-level security",
-    desc: "We optimize your site architecture so it's easy for search engines to explore (or 'crawl') the content.",
+    title: "Impenetrable security & SEO optimization",
+    desc: "We harden your site architecture against threats while simultaneously optimizing it for maximum search engine crawlability and index efficiency.",
   },
   {
-    title: "Ultra-fast speeds",
-    desc: "Servers built for WordPress and a fully redundant architecture provide fast and reliable speed you can count on, with zero downtime.",
+    title: "High-velocity performance",
+    desc: "Utilizing servers engineered exclusively for WordPress and a fully redundant infrastructure, we deliver lightning-fast load times and consistent reliability with a zero-downtime guarantee.",
   },
   {
-    title: "Fully managed updates",
-    desc: "Ongoing fully managed updates ensure your site is secure, up to date, and performing at its best.",
+    title: "Comprehensive update management",
+    desc: "Our team handles every technical update with precision, ensuring your platform remains secure, compatible, and operating at peak performance levels.",
   },
   {
-    title: "Managed WordPress hosting",
-    desc: "When you host with Eyrion you have a robust and experienced team of WordPress hosting experts to back you up. Our support team is on-hand to resolve any unexpected problems or issues that might come your way.",
+    title: "Expert-backed infrastructure",
+    desc: "Hosting with Eyrion means having an elite team of technical architects standing behind your platform. Our specialists are available to preemptively resolve complexities and ensure seamless continuity.",
   },
   {
-    title: "WordPress backups, done right",
-    desc: "At Eyrion, we take WordPress backups seriously — that's why we take full nightly snapshots of your WordPress install at the file set and database level and store them with double redundancy for 90 days. Don't worry, we got you covered.",
+    title: "Redundant, fail-safe backups",
+    desc: "We treat data integrity with the highest priority, capturing full nightly snapshots at both the file and database levels. These are stored with double redundancy for 90 days, providing an absolute safety net for your digital assets.",
   },
   {
-    title: "WordPress security experts",
-    desc: "Security is vital when it comes to your hosting. The best WordPress hosting is safe, secure, and protected from unscrupulous hackers — ensuring your website is clean and reliably accessible to your customers. Our support team makes sure your site stays this way, and is on-hand to resolve any unexpected problems or issues that might come your way.",
+    title: "Advanced threat protection",
+    desc: "Superior hosting must be inherently secure. We maintain a clean, protected environment that shields your business from malicious actors, while our security experts provide ongoing monitoring to ensure your site remains reliably accessible to your clientele.",
   },
 ];
 
@@ -267,7 +267,7 @@ export default function OurAdvantageSection({
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            Fully managed WordPress hosting from Eyrion
+            Fully managed WordPress hosting by Eyrion
           </p>
 
           <h2
@@ -275,21 +275,20 @@ export default function OurAdvantageSection({
             className="text-white font-bold leading-[1.0] tracking-tight"
             style={{ fontSize: "clamp(2.8rem, 4vw, 4rem)", maxWidth: "26ch" }}
           >
-            100% Uptime guaranteed. Industry-leading infrastructure, hardware,
-            &amp; toolsets.
+            Guaranteed 100% uptime. Powered by industry-leading infrastructure, hardware, and advanced tools.
           </h2>
 
           <p
             className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]"
             style={{ color: "rgba(255,255,255,0.92)" }}
           >
-            Fully managed by our team of WordPress experts.
+            Managed end-to-end by our team of experienced WordPress experts.
           </p>
 
           {/* Use the animated GlassQuoteButton here */}
           <GlassQuoteButton
             onClick={onQuoteClick}
-            label="Get your WordPress hosting quote"
+            label="Book a Free Consultation"
           />
         </div>
 
@@ -302,8 +301,7 @@ export default function OurAdvantageSection({
                 className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
-                High-performance managed hosting with proactive support,
-                security, and ongoing maintenance from real WordPress experts.
+                Elite managed hosting with proactive architectural support
               </p>
             </div>
 

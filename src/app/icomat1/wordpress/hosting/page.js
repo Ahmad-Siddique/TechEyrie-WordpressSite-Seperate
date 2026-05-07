@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Montserrat } from "next/font/google";
 
 import Header from "../../../../../components/icomat1/Header";
 import FooterSection from "../../../../../components/icomat1/FooterSection";
@@ -14,6 +15,10 @@ import CustomersSection from "../../../../../components/icomat1-wordpress-design
 import CTASection from "../../../../../components/icomat1/CTASection";
 
 gsap.registerPlugin(ScrollTrigger);
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 export default function IcomatWordpressHostingPage() {
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -54,7 +59,7 @@ export default function IcomatWordpressHostingPage() {
   return (
     <div
       data-theme="dark"
-      className="icomat1-laygrotesk"
+      className={`icomat1-laygrotesk ${montserrat.variable}`}
       style={{ backgroundColor: "#162D24", minHeight: "100vh" }}
     >
       <style jsx global>{`
@@ -68,13 +73,14 @@ export default function IcomatWordpressHostingPage() {
         }
       `}</style>
       <Header quoteOpen={quoteOpen} setQuoteOpen={setQuoteOpen} />
-      <HeroSection onQuoteClick={() => setQuoteOpen(true)} />
-      <OurAdvantageSection />
-      <CustomersSection />
-      <FAQSection />
-      <CTASection onQuoteOpen={() => setQuoteOpen(true)} />
-    
-      <FooterSection />
+      <div className="homepage-font-scope">
+        <HeroSection onQuoteClick={() => setQuoteOpen(true)} />
+        <OurAdvantageSection />
+        <CustomersSection />
+        <FAQSection />
+        <CTASection onQuoteOpen={() => setQuoteOpen(true)} />
+        <FooterSection />
+      </div>
     </div>
   );
 }

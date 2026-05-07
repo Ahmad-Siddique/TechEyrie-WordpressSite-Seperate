@@ -61,10 +61,10 @@ export default function HeroSection() {
           zIndex: 2,
           width: "100%",
           padding:
-            "clamp(92px, 10vw, 140px) clamp(24px, 5vw, 80px) clamp(56px, 8vw, 100px)",
+            "clamp(92px, 10vw, 140px) clamp(24px, 5vw, 80px) clamp(18px, 3vw, 32px)",
           display: "flex",
           flexDirection: "column",
-          gap: "clamp(28px, 4vw, 44px)",
+          gap: "clamp(16px, 2.6vw, 26px)",
         }}
       >
         <div style={{ maxWidth: "900px" }}>
@@ -72,26 +72,28 @@ export default function HeroSection() {
             style={{
               margin: 0,
               color: "rgba(255,255,255,0.96)",
-              fontSize: "clamp(2.2rem, 5.2vw, 5rem)",
+              fontSize: "60px",
               lineHeight: 1.02,
               letterSpacing: "-0.03em",
               fontWeight: 600,
               maxWidth: "13ch",
             }}
           >
-            WordPress website development
+            WordPress&nbsp;website
+            <br />
+            development
           </h1>
 
           <p
             style={{
-              margin: "20px 0 0",
+              margin: "12px 0 0",
               color: "rgba(255,255,255,0.8)",
-              fontSize: "clamp(0.98rem, 1.2vw, 1.15rem)",
+              fontSize: "18px",
               lineHeight: 1.65,
               maxWidth: "56ch",
             }}
           >
-            Our in-house team of expert WordPress developers bring decades of experience.
+            Our in-house team of skilled WordPress developers brings years of hands-on experience to every project.
           </p>
         </div>
 

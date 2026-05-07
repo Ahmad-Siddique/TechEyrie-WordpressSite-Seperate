@@ -88,7 +88,7 @@ function GlassQuoteButton({ onClick }) {
           whiteSpace: "nowrap",
         }}
       >
-        Get a Quote
+        Book a free consultation
       </span>
       <span
         ref={cloneRef}
@@ -101,7 +101,7 @@ function GlassQuoteButton({ onClick }) {
           position: "absolute",
         }}
       >
-        Get a Quote
+        Book a free consultation
       </span>
     </button>
   );
@@ -109,20 +109,20 @@ function GlassQuoteButton({ onClick }) {
 
 const FEATURES = [
   {
-    title: "Your all in one solution",
-    desc: "Eyrion will expertly build, host and maintain your new or redesigned WordPress site.",
+    title: "Your comprehensive digital ecosystem",
+    desc: "Eyrion provides an end-to-end partnership, expertly engineering, hosting, and maintaining your custom-built or redesigned WordPress platform to ensure peak performance.",
   },
   {
-    title: "Highly experienced team",
-    desc: "With over 2,500 projects completed, the Eyrion team has a wide range of experience and expertise",
+    title: "Experienced WordPress team",
+    desc: "With a strong track record across numerous projects, our team brings deep expertise in WordPress development, design, and support.",
   },
   {
-    title: "Dedicated project manager",
-    desc: "Your dedicated project manager will walk you through the project every step of the way",
+    title: "Dedicated strategic project management",
+    desc: "Your dedicated project lead will provide expert guidance, navigating you through every phase of the lifecycle with transparency and precision.",
   },
   {
-    title: "Ongoing support",
-    desc: "Need help after your project is completed? The Eyrion support team is always ready and available to assist.",
+    title: "Continuous support",
+    desc: "Even after launch, our WordPress support team is always available to provide assistance, updates, and ongoing improvements whenever you need",
   },
 ];
 
@@ -221,7 +221,7 @@ export default function OurAdvantageSection({
             className="text-white font-bold leading-[1.0] tracking-tight"
             style={{ fontSize: "clamp(2.8rem, 4vw, 4rem)", maxWidth: "26ch" }}
           >
-            Top-notch Wordpress
+            Premium WordPress
             <br />
             website design
           </h2>
@@ -230,7 +230,7 @@ export default function OurAdvantageSection({
             className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]"
             style={{ color: "rgba(255,255,255,0.92)" }}
           >
-            We take pride in delivering top-notch WordPress design to our clients, with decades of experience. We've curated the very best project managers, web designers, web developers, and support staff to create the leading WordPress agency in the US.
+            We’re committed to delivering high-quality WordPress website design backed by years of experience. Our team brings together skilled project managers, designers, developers, and support specialists to deliver reliable, results-driven solutions as a leading WordPress agency.
           </p>
 
           <GlassQuoteButton onClick={onQuoteClick} />
@@ -271,7 +271,7 @@ export default function OurAdvantageSection({
                   className="flex flex-col gap-1.5"
                 >
                   <p
-                    className="text-[13px] sm:text-[18px] font-semibold"
+                    className="text-[13px] sm:text-[18px] font-medium"
                     style={{ color: "rgba(255,255,255,0.92)" }}
                   >
                     {f.title}

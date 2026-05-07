@@ -34,10 +34,14 @@ const YouTubeIcon = () => (
   </svg>
 );
 
-// ── Nav data (keeps previous footer structure) ─────────────────
+// Section titles — lime accent + title case (reference layout)
+const FOOTER_HEADING_COLOR = "#d4ff6a";
+const FOOTER_LINK_COLOR = "rgba(255,255,255,0.92)";
+
+// ── Nav data ──────────────────────────────────────────────────
 const NAV_MAIN = [
   {
-    label: "OUR SERVICES",
+    label: "Our services",
     href: "/#solutions",
     sub: [
       "WordPress website design",
@@ -66,12 +70,12 @@ const NAV_MAIN = [
     ],
   },
   {
-    label: "OUR WORK",
+    label: "Our work",
     href: "/work",
-    sub: ["Featured projects", "Testimonials", "Markets we serve", "Industries we serve"],
+    sub: ["Markets we serve", "Industries we serve"],
   },
   {
-    label: "ABOUT US",
+    label: "About us",
     href: "/about-us",
     sub: [
       "Why Eyrion",
@@ -87,8 +91,7 @@ const NAV_MAIN = [
 ];
 
 const NAV_LEGAL = [
-  { label: "LEGAL",          href: "/about-us", bold: true },
-  { label: "TERMS",          href: "/about-us", bold: false },
+  { label: "LEGAL", href: "/about-us", bold: true },
   { label: "PRIVACY POLICY", href: "/about-us", bold: false },
 ];
 
@@ -98,21 +101,28 @@ const SOCIALS = [
   { icon: <YouTubeIcon />,  href: "#youtube",  label: "YouTube" },
 ];
 
-/** Same order as row-major CSS grid: col0 = 0,3,6… col1 = 1,4,7… — avoids huge gaps when another cell wraps. */
-function splitSubsIntoRowMajorColumns(subs, columnCount) {
+/** Fill column 1 top→bottom, then column 2… (matches reference mega-menu columns). */
+function splitSubsIntoSequentialColumns(subs, columnCount) {
   if (columnCount <= 1) return [subs];
-  const cols = Array.from({ length: columnCount }, () => []);
-  subs.forEach((sub, i) => {
-    cols[i % columnCount].push(sub);
-  });
+  const n = subs.length;
+  const base = Math.floor(n / columnCount);
+  const rem = n % columnCount;
+  const cols = [];
+  let idx = 0;
+  for (let c = 0; c < columnCount; c++) {
+    const take = base + (c < rem ? 1 : 0);
+    cols.push(subs.slice(idx, idx + take));
+    idx += take;
+  }
   return cols;
 }
 
 const SUB_LINK_STYLE = {
-  color: "rgba(255,255,255,0.35)",
-  fontSize: "clamp(0.76rem, 0.9vw, 0.88rem)",
-  fontWeight: 500,
-  letterSpacing: "0.1em",
+  color: FOOTER_LINK_COLOR,
+  fontSize: "clamp(0.7rem, 0.82vw, 0.8rem)",
+  fontWeight: 400,
+  letterSpacing: "0.02em",
+  lineHeight: 1.35,
   textDecoration: "none",
   transition: "color 0.2s",
 };
@@ -123,8 +133,8 @@ function FooterServicesSubLink({ sub }) {
       href={`#${sub.toLowerCase().replace(/\s/g, "-")}`}
       className="block min-w-0 max-w-full whitespace-normal break-words [overflow-wrap:anywhere]"
       style={SUB_LINK_STYLE}
-      onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
-      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}
+      onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+      onMouseLeave={(e) => (e.currentTarget.style.color = FOOTER_LINK_COLOR)}
     >
       {sub}
     </a>
@@ -152,17 +162,17 @@ function FooterServicesLinks({ subs }) {
   }, []);
 
   const columns = useMemo(
-    () => splitSubsIntoRowMajorColumns(subs, columnCount),
+    () => splitSubsIntoSequentialColumns(subs, columnCount),
     [subs, columnCount]
   );
 
   return (
     <div
       ref={wrapRef}
-      className="flex w-full min-w-0 items-start gap-x-[clamp(10px,1.8vw,24px)]"
+      className="flex w-full min-w-0 items-start gap-x-[clamp(14px,2vw,28px)]"
     >
       {columns.map((chunk, i) => (
-        <div key={i} className="flex min-w-0 flex-1 flex-col gap-1.5">
+        <div key={i} className="flex min-w-0 flex-1 flex-col gap-[0.35rem]">
           {chunk.map((sub) => (
             <FooterServicesSubLink key={sub} sub={sub} />
           ))}
@@ -304,7 +314,7 @@ export default function FooterSection() {
         minHeight: "720px",
         background: "#162D24",
         overflow: "hidden",
-        padding: "clamp(20px, 2.5vw, 28px) clamp(28px, 5vw, 72px) 36px",
+        padding: "clamp(16px, 2.5vw, 28px) clamp(16px, 5vw, 72px) 36px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -346,6 +356,7 @@ export default function FooterSection() {
             display: "flex",
             alignItems: "flex-start",
             justifyContent: "space-between",
+            flexWrap: "wrap",
             gap: "20px",
             marginBottom: "22px",
           }}
@@ -362,7 +373,7 @@ export default function FooterSection() {
               display: "block",
               fontFamily: "'Arial Black', 'Arial', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(3.5rem, 9vw, 9rem)",
+              fontSize: "clamp(2.1rem, 11vw, 9rem)",
               letterSpacing: "-0.02em",
               color: "rgba(210,215,220,0.9)",
               lineHeight: 1,
@@ -375,53 +386,54 @@ export default function FooterSection() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: "20px", width: "100%", marginTop: "48px" }}>
-            <nav aria-label="Footer navigation" className="w-full min-w-0 overflow-x-auto">
+            <nav aria-label="Footer navigation" className="w-full min-w-0">
               <div
-                className="footer-nav-row grid w-full items-start gap-x-[clamp(20px,3vw,56px)]"
+                className="footer-nav-row grid w-full min-w-0 items-start text-left grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)_minmax(0,1fr)]"
                 style={{
                   width: "100%",
-                  minWidth: "680px",
-                  gridTemplateColumns: "minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 1fr)",
+                  columnGap: "clamp(16px, 2.5vw, 40px)",
                 }}
               >
                 {NAV_MAIN.map((item) => (
-                  <div key={item.label} className="flex min-w-0 max-w-full flex-col gap-[6px]">
+                  <div
+                    key={item.label}
+                    className={`flex min-w-0 max-w-full flex-col items-stretch ${
+                      item.label === "Our services" ? "sm:col-span-2 lg:col-span-1" : ""
+                    }`}
+                    style={{ gap: "10px" }}
+                  >
                     <a
                       href={item.href}
                       className="block whitespace-normal break-words"
                       style={{
-                        color: "rgba(255,255,255,0.82)",
-                        fontSize: "clamp(0.6rem, 0.72vw, 0.7rem)",
-                        fontWeight: 700,
-                        letterSpacing: "0.12em",
+                        color: FOOTER_HEADING_COLOR,
+                        fontSize: "clamp(0.62rem, 0.72vw, 0.72rem)",
+                        fontWeight: 600,
+                        letterSpacing: "0.05em",
                         textDecoration: "none",
-                        transition: "color 0.2s",
+                        transition: "opacity 0.2s",
+                        lineHeight: 1.2,
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.color = "#fff"}
-                      onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.82)"}
+                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+                      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                     >
                       {item.label}
                     </a>
                     {item.sub &&
-                      (item.label === "OUR SERVICES" ? (
+                      (item.label === "Our services" ? (
                         <FooterServicesLinks subs={item.sub} />
                       ) : (
-                        <div className="flex min-w-0 max-w-full flex-col gap-2">
+                        <div className="flex min-w-0 max-w-full flex-col" style={{ gap: "0.35rem" }}>
                           {item.sub.map((sub) => (
                             <a
                               key={sub}
                               href={`#${sub.toLowerCase().replace(/\s/g, "-")}`}
                               className="block min-w-0 max-w-full whitespace-normal break-words [overflow-wrap:anywhere]"
                               style={{
-                                color: "rgba(255,255,255,0.35)",
-                                fontSize: "clamp(0.76rem, 0.9vw, 0.88rem)",
-                                fontWeight: 500,
-                                letterSpacing: "0.1em",
-                                textDecoration: "none",
-                                transition: "color 0.2s",
+                                ...SUB_LINK_STYLE,
                               }}
-                              onMouseEnter={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.7)"}
-                              onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.35)"}
+                              onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+                              onMouseLeave={(e) => (e.currentTarget.style.color = FOOTER_LINK_COLOR)}
                             >
                               {sub}
                             </a>
@@ -445,13 +457,7 @@ export default function FooterSection() {
         }} />
 
         <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "16px",
-          }}
+          className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <div>
@@ -477,7 +483,7 @@ export default function FooterSection() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px", alignSelf: "flex-end" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px", alignSelf: "flex-start" }}>
             {NAV_LEGAL.map((item) => (
               <a
                 key={item.label}

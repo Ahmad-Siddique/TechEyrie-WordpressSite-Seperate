@@ -88,7 +88,7 @@ function GlassQuoteButton({ onClick }) {
           whiteSpace: "nowrap",
         }}
       >
-        Get a Quote
+        Book a Free Consultation
       </span>
       <span
         ref={cloneRef}
@@ -101,7 +101,7 @@ function GlassQuoteButton({ onClick }) {
           position: "absolute",
         }}
       >
-        Get a Quote
+        Book a Free Consultation
       </span>
     </button>
   );
@@ -110,19 +110,19 @@ function GlassQuoteButton({ onClick }) {
 const FEATURES = [
   {
     title: "WordPress plugin & theme updates",
-    desc: "As part of our WordPress website maintenance services, we perform routine development updates for theme files, plugins, and extensions. Our WordPress maintenance and support experts ensure your site remains fully up-to-date, functional, secure, and reliable at all times.",
+    desc: "As part of our WordPress maintenance services, we regularly update themes, plugins, and core components to keep your website running smoothly. Our WordPress support team ensures everything stays current, functional, and secure at all times.",
   },
   {
     title: "Malware cleanup & removal",
-    desc: "Malware incidents can occur unexpectedly. Eyrion’s professional WordPress maintenance services include quick malware repair and cleanup performed by expert developers. As your trusted WordPress service provider, we swiftly restore your website, minimizing downtime for your business or agency.",
+    desc: "Security issues can happen without warning. Our WordPress experts respond quickly with thorough malware removal and cleanup, restoring your website efficiently while minimizing disruption to your business.",
   },
   {
     title: "Backup, security, & vulnerability protection",
-    desc: "Our premium WordPress maintenance plans provide round-the-clock security protection, regular vulnerability assessments, and comprehensive backups. Trust the best website maintenance services in the USA to safeguard your company’s data and your customers’ information.",
+    desc: "Our advanced WordPress maintenance plans include continuous security monitoring, routine vulnerability checks, and reliable backups. We help protect your data and ensure your website remains safe and accessible.",
   },
   {
-    title: "Managed by real people, not machines",
-    desc: "Our WordPress management services are delivered by real professional human developers and designers, not just automated tools. Eyrion’s team of experts offers ongoing, comprehensive WordPress maintenance support, delivering a personalized touch unmatched by standard agencies or companies.",
+    title: "Managed by real experts, not just automation",
+    desc: "Our WordPress management services are handled by experienced developers and designers - not just automated systems. You get dedicated, hands-on support from a team that understands your website and provides tailored solutions.",
   },
 ];
 
@@ -220,7 +220,7 @@ export default function OurAdvantageSection({
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            How we tackle your website maintenance
+            How we manage your WordPress maintenance
           </p>
 
           <h2
@@ -228,17 +228,14 @@ export default function OurAdvantageSection({
             className="text-white font-bold leading-[1.0] tracking-tight"
             style={{ fontSize: "clamp(2.8rem, 4vw, 4rem)", maxWidth: "26ch" }}
           >
-            Our WordPress maintenance team will keep your site secure,
-            up-to-date, and running at its very best.
+            Our elite WordPress maintenance team ensures your platform remains impenetrable, optimized, and performing at its absolute peak.
           </h2>
 
           <p
             className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]"
             style={{ color: "rgba(255,255,255,0.92)" }}
           >
-            Choose Eyrion’s professional WordPress website maintenance packages
-            to maximize your website’s performance, security, and ongoing
-            reliability.
+            Choose Eyrion's professional WordPress maintenance plans to enhance performance, strengthen security, and maintain long-term reliability for your website.
           </p>
 
           <button
@@ -258,7 +255,7 @@ export default function OurAdvantageSection({
               cursor: "pointer",
             }}
           >
-            Get your WordPress maintenance plan quote
+            Book a Free Consultation
           </button>
         </div>
 
@@ -271,8 +268,7 @@ export default function OurAdvantageSection({
                 className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
-                WordPress maintenance that keeps your website secure, updated,
-                reliable, and high-performing.
+                WordPress maintenance engineered for security, reliability, and peak performance
               </p>
             </div>
 

@@ -88,7 +88,7 @@ function GlassQuoteButton({ onClick }) {
           whiteSpace: "nowrap",
         }}
       >
-        Get a Quote
+        Book a Free Consultation
       </span>
       <span
         ref={cloneRef}
@@ -101,7 +101,7 @@ function GlassQuoteButton({ onClick }) {
           position: "absolute",
         }}
       >
-        Get a Quote
+        Book a Free Consultation
       </span>
     </button>
   );
@@ -109,20 +109,20 @@ function GlassQuoteButton({ onClick }) {
 
 const FEATURES = [
   {
-    title: "Custom WordPress development",
-    desc: "Custom design, solid security, and plenty of bandwidth -- Eyrion provides it all. Whether you're migrating to WordPress, starting from scratch, or looking for something unique, our development studio is here to help.",
+    title: "Bespoke WordPress engineering",
+    desc: "Custom architectural design, impenetrable security, and limitless scalability-Eyrion delivers a complete technical foundation. Whether you are migrating a legacy system, launching a new flagship site, or engineering a unique digital product, our studio provides the high-level execution required for success.",
   },
   {
-    title: "Unparalleled user experience",
-    desc: "We develop your WordPress site with your customers in mind. By optimizing your site for security, speed, and performance we can help provide the best possible user experience that your customers have come to expect.",
+    title: "Exceptional user experience",
+    desc: "We build every WordPress website with your users in mind. By focusing on speed, security, and performance, we create seamless experiences that meet modern user expectations and keep visitors engaged.",
   },
   {
-    title: "Dedicated project manager",
-    desc: "Your dedicated project manager will walk you through the project every step of the way",
+    title: "Dedicated strategic project management",
+    desc: "Your dedicated project lead serves as your primary point of contact, providing expert oversight and ensuring every technical milestone is met with precision and transparency.",
   },
   {
     title: "Ongoing support",
-    desc: "We provide professional support, tailored to you -- before, during, and after our project has completed. Whatever the issue, we're here to support you.",
+    desc: "Our WordPress support doesn't stop at launch. We provide reliable, ongoing assistance before, during, and after your project-helping you maintain and improve your website whenever needed.",
   },
 ];
 
@@ -220,7 +220,7 @@ export default function OurAdvantageSection({
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            Why work with Eyrion?
+            Why partner with Eyrion?
           </p>
 
           <h2
@@ -228,18 +228,16 @@ export default function OurAdvantageSection({
             className="text-white font-bold leading-[1.0] tracking-tight"
             style={{ fontSize: "clamp(2.8rem, 4vw, 4rem)", maxWidth: "26ch" }}
           >
-            Your dedicated  team of
+            Your dedicated team of
             <br />
-            WordPress   developers
-          
-          
+            WordPress developers
           </h2>
 
           <p
             className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]"
             style={{ color: "rgba(255,255,255,0.92)" }}
           >
-            Building a professional and fully functional WordPress website with all the features customers expect takes time, effort, and a degree of technical knowledge and expertise. Our WordPress development team is here to help!
+            Building a professional, fully functional WordPress website requires the right mix of strategy, time, and technical expertise. Our experienced WordPress development team is here to handle the complexities and deliver a solution that meets your business needs.
           </p>
 
           <GlassQuoteButton onClick={onQuoteClick} />
@@ -254,7 +252,7 @@ export default function OurAdvantageSection({
                 className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.92)" }}
               >
-                WordPress development services built for performance and growth.
+                WordPress development services engineered for performance and growth
               </p>
             </div>
 

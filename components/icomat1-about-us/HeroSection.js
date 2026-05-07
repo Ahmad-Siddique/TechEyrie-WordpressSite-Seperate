@@ -67,16 +67,17 @@ function HeroQuoteButton({ onClick }) {
       ref={wrapRef}
       type="button"
       onClick={onClick}
-      className="mt-6 inline-flex items-center justify-center rounded-[38px] px-14 py-9 text-[14px] sm:text-[15px] tracking-[0.09em] font-semibold uppercase"
+      className="mt-6 inline-flex items-center justify-center text-[14px] sm:text-[15px] tracking-[0.09em] font-semibold uppercase"
       style={{
         position: "relative",
         overflow: "hidden",
+        padding: "15px 60px",
+        borderRadius: "12px",
         background: "rgba(255,255,255,0.12)",
         border: "1px solid rgba(255,255,255,0.34)",
         backdropFilter: "blur(10px)",
         WebkitBackdropFilter: "blur(10px)",
-        boxShadow:
-          "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px rgba(0,0,0,0.3)",
+        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px rgba(0,0,0,0.3)",
         cursor: "pointer",
       }}
     >
@@ -89,7 +90,7 @@ function HeroQuoteButton({ onClick }) {
           whiteSpace: "nowrap",
         }}
       >
-        Get a Quote
+        Book a Free Consultation
       </span>
       <span
         ref={cloneRef}
@@ -102,7 +103,7 @@ function HeroQuoteButton({ onClick }) {
           position: "absolute",
         }}
       >
-        Get a Quote
+        Book a Free Consultation
       </span>
     </button>
   );
@@ -247,16 +248,17 @@ export default function HeroSection({ onQuoteClick }) {
         }}
       />
 
-      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pt-84 pb-16 md:pb-20">
+      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pb-6 md:pb-8">
         <div className="flex-1" />
 
         <div>
           <h1
             ref={headingRef}
-            className="text-white font-extrabold tracking-tight leading-[0.95]"
+            className="text-white tracking-tight leading-[0.95]"
             style={{
               fontSize: "clamp(2rem, 4.5vw, 4rem)",
               fontWeight: 600,
+              fontFamily: "Inter, Arial, sans-serif",
             }}
           >
             Why Eyrion

@@ -10,15 +10,15 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 const FEATURES = [
   {
     title: "Crawlability",
-    desc: "We optimize your site architecture so it's easy for search engines to explore (or \"crawl\") the content. As a reliable SEO company, we ensure our SEO solutions are integrated seamlessly from the ground up.",
+    desc: "We structure your WordPress website so search engines can easily discover and index your content. As a trusted WordPress SEO agency, we build SEO best practices into your site architecture from the very beginning.",
   },
   {
-    title: "Mobility",
-    desc: "Our websites are 100% mobile friendly. Search engines not only notice that - they expect it. Your users will appreciate the improved user interface and experience too!",
+    title: "Mobile optimization",
+    desc: "All our WordPress websites are fully responsive and optimized for mobile devices. Search engines prioritize mobile-friendly experiences, and your users benefit from a smoother, more engaging interface.",
   },
   {
-    title: "Speed",
-    desc: "No surprise here. Faster sites = higher rankings. Our sites are designed to be quick and responsive. We ensure speed optimization and loading times are part of the improvement strategy.",
+    title: "Speed and performance",
+    desc: "Website speed plays a key role in rankings. We develop fast, responsive WordPress websites with optimized loading times to improve both search visibility and user experience.",
   },
 ];
 
@@ -96,15 +96,18 @@ export default function OurAdvantageSection() {
           style={{ flex: "0 0 45%", position: "sticky", top: "8rem", alignSelf: "flex-start" }}
         >
           <p ref={labelRef} className="text-[13px] sm:text-[14px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.45)" }}>
-            Foundation first: SEO basics
+            Foundation first: SEO essentials
           </p>
 
           <h2 ref={headingRef} className="text-white font-bold leading-[1.0] tracking-tight" style={{ fontSize: "clamp(2.8rem, 4vw, 4rem)", maxWidth: "26ch" }}>
-            Foundation first: SEO basics
+            Foundation first: SEO Basics
           </h2>
 
           <p className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[700px]" style={{ color: "rgba(255,255,255,0.92)" }}>
-            These elements are foundational, as all other SEO tasks depend on them. As a professional WordPress SEO services provider, we build SEO into the DNA of ALL our websites. Here's what that means:
+            SEO starts with a strong foundation. Every successful strategy depends on
+            getting the basics right from the beginning. As a professional WordPress
+            SEO agency, we embed SEO into the core of every website we build.
+            Here's how we make that happen:
           </p>
         </div>
 
@@ -112,7 +115,7 @@ export default function OurAdvantageSection() {
           <div className="w-full max-w-[560px] flex flex-col gap-10">
             <div ref={rightColRef} className="flex flex-col gap-5">
               <p className="text-[13px] sm:text-[18px] font-semibold leading-relaxed" style={{ color: "rgba(255,255,255,0.92)" }}>
-                Strong technical SEO fundamentals create the base for rankings, visibility, and sustained long-term growth.
+                Strong technical SEO foundations drive rankings, visibility, and long-term growth
               </p>
             </div>
 

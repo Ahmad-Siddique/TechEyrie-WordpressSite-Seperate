@@ -38,9 +38,9 @@ export const metadata = {
     images: ["/logo/Eyrion_real_logo.png"],
   },
   icons: {
-    icon: "/logo/Eyrion_real_logo.png?v=2",
-    shortcut: "/logo/Eyrion_real_logo.png?v=2",
-    apple: "/logo/Eyrion_real_logo.png?v=2",
+    icon: [{ url: "/logo/Eyrion_real_logo.png?v=3", type: "image/png", sizes: "32x32" }],
+    shortcut: "/logo/Eyrion_real_logo.png?v=3",
+    apple: "/logo/Eyrion_real_logo.png?v=3",
   },
   generator: "WordPress 6.7.2",
 };
@@ -49,8 +49,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo/Eyrion_real_logo.png?v=2" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo/Eyrion_real_logo.png?v=2" />
+        <link rel="icon" href="/logo/Eyrion_real_logo.png?v=3" type="image/png" sizes="32x32" />
+        <link rel="shortcut icon" href="/logo/Eyrion_real_logo.png?v=3" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo/Eyrion_real_logo.png?v=3" />
         <link rel="https://api.w.org/" href="/wp-json/" />
         <link
           rel="stylesheet"

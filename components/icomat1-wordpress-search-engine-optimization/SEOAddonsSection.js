@@ -265,11 +265,11 @@ export default function SEOAddonsSection() {
               color: "rgba(255,255,255,0.86)",
             }}
           >
-            We&apos;re happy to mold our WordPress &amp; WooCommerce SEO company and digital
-            marketing efforts into a package that fits your business needs now, and
-            well into the future. Whether you&apos;re looking for WordPress SEO monthly
-            packages or full-service support from a search engine optimization firm,
-            we&apos;ve got you covered.
+            We tailor our WordPress and WooCommerce SEO services to match your current
+            goals and support your long-term growth. Whether you need flexible monthly
+            WordPress SEO packages or a complete, full-service solution from an
+            experienced SEO agency, we&apos;re here to support your success every step
+            of the way.
           </p>
         </div>
       </div>

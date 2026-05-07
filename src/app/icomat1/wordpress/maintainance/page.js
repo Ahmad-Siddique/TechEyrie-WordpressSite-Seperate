@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Montserrat } from "next/font/google";
 
 import Header from "../../../../../components/icomat1/Header";
 import FooterSection from "../../../../../components/icomat1/FooterSection";
@@ -18,6 +19,10 @@ import FAQSection from "../../../../../components/icomat1-wordpress-maintainance
 import IcomatSolutionSection from "../../../../../components/icomat1/IcomatSolutionsSection";
 
 gsap.registerPlugin(ScrollTrigger);
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 export default function IcomatWordpressMaintainancePage() {
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -58,7 +63,7 @@ export default function IcomatWordpressMaintainancePage() {
   return (
     <div
       data-theme="dark"
-      className="icomat1-laygrotesk"
+      className={`icomat1-laygrotesk ${montserrat.variable}`}
       style={{ backgroundColor: "#162D24", minHeight: "100vh" }}
     >
       <style jsx global>{`
@@ -72,17 +77,18 @@ export default function IcomatWordpressMaintainancePage() {
         }
       `}</style>
       <Header quoteOpen={quoteOpen} setQuoteOpen={setQuoteOpen} />
-      <HeroSection onQuoteClick={() => setQuoteOpen(true)} />
-      <OurAdvantageSection onQuoteClick={() => setQuoteOpen(true)} />
-      <EndToEndSection />
-      <BenefitsSection />
-    
-      <CustomersSection />
-      <UnlockingSection />
-      <FAQSection />
-      <IcomatSolutionSection />
-      <CTASection />
-      <FooterSection />
+      <div className="homepage-font-scope">
+        <HeroSection onQuoteClick={() => setQuoteOpen(true)} />
+        <OurAdvantageSection onQuoteClick={() => setQuoteOpen(true)} />
+        <EndToEndSection />
+        <BenefitsSection />
+        <CustomersSection />
+        <UnlockingSection />
+        <FAQSection />
+        <IcomatSolutionSection />
+        <CTASection />
+        <FooterSection />
+      </div>
     </div>
   );
 }

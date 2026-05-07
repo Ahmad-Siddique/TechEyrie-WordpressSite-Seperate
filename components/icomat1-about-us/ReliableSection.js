@@ -162,8 +162,8 @@ function LogoCard({ logo, index }) {
 // ── Main Section ──────────────────────────────────────────────
 export default function ReliableSection({
   heading       = "Reliable by design.",
-  primaryText   = "They choose Eyrion because we deliver what was previously considered impossible: steered fiber, defect-free composite structures, produced at industrial speed and with certainty.",
-  secondaryText = "We work with engineers operating where performance, reliability, and scale are non-negotiable.",
+  primaryText   = "Clients choose Eyrion because we turn complex challenges into dependable, real-world solutions. What once seemed difficult or out of reach is delivered with precision, consistency, and efficiency.",
+  secondaryText = "We work with businesses that demand high performance, reliability, and scalability - where results matter and there's no room for compromise.",
   logos         = LOGOS,
 }) {
   const headingRef   = useRef(null);

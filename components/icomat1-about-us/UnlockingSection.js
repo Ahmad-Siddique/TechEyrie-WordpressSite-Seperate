@@ -46,26 +46,26 @@ const IconCog = () => (
 const CARDS = [
   {
     id: "us-team",
-    title: "US based team",
-    desc: "Headquartered in the US, we've cultivated and grown a world-class team of WordPress experts",
+    title: "Doha-based leadership, global reach",
+    desc: "Headquartered in Qatar, we have curated and scaled an elite team of WordPress experts dedicated to international standards of excellence.",
     icon: <IconWaves />,
   },
   {
     id: "all-in-one",
     title: "Your all in one solution",
-    desc: "Eyrion will expertly build, host, and maintain your new or redesigned WordPress site.",
+    desc: "Eyrion handles everything-from building your custom WordPress website to hosting and ongoing maintenance-ensuring your site runs smoothly at every stage.",
     icon: <IconLayers />,
   },
   {
     id: "experienced",
-    title: "Highly experienced team",
-    desc: "With over 2,500 projects completed, the Eyrion team has a wide range of experience and expertise",
+    title: "Decades of collective mastery",
+    desc: "With a portfolio of over 750 successfully deployed projects, the Eyrion team brings an unparalleled depth of technical experience and cross-industry expertise to every engagement.",
     icon: <IconTarget />,
   },
   {
     id: "service",
     title: "Service over everything",
-    desc: "The Eyrion team is committed to serving our clients and going the extra mile, every time.",
+    desc: "The Eyrion team is dedicated to client success, consistently exceeding expectations and going the extra mile to ensure every project surpasses its goals.",
     icon: <IconBolt />,
   },
 ];
@@ -212,6 +212,8 @@ function FeatureCard({ card, animRef }) {
         minHeight: "280px",
         cursor: "pointer",
         willChange: "background-color",
+        userSelect: "none",
+        WebkitUserSelect: "none",
       }}
     >
       <div className="card-icon" style={{ color: "rgba(0,0,0,0.55)" }}>
