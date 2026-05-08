@@ -9,33 +9,23 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Reliable, up-to-date WordPress backups",
-    body: "We perform database WordPress backups hourly to ensure that you never lose any of your hard work. File system backups are performed daily, for even greater security.",
+    title: "Freedom",
+    body: "As a free and open-source platform, WordPress gives you total control over your site. You own your content, and there are no restrictions. Other website building solutions may not offer the same degree of freedom and control. If your site is powered by software that is developed and maintained by your hosting company, then you risk losing all of your work if something goes wrong on their end. Thus, the sooner you convert to WordPress the better, since you own the entire site (not just the content).",
   },
   {
     number: "2",
-    title: "A schedule to suit you",
-    body: "We understand that you're busy! Simply tell us when you want to back up your site, and our team of experts will handle the rest.",
+    title: "Flexibility",
+    body: "With a WordPress site, you have the ability to back up your content to your computer or a more secure location. You can also easily migrate your WordPress site from one hosting company to another. By doing a WordPress conversion, you'll have access to a broad database of free plugins that can amplify your site's functionality. These include page builders, contact forms, email marketing software, social media tools, and much more. You can even add custom code to your site if you like - something that other platforms don't let you easily do.",
   },
   {
     number: "3",
-    title: "A consistent user experience",
-    body: "Our WordPress backups run quietly in the background and are guaranteed not to negatively impact your site's performance. Your customers won't have a clue that a backup is taking place!",
+    title: "Cost",
+    body: "Running a WordPress site is very cost effective. You can download the platform for free, and build a basic yet functional site without breaking the bank. Switching to WordPress will also save you a lot of money in the long run. You're not restricted to a fixed monthly or annual fee, as is normally the case with other website builders. After converting your site to WordPress you will need to pay a fee for WordPress hosting. However, down the road, you could switch to a cheaper solution if your current one becomes unaffordable - though weighing the benefits of your provider should be considered before choosing the cheapest option.",
   },
   {
     number: "4",
-    title: "Off-site and offline WordPress backups",
-    body: "We've hand-picked all of our backup sources to provide the highest level of reliability and availability. However, at Freshy we're always prepared for the edge cases and worst-case scenarios. That's why we create multiple WordPress backups of your site across multiple sources. This includes Amazon S3 Cloud and a physical hard drive. In the extremely unlikely event that one backup source is unavailable, we can restore your site from a second source (or a third, or a fourth...).",
-  },
-  {
-    number: "5",
-    title: "Lightning-fast site recovery",
-    body: "Our specialist support team is always on hand to restore your website. Just give us a date and a time, and we'll roll back the clock for you.",
-  },
-  {
-    number: "6",
-    title: "Ultimate peace of mind",
-    body: "Do you need us to make some changes to your site? Our experienced support team understands the importance of regular WordPress backups. That's why they always take the time to create a complete, up-to-the-minute backup, before commencing any work on your website. Don't sweat it. We've got your back(up).",
+    title: "Unlimited options and features",
+    body: "The sky's the limit once you've become a WordPress convert. There are thousands of themes and templates available, many of which are free. You can also customize these themes to your needs, or use page builders to design your content from scratch. There's also a wealth of tools you can use to enhance your site. Whatever feature you might want, there's likely a plugin that fits your needs. Since WordPress is an open-source platform, there's a large pool of WordPress developers who are constantly creating new tools for site owners.",
   },
 ];
 
@@ -203,7 +193,7 @@ export default function BenefitsSection() {
               opacity: 0,
             }}
           >
-            Your professional WordPress backup solution
+            Reasons to convert to WordPress
           </h2>
           <p
             style={{
@@ -214,8 +204,8 @@ export default function BenefitsSection() {
               maxWidth: "46ch",
             }}
           >
-            When you partner with Freshy, we promise to be at your side every
-            step of the way with reliable service.
+            Let's take a closer look at why you might want to convert a static
+            site to WordPress.
           </p>
           <p
             style={{
@@ -226,14 +216,11 @@ export default function BenefitsSection() {
               maxWidth: "52ch",
             }}
           >
-            This includes initial research and development, right through to
-            helping you win the Search Engine Optimization (SEO) game - as well
-            as creating regular WordPress backups. Losing content is something
-            no website owner wants to think about. With Freshy in your corner,
-            this worry will become a thing of the past. Our team of WordPress
-            backup experts can manage the entire backup process for you. This
-            leaves you more time to focus on what really matters - running a
-            world-class website!
+            While there's no "convert" button to facilitate the switch to
+            WordPress, our expert team of web developers can make the process
+            easy. In fact, you won't have to know how to convert a website to
+            WordPress - we'll handle the entire procedure of converting your
+            existing website to WordPress - from start to finish.
           </p>
         </div>
 

@@ -10,23 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Data loss can happen fast",
-    body: "You might lose your data due to a malicious third party that manages to gain access to your WordPress dashboard and wreaks havoc. Alternatively, the issue might be something as simple as human error, such as a client or coworker pressing the wrong button in your site's backend.",
+    title: "How it works",
+    body: "At Freshy, during the website conversion to WordPress, we'll work with you to redesign your old site and make it ready for the WordPress world. We'll do our best to re-create your pages to the smallest detail. We'll also be happy to revamp your pages in order to make them more professional and functional. Just tell us what your WordPress goals are, and we'll make sure you get there.",
   },
   {
     number: "2",
-    title: "Sometimes the issue is internal",
-    body: "Sometimes, the problem may even be a misjudged design or development decision. You might spend hours overhauling your site, only to realize that it looked and functioned better before (we've all been there!)",
-  },
-  {
-    number: "3",
-    title: "Recover quickly and move forward",
-    body: "You've already wasted enough time, without having to undo every single change manually. Restoring from our backup can save you a lot of effort, and help you move on from this misstep as quickly as possible.",
-  },
-  {
-    number: "4",
-    title: "Backups should not stay on the to-do list",
-    body: "As a website owner, we understand that you have a mile long To Do list. It's easy to keep pushing WordPress backups to the bottom of that list. However, every minute that you delay is another minute you risk losing your website.",
+    title: "A little more about us",
+    body: "We are a creative team of web designers and developers dedicated to creating beautiful and responsive websites for our clients. We make it our mission to deliver products and services that perfectly meet your needs and expectations as a business owner. Over the years, we've designed websites for a variety of industries and purposes. We've also converted many existing static and HTML websites for clients who wanted to make the move to WordPress. However, that's not all we do!",
   },
 ];
 
@@ -174,8 +164,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Why should I back up my website with a WordPress backup service from
-          Freshy?
+          Converting websites to WordPress with Freshy
         </h2>
         <p
           style={{
@@ -186,10 +175,22 @@ export default function SEOResultsSection() {
             lineHeight: 1.75,
           }}
         >
-          There's an assumption that when something's on the internet, it's
-          there forever. However, that's not necessarily true. If you don't
-          back up your WordPress site, you risk losing 100 percent of your
-          content, with no chance of recovery.
+          We'll be honest with you: converting an existing site to WordPress is
+          no easy task.
+        </p>
+        <p
+          style={{
+            margin: "14px auto 0",
+            maxWidth: "920px",
+            color: "rgba(255,255,255,0.76)",
+            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
+            lineHeight: 1.75,
+          }}
+        >
+          While it's possible to transfer some content (such as posts and
+          images) by using a dedicated plugin, there are some aspects of your
+          site that are not so easily moved over. This includes the design of
+          your pages.
         </p>
       </div>
 
@@ -207,29 +208,6 @@ export default function SEOResultsSection() {
         {ITEMS.map((item, i) => (
           <SEOCard key={item.number} item={item} index={i} />
         ))}
-      </div>
-
-      <div
-        style={{
-          maxWidth: "1120px",
-          margin: "clamp(52px, 6vw, 84px) auto 0",
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            color: "rgba(255,255,255,0.78)",
-            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
-            lineHeight: 1.78,
-          }}
-        >
-          Contact Freshy today, and you'll never have to start completely from
-          scratch. Just let us know how often we should back up your site, and
-          we'll sit in the background, silently creating WordPress backups to
-          suit your schedule. With our WordPress backup solutions, we'll
-          properly backup WordPress, and you'll get complete peace of mind, with
-          zero effort.
-        </p>
       </div>
 
       {/* ── Responsive styles ── */}

@@ -109,12 +109,12 @@ function GlassQuoteButton({ onClick }) {
 
 const FEATURES = [
   {
-    title: "The database",
-    desc: "This is where all of your settings, pages, posts, and comments are stored.",
+    title: "Removes restrictions",
+    desc: "Some first-time site owners opt for all-in-one solutions like Wix or Squarespace, which enable users to build and host their websites on the same platform. However, these solutions are restrictive when it comes to site customization and scalability.",
   },
   {
-    title: "The files",
-    desc: "These contain all of the media, attachments, themes, and plugins that can really give your site a wow factor.",
+    title: "More features, customizations, and settings",
+    desc: "WordPress, on the other hand, enables you to build any type of site and customize it however you like. Once you convert to WordPress, you can take advantage of all its features and benefits. You'll become a WordPress convert and not want to go back to any other platform.",
   },
 ];
 
@@ -212,7 +212,7 @@ export default function OurAdvantageSection({
             className="text-[13px] sm:text-[14px] font-medium tracking-wide"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
-            WordPress backup fundamentals
+            WordPress conversion strategy
           </p>
 
           <h2
@@ -220,14 +220,17 @@ export default function OurAdvantageSection({
             className="text-white font-bold leading-[1.0] tracking-tight"
             style={{ fontSize: "54px", maxWidth: "26ch" }}
           >
-            The 101 on a WordPress backup service
+            Why convert to WordPress?
           </h2>
 
           <p
             className="text-[13px] sm:text-[18px] font-normal leading-relaxed max-w-[520px]"
             style={{ color: "rgba(255,255,255,0.92)" }}
           >
-            Backing up WordPress consists of two parts:
+            WordPress is the most popular Content Management System (CMS)
+            available, powering the majority of websites across the world. The
+            platform is free and very beginner-friendly. However, you'll need
+            to pay for a hosting service and domain name registration.
           </p>
 
           <button
@@ -255,14 +258,7 @@ export default function OurAdvantageSection({
 
         <div className="mt-14 md:mt-0 flex justify-end">
           <div className="w-full max-w-[500px] flex flex-col gap-10">
-            <div ref={rightColRef} className="flex flex-col gap-5">
-              <p
-                className="text-[13px] sm:text-[18px] font-semibold leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.92)" }}
-              >
-                Not all tools that perform WordPress backup solutions preserve every element on your site, so it's important to choose your method carefully. With the right solution in place, you'll have easy access to an almost up-to-the-minute record of your entire website with a WordPress full backup. You can rest assured that regardless of what fate (and the internet) throws your way, you'll always be able to restore your site with a single click. What website owner wouldn't want that peace of mind?
-              </p>
-            </div>
+            <div ref={rightColRef} className="flex flex-col gap-5" />
 
             <div className="w-full h-px bg-white/10" />
 

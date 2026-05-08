@@ -18,6 +18,7 @@ import BenefitsSection from "../../../../../components/icomat1-wordpress-convert
 import FAQSection from "../../../../../components/icomat1-wordpress-convert/FAQSection";
 import IcomatSolutionSection from "../../../../../components/icomat1/IcomatSolutionsSection";
 import SEOResultsSection from "../../../../../components/icomat1-wordpress-convert/SEOResultSection";
+import ConversionCtaSection from "../../../../../components/icomat1-wordpress-convert/ConversionCtaSection";
 
 gsap.registerPlugin(ScrollTrigger);
 const montserrat = Montserrat({
@@ -86,8 +87,10 @@ export default function IcomatWordpressMaintainancePage() {
         
         <CustomersSection /> */}
         <SEOResultsSection />
-        <FAQSection />
+        <ConversionCtaSection />
+    
         <IcomatSolutionSection />
+        {/* <FAQSection /> */}
         <CTASection />
        
       
