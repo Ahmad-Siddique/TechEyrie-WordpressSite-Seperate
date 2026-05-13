@@ -10,23 +10,33 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Data loss can happen fast",
-    body: "You might lose your data due to a malicious third party that manages to gain access to your WordPress dashboard and wreaks havoc. Alternatively, the issue might be something as simple as human error, such as a client or coworker pressing the wrong button in your site's backend.",
+    title: "Unsafe themes and plugins",
+    body: "Not all WordPress themes and plugins are built with security in mind. Installing poorly coded or unverified extensions without proper checks can expose your website to serious vulnerabilities and attacks.",
   },
   {
     number: "2",
-    title: "Sometimes the issue is internal",
-    body: "Sometimes, the problem may even be a misjudged design or development decision. You might spend hours overhauling your site, only to realize that it looked and functioned better before (we've all been there!)",
+    title: "Outdated software",
+    body: "Failing to update WordPress core, plugins, or themes can leave security gaps open for attackers. Regular updates are critical to patch vulnerabilities and keep your WordPress website secure and up to date.",
   },
   {
     number: "3",
-    title: "Recover quickly and move forward",
-    body: "You've already wasted enough time, without having to undo every single change manually. Restoring from our backup can save you a lot of effort, and help you move on from this misstep as quickly as possible.",
+    title: "Phishing attacks",
+    body: "If a hacker gains access to your website, they can exploit your brand's trust to trick users into clicking malicious links or entering sensitive information. Weak WordPress security makes these phishing attempts easier to execute.",
   },
   {
     number: "4",
-    title: "Backups should not stay on the to-do list",
-    body: "As a website owner, we understand that you have a mile long To Do list. It's easy to keep pushing WordPress backups to the bottom of that list. However, every minute that you delay is another minute you risk losing your website.",
+    title: "Supply chain attacks",
+    body: "Untrusted or compromised plugins can open the door to supply chain attacks, allowing hackers to infiltrate your system and potentially access sensitive user and business data.",
+  },
+  {
+    number: "5",
+    title: "Cross-site scripting (XSS) attacks",
+    body: "Outdated or insecure plugins can make your site vulnerable to XSS attacks, where attackers inject harmful scripts, fake forms, or malicious links to steal user data and compromise your website.",
+  },
+  {
+    number: "6",
+    title: "Outdated PHP versions",
+    body: "Running an unsupported version of PHP not only slows down your website but also exposes it to known security vulnerabilities. Since older versions no longer receive updates, they pose a serious risk to WordPress website security.",
   },
 ];
 
@@ -67,6 +77,7 @@ function SEOCard({ item, index }) {
         gap: "clamp(16px, 2vw, 24px)",
       }}
     >
+      {/* Number badge — left of heading */}
       <div
         style={{
           display: "inline-flex",
@@ -178,8 +189,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Why should I back up my website with a WordPress backup service from
-          Freshy?
+          Common WordPress Security Issues and Threats
         </h2>
         <p
           style={{
@@ -190,10 +200,22 @@ export default function SEOResultsSection() {
             lineHeight: 1.75,
           }}
         >
-          There's an assumption that when something's on the internet, it's
-          there forever. However, that's not necessarily true. If you don't
-          back up your WordPress site, you risk losing 100 percent of your
-          content, with no chance of recovery.
+          Modern hackers, malware, and cybercriminals are far more advanced than ever
+          before. Every website faces potential security risks, and WordPress websites
+          are no exception. That&apos;s why strong WordPress protection is essential to
+          keep your site safe and reliable.
+        </p>
+        <p
+          style={{
+            margin: "14px auto 0",
+            maxWidth: "920px",
+            color: "rgba(255,255,255,0.76)",
+            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
+            lineHeight: 1.75,
+          }}
+        >
+          Below are some of the most common WordPress security threats websites face
+          today:
         </p>
       </div>
 
@@ -221,18 +243,29 @@ export default function SEOResultsSection() {
       >
         <p
           style={{
+            margin: "0 0 14px",
+            color: "rgba(255,255,255,0.78)",
+            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
+            lineHeight: 1.78,
+          }}
+        >
+          These are only a few of the many threats that WordPress website owners need
+          to be aware of. At our WordPress agency, we continuously monitor and prepare
+          for these risks to keep your website protected.
+        </p>
+        <p
+          style={{
             margin: 0,
             color: "rgba(255,255,255,0.78)",
             fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
             lineHeight: 1.78,
           }}
         >
-          Contact Freshy today, and you'll never have to start completely from
-          scratch. Just let us know how often we should back up your site, and
-          we'll sit in the background, silently creating WordPress backups to
-          suit your schedule. With our WordPress backup solutions, we'll
-          properly backup WordPress, and you'll get complete peace of mind, with
-          zero effort.
+          Our experienced WordPress security experts understand every layer of
+          potential vulnerability and actively safeguard your site against evolving
+          threats. With our WordPress security solutions in place, your business can
+          operate confidently knowing your website is secure, stable, and protected at
+          all times.
         </p>
       </div>
 

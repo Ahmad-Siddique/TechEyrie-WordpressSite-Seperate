@@ -10,23 +10,23 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Data loss can happen fast",
-    body: "You might lose your data due to a malicious third party that manages to gain access to your WordPress dashboard and wreaks havoc. Alternatively, the issue might be something as simple as human error, such as a client or coworker pressing the wrong button in your site's backend.",
+    title: "Brief",
+    body: 'We start by understanding your goals, priorities, and what a "healthy" WordPress website means for your business. Our team reviews your current plugins, themes, hosting setup, existing issues, and backlog items. From there, we define scope, urgency, and expected outcomes clearly before any work begins.',
   },
   {
     number: "2",
-    title: "Sometimes the issue is internal",
-    body: "Sometimes, the problem may even be a misjudged design or development decision. You might spend hours overhauling your site, only to realize that it looked and functioned better before (we've all been there!)",
+    title: "Planning & Design",
+    body: "Once the brief is finalized, Eyrion creates a structured implementation plan. This includes task sequencing, priorities, testing approach, and any staging or rollback strategies. You get full visibility into the plan before any changes are made to your live WordPress site.",
   },
   {
     number: "3",
-    title: "Recover quickly and move forward",
-    body: "You've already wasted enough time, without having to undo every single change manually. Restoring from our backup can save you a lot of effort, and help you move on from this misstep as quickly as possible.",
+    title: "Development & Implementation",
+    body: "After approval, our engineers begin executing updates, fixes, and improvements using WordPress best practices. Work is typically carried out in a controlled or staged environment to ensure your live website remains stable, with minimal disruption to users or business operations.",
   },
   {
     number: "4",
-    title: "Backups should not stay on the to-do list",
-    body: "As a website owner, we understand that you have a mile long To Do list. It's easy to keep pushing WordPress backups to the bottom of that list. However, every minute that you delay is another minute you risk losing your website.",
+    title: "Launch & Monitoring",
+    body: "Once updates are complete, we deploy changes to your live site, verify everything is working correctly, and monitor for any issues or regressions. After launch, Eyrion continues to provide support, refinements, and ongoing care to ensure your WordPress website keeps improving over time.",
   },
 ];
 
@@ -67,6 +67,7 @@ function SEOCard({ item, index }) {
         gap: "clamp(16px, 2vw, 24px)",
       }}
     >
+      {/* Number badge — left of heading */}
       <div
         style={{
           display: "inline-flex",
@@ -178,8 +179,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Why should I back up my website with a WordPress backup service from
-          Freshy?
+          How Does WordPress Support Work?
         </h2>
         <p
           style={{
@@ -190,10 +190,22 @@ export default function SEOResultsSection() {
             lineHeight: 1.75,
           }}
         >
-          There's an assumption that when something's on the internet, it's
-          there forever. However, that's not necessarily true. If you don't
-          back up your WordPress site, you risk losing 100 percent of your
-          content, with no chance of recovery.
+          When you choose Eyrion as your WordPress support partner, you get a skilled team
+          experienced in handling thousands of real-world WordPress issues, updates, and
+          complex edge cases. Our process is designed to make support predictable, structured,
+          and stress-free—not chaotic.
+        </p>
+        <p
+          style={{
+            margin: "14px auto 0",
+            maxWidth: "920px",
+            color: "rgba(255,255,255,0.76)",
+            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
+            lineHeight: 1.75,
+          }}
+        >
+          From the initial discussion to deployment and ongoing maintenance, here&apos;s how
+          our WordPress support workflow operates:
         </p>
       </div>
 
@@ -221,18 +233,28 @@ export default function SEOResultsSection() {
       >
         <p
           style={{
+            margin: "0 0 14px",
+            color: "rgba(255,255,255,0.78)",
+            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
+            lineHeight: 1.78,
+          }}
+        >
+          Every WordPress website is different, which is why we don&apos;t rely on
+          guesswork. Eyrion combines a structured process with experienced WordPress engineers
+          to ensure safe execution and clear communication at every stage.
+        </p>
+        <p
+          style={{
             margin: 0,
             color: "rgba(255,255,255,0.78)",
             fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
             lineHeight: 1.78,
           }}
         >
-          Contact Freshy today, and you'll never have to start completely from
-          scratch. Just let us know how often we should back up your site, and
-          we'll sit in the background, silently creating WordPress backups to
-          suit your schedule. With our WordPress backup solutions, we'll
-          properly backup WordPress, and you'll get complete peace of mind, with
-          zero effort.
+          Our WordPress support specialists work closely with developers and designers when
+          needed, so you&apos;re never stuck coordinating multiple vendors. With Eyrion, you
+          get a long-term support team that stays with your website—ready for updates,
+          improvements, and ongoing growth.
         </p>
       </div>
 

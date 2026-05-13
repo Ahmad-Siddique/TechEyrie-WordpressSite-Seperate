@@ -49,9 +49,14 @@ function SEOCard({ item, index }) {
   return (
     <div
       ref={cardRef}
-      style={{ opacity: 0 }} // GSAP animates to 1
+      style={{
+        opacity: 0,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "flex-start",
+        gap: "clamp(16px, 2vw, 24px)",
+      }}
     >
-      {/* Number badge */}
       <div
         style={{
           display: "inline-flex",
@@ -64,7 +69,6 @@ function SEOCard({ item, index }) {
           border: "1px solid rgba(255,255,255,0.26)",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
-          marginBottom: "clamp(18px, 2.5vw, 28px)",
           flexShrink: 0,
         }}
       >
@@ -80,32 +84,32 @@ function SEOCard({ item, index }) {
         </span>
       </div>
 
-      {/* Title */}
-      <h3
-        style={{
-          fontWeight: 700,
-          fontSize: "clamp(1.45rem, 2vw, 1.95rem)",
-          color: "rgba(255,255,255,0.95)",
-          lineHeight: 1.22,
-          letterSpacing: "-0.01em",
-          margin: "0 0 clamp(10px, 1.2vw, 16px) 0",
-        }}
-      >
-        {item.title}
-      </h3>
+      <div style={{ flex: "1 1 0", minWidth: 0 }}>
+        <h3
+          style={{
+            fontWeight: 700,
+            fontSize: "clamp(1.45rem, 2vw, 1.95rem)",
+            color: "rgba(255,255,255,0.95)",
+            lineHeight: 1.22,
+            letterSpacing: "-0.01em",
+            margin: "0 0 clamp(10px, 1.2vw, 16px) 0",
+          }}
+        >
+          {item.title}
+        </h3>
 
-      {/* Body */}
-      <p
-        style={{
-          fontWeight: 400,
-          fontSize: "clamp(1.05rem, 1.25vw, 1.2rem)",
-          color: "rgba(255,255,255,0.74)",
-          lineHeight: 1.72,
-          margin: 0,
-        }}
-      >
-        {item.body}
-      </p>
+        <p
+          style={{
+            fontWeight: 400,
+            fontSize: "clamp(1.05rem, 1.25vw, 1.2rem)",
+            color: "rgba(255,255,255,0.74)",
+            lineHeight: 1.72,
+            margin: 0,
+          }}
+        >
+          {item.body}
+        </p>
+      </div>
     </div>
   );
 }

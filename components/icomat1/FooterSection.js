@@ -379,7 +379,7 @@ export default function FooterSection() {
               lineHeight: 1,
               userSelect: "none",
             }}>
-              Eyrion
+              EYRION
             </span>
           </div>
         </div>

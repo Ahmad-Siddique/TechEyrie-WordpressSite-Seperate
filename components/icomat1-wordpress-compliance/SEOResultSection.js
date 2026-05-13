@@ -10,23 +10,33 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Data loss can happen fast",
-    body: "You might lose your data due to a malicious third party that manages to gain access to your WordPress dashboard and wreaks havoc. Alternatively, the issue might be something as simple as human error, such as a client or coworker pressing the wrong button in your site's backend.",
+    title: "Regular automated updates",
+    body: "Keep your WordPress website fully up to date with scheduled core, plugin, and theme updates included in our comprehensive WordPress support packages.",
   },
   {
     number: "2",
-    title: "Sometimes the issue is internal",
-    body: "Sometimes, the problem may even be a misjudged design or development decision. You might spend hours overhauling your site, only to realize that it looked and functioned better before (we've all been there!)",
+    title: "24/7 security and vulnerability protection",
+    body: "Your site stays protected around the clock with proactive monitoring and defense against hackers, malware, and other security threats through our expert WordPress technical support services.",
   },
   {
     number: "3",
-    title: "Recover quickly and move forward",
-    body: "You've already wasted enough time, without having to undo every single change manually. Restoring from our backup can save you a lot of effort, and help you move on from this misstep as quickly as possible.",
+    title: "Secure cloud backups",
+    body: "Every WordPress support plan includes automated, secure cloud backups, ensuring your data can be quickly restored in case of any issue or unexpected failure.",
   },
   {
     number: "4",
-    title: "Backups should not stay on the to-do list",
-    body: "As a website owner, we understand that you have a mile long To Do list. It's easy to keep pushing WordPress backups to the bottom of that list. However, every minute that you delay is another minute you risk losing your website.",
+    title: "Ongoing performance optimization",
+    body: "We continuously optimize your WordPress website for speed and efficiency, helping ensure fast load times and a smooth user experience handled by experienced WP support specialists.",
+  },
+  {
+    number: "5",
+    title: "Continuous uptime monitoring",
+    body: "Our round-the-clock monitoring helps detect and prevent downtime before it impacts your users—an essential part of our proactive WordPress support strategy.",
+  },
+  {
+    number: "6",
+    title: "Dedicated WordPress experts",
+    body: "You get access to real, experienced WordPress professionals who provide hands-on website support, ensuring your site receives consistent attention and expert care.",
   },
 ];
 
@@ -46,7 +56,7 @@ function SEOCard({ item, index }) {
         y: 0,
         duration: 0.65,
         ease: "power3.out",
-        delay: (index % 2) * 0.12, // right column slightly staggered
+        delay: (index % 3) * 0.1,
         scrollTrigger: {
           trigger: el,
           start: "top 88%",
@@ -67,6 +77,7 @@ function SEOCard({ item, index }) {
         gap: "clamp(16px, 2vw, 24px)",
       }}
     >
+      {/* Number badge — left of heading */}
       <div
         style={{
           display: "inline-flex",
@@ -95,18 +106,20 @@ function SEOCard({ item, index }) {
       </div>
 
       <div style={{ flex: "1 1 0", minWidth: 0 }}>
-        <h3
-          style={{
-            fontWeight: 700,
-            fontSize: "clamp(1.45rem, 2vw, 1.95rem)",
-            color: "rgba(255,255,255,0.95)",
-            lineHeight: 1.22,
-            letterSpacing: "-0.01em",
-            margin: "0 0 clamp(10px, 1.2vw, 16px) 0",
-          }}
-        >
-          {item.title}
-        </h3>
+        {item.title ? (
+          <h3
+            style={{
+              fontWeight: 700,
+              fontSize: "clamp(1.45rem, 2vw, 1.95rem)",
+              color: "rgba(255,255,255,0.95)",
+              lineHeight: 1.22,
+              letterSpacing: "-0.01em",
+              margin: "0 0 clamp(10px, 1.2vw, 16px) 0",
+            }}
+          >
+            {item.title}
+          </h3>
+        ) : null}
 
         <p
           style={{
@@ -178,8 +191,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Why should I back up my website with a WordPress backup service from
-          Freshy?
+          Benefits of Eyrion WordPress Support Services
         </h2>
         <p
           style={{
@@ -190,21 +202,20 @@ export default function SEOResultsSection() {
             lineHeight: 1.75,
           }}
         >
-          There's an assumption that when something's on the internet, it's
-          there forever. However, that's not necessarily true. If you don't
-          back up your WordPress site, you risk losing 100 percent of your
-          content, with no chance of recovery.
+          There are many advantages to having reliable USA-based WordPress and WooCommerce
+          support. As a trusted partner for businesses, Eyrion delivers complete website care
+          designed to keep your WordPress site secure, fast, and consistently online.
         </p>
       </div>
 
-      {/* ── 2-column card grid ── */}
+      {/* ── 3-column card grid ── */}
       <div
         style={{
-          maxWidth: "1320px",
+          maxWidth: "1400px",
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "clamp(40px, 5vw, 72px) clamp(40px, 6vw, 96px)",
+          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+          gap: "clamp(28px, 3.5vw, 48px) clamp(24px, 4vw, 40px)",
         }}
         className="seo-grid"
       >
@@ -217,6 +228,7 @@ export default function SEOResultsSection() {
         style={{
           maxWidth: "1120px",
           margin: "clamp(52px, 6vw, 84px) auto 0",
+          textAlign: "center",
         }}
       >
         <p
@@ -225,19 +237,22 @@ export default function SEOResultsSection() {
             color: "rgba(255,255,255,0.78)",
             fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
             lineHeight: 1.78,
+            textAlign: "center",
           }}
         >
-          Contact Freshy today, and you'll never have to start completely from
-          scratch. Just let us know how often we should back up your site, and
-          we'll sit in the background, silently creating WordPress backups to
-          suit your schedule. With our WordPress backup solutions, we'll
-          properly backup WordPress, and you'll get complete peace of mind, with
-          zero effort.
+          From updates and backups to performance tuning and continuous monitoring, Eyrion
+          combines everything into one reliable WordPress support service—keeping your
+          website fast, secure, and ready for growth.
         </p>
       </div>
 
       {/* ── Responsive styles ── */}
       <style>{`
+        @media (max-width: 1100px) {
+          .seo-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+        }
         @media (max-width: 700px) {
           .seo-grid {
             grid-template-columns: 1fr !important;

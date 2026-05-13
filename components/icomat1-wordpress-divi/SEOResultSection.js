@@ -10,23 +10,18 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Data loss can happen fast",
-    body: "You might lose your data due to a malicious third party that manages to gain access to your WordPress dashboard and wreaks havoc. Alternatively, the issue might be something as simple as human error, such as a client or coworker pressing the wrong button in your site's backend.",
+    title: "Divi Classic Backend Builder",
+    body: "The Divi Builder includes a flexible drag-and-drop backend editor within WordPress, making it easy to arrange modules, sections, and content exactly where you want them. Whether you're making small edits or building entire pages from scratch, the interface keeps the process simple and efficient.",
   },
   {
     number: "2",
-    title: "Sometimes the issue is internal",
-    body: "Sometimes, the problem may even be a misjudged design or development decision. You might spend hours overhauling your site, only to realize that it looked and functioned better before (we've all been there!)",
+    title: "Divi Frontend Visual Page Builder",
+    body: "Divi's Visual Builder allows you to edit pages directly on the frontend, giving you a real-time view of how your website will appear to visitors. This visual editing experience makes Divi intuitive for both beginners and experienced WordPress users.",
   },
   {
     number: "3",
-    title: "Recover quickly and move forward",
-    body: "You've already wasted enough time, without having to undo every single change manually. Restoring from our backup can save you a lot of effort, and help you move on from this misstep as quickly as possible.",
-  },
-  {
-    number: "4",
-    title: "Backups should not stay on the to-do list",
-    body: "As a website owner, we understand that you have a mile long To Do list. It's easy to keep pushing WordPress backups to the bottom of that list. However, every minute that you delay is another minute you risk losing your website.",
+    title: "Divi Theme Builder",
+    body: "Advanced tools like the Divi Theme Builder, global styles, reusable layouts, and keyboard shortcuts make large-scale website management faster and more efficient. Instead of working within rigid templates, Divi gives you full control over your design workflow and website structure.",
   },
 ];
 
@@ -46,7 +41,7 @@ function SEOCard({ item, index }) {
         y: 0,
         duration: 0.65,
         ease: "power3.out",
-        delay: (index % 2) * 0.12, // right column slightly staggered
+        delay: (index % 3) * 0.1,
         scrollTrigger: {
           trigger: el,
           start: "top 88%",
@@ -62,11 +57,12 @@ function SEOCard({ item, index }) {
       style={{
         opacity: 0,
         display: "flex",
-        flexDirection: "row",
-        alignItems: "flex-start",
-        gap: "clamp(16px, 2vw, 24px)",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "clamp(18px, 2.2vw, 24px)",
       }}
     >
+      {/* Number badge — top center */}
       <div
         style={{
           display: "inline-flex",
@@ -94,19 +90,21 @@ function SEOCard({ item, index }) {
         </span>
       </div>
 
-      <div style={{ flex: "1 1 0", minWidth: 0 }}>
-        <h3
-          style={{
-            fontWeight: 700,
-            fontSize: "clamp(1.45rem, 2vw, 1.95rem)",
-            color: "rgba(255,255,255,0.95)",
-            lineHeight: 1.22,
-            letterSpacing: "-0.01em",
-            margin: "0 0 clamp(10px, 1.2vw, 16px) 0",
-          }}
-        >
-          {item.title}
-        </h3>
+      <div style={{ width: "100%", minWidth: 0, textAlign: "center" }}>
+        {item.title ? (
+          <h3
+            style={{
+              fontWeight: 700,
+              fontSize: "clamp(1.45rem, 2vw, 1.95rem)",
+              color: "rgba(255,255,255,0.95)",
+              lineHeight: 1.22,
+              letterSpacing: "-0.01em",
+              margin: "0 0 clamp(10px, 1.2vw, 16px) 0",
+            }}
+          >
+            {item.title}
+          </h3>
+        ) : null}
 
         <p
           style={{
@@ -178,8 +176,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Why should I back up my website with a WordPress backup service from
-          Freshy?
+          Effective Divi Features with a User-Friendly Interface
         </h2>
         <p
           style={{
@@ -190,21 +187,20 @@ export default function SEOResultsSection() {
             lineHeight: 1.75,
           }}
         >
-          There's an assumption that when something's on the internet, it's
-          there forever. However, that's not necessarily true. If you don't
-          back up your WordPress site, you risk losing 100 percent of your
-          content, with no chance of recovery.
+          Elegant Themes positions Divi as a complete WordPress design system—and for good reason.
+          While the platform offers extensive customization and powerful functionality, it remains one
+          of the most user-friendly WordPress themes available today.
         </p>
       </div>
 
-      {/* ── 2-column card grid ── */}
+      {/* ── 3-column card grid ── */}
       <div
         style={{
-          maxWidth: "1320px",
+          maxWidth: "1400px",
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "clamp(40px, 5vw, 72px) clamp(40px, 6vw, 96px)",
+          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+          gap: "clamp(28px, 3.5vw, 48px) clamp(24px, 4vw, 40px)",
         }}
         className="seo-grid"
       >
@@ -217,6 +213,7 @@ export default function SEOResultsSection() {
         style={{
           maxWidth: "1120px",
           margin: "clamp(52px, 6vw, 84px) auto 0",
+          textAlign: "center",
         }}
       >
         <p
@@ -225,19 +222,24 @@ export default function SEOResultsSection() {
             color: "rgba(255,255,255,0.78)",
             fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
             lineHeight: 1.78,
+            textAlign: "center",
           }}
         >
-          Contact Freshy today, and you'll never have to start completely from
-          scratch. Just let us know how often we should back up your site, and
-          we'll sit in the background, silently creating WordPress backups to
-          suit your schedule. With our WordPress backup solutions, we'll
-          properly backup WordPress, and you'll get complete peace of mind, with
-          zero effort.
+          At Eyrion, we build and manage Divi websites with long-term usability in mind. Our Divi
+          developers avoid unnecessary complexity and ensure your website remains easy to edit,
+          maintain, and scale over time. Every project is optimized to take full advantage of the
+          Divi website builder while maintaining strong performance, responsiveness, and user
+          experience.
         </p>
       </div>
 
       {/* ── Responsive styles ── */}
       <style>{`
+        @media (max-width: 1100px) {
+          .seo-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+        }
         @media (max-width: 700px) {
           .seo-grid {
             grid-template-columns: 1fr !important;

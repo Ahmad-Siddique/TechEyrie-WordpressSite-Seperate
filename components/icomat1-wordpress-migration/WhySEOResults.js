@@ -10,23 +10,23 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Data loss can happen fast",
-    body: "You might lose your data due to a malicious third party that manages to gain access to your WordPress dashboard and wreaks havoc. Alternatively, the issue might be something as simple as human error, such as a client or coworker pressing the wrong button in your site's backend.",
+    title: "Accessible and easy to use",
+    body: "WordPress keeps day-to-day site management approachable—clear menus, familiar editing, and a huge ecosystem of tools. With Freshy support, your team does not need to become server experts overnight; we help you operate confidently inside the admin while we handle the technical heavy lifting behind the scenes.",
   },
   {
     number: "2",
-    title: "Sometimes the issue is internal",
-    body: "Sometimes, the problem may even be a misjudged design or development decision. You might spend hours overhauling your site, only to realize that it looked and functioned better before (we've all been there!)",
+    title: "Build with SEO in mind",
+    body: "Good SEO still depends on fundamentals: clean markup, solid metadata, responsive layouts, and fast page loads. As part of ongoing support, we help you catch regressions early—broken templates, bloated plugins, caching issues, and crawl errors—so the site you publish stays aligned with how people (and search engines) experience it.",
   },
   {
     number: "3",
-    title: "Recover quickly and move forward",
-    body: "You've already wasted enough time, without having to undo every single change manually. Restoring from our backup can save you a lot of effort, and help you move on from this misstep as quickly as possible.",
+    title: "Safe and secure for peace of mind",
+    body: "Security is not a one-time checkbox. WordPress works best when updates, access controls, and hosting hygiene stay in sync. We help you reduce risk with disciplined patching, safer configurations, and practical guidance—so you can focus on your business while your site stays protected.",
   },
   {
     number: "4",
-    title: "Backups should not stay on the to-do list",
-    body: "As a website owner, we understand that you have a mile long To Do list. It's easy to keep pushing WordPress backups to the bottom of that list. However, every minute that you delay is another minute you risk losing your website.",
+    title: "Plenty of room for customization",
+    body: "From memberships and forms to CRMs and ecommerce extensions, WordPress can grow with you—but the wrong plugin mix can create fragility. Support helps you choose, implement, and maintain the right stack for your workflows, so customization stays an advantage instead of a maintenance burden.",
   },
 ];
 
@@ -67,6 +67,7 @@ function SEOCard({ item, index }) {
         gap: "clamp(16px, 2vw, 24px)",
       }}
     >
+      {/* Number badge — left of heading */}
       <div
         style={{
           display: "inline-flex",
@@ -125,7 +126,7 @@ function SEOCard({ item, index }) {
 }
 
 // ─── Section ──────────────────────────────────────────────────────────────────
-export default function SEOResultsSection() {
+export default function WhySEOResultsSection() {
   const headingRef = useRef(null);
 
   useEffect(() => {
@@ -178,8 +179,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Why should I back up my website with a WordPress backup service from
-          Freshy?
+          Why choose WordPress for professional support?
         </h2>
         <p
           style={{
@@ -190,10 +190,10 @@ export default function SEOResultsSection() {
             lineHeight: 1.75,
           }}
         >
-          There's an assumption that when something's on the internet, it's
-          there forever. However, that's not necessarily true. If you don't
-          back up your WordPress site, you risk losing 100 percent of your
-          content, with no chance of recovery.
+          If you want a website platform that is flexible, widely adopted, and easy
+          to extend over time, WordPress is hard to beat. Pair it with a dedicated
+          support team and you get predictable care instead of surprise fires. Here
+          are just a few reasons why WordPress support is a smart long-term choice:
         </p>
       </div>
 
@@ -221,18 +221,29 @@ export default function SEOResultsSection() {
       >
         <p
           style={{
+            margin: "0 0 14px",
+            color: "rgba(255,255,255,0.78)",
+            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
+            lineHeight: 1.78,
+          }}
+        >
+          These are only a handful of the reasons teams choose WordPress—and why
+          pairing it with proactive support pays off. At Freshy, we treat your site
+          like a product: documented changes, clear priorities, and steady
+          improvement instead of one-off heroics.
+        </p>
+        <p
+          style={{
             margin: 0,
             color: "rgba(255,255,255,0.78)",
             fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
             lineHeight: 1.78,
           }}
         >
-          Contact Freshy today, and you'll never have to start completely from
-          scratch. Just let us know how often we should back up your site, and
-          we'll sit in the background, silently creating WordPress backups to
-          suit your schedule. With our WordPress backup solutions, we'll
-          properly backup WordPress, and you'll get complete peace of mind, with
-          zero effort.
+          Whether you are focused on content, lead generation, ecommerce add-ons, or
+          custom integrations, our WordPress support specialists help you keep the
+          platform working for you—not against you—so your site can grow with your
+          roadmap.
         </p>
       </div>
 

@@ -10,23 +10,23 @@ gsap.registerPlugin(ScrollTrigger);
 const ITEMS = [
   {
     number: "1",
-    title: "Data loss can happen fast",
-    body: "You might lose your data due to a malicious third party that manages to gain access to your WordPress dashboard and wreaks havoc. Alternatively, the issue might be something as simple as human error, such as a client or coworker pressing the wrong button in your site's backend.",
+    title: "Accessible and easy to use",
+    body: "WordPress is designed for simplicity in day-to-day management, with an intuitive dashboard, familiar editing tools, and a massive ecosystem of plugins and integrations. With Eyrion handling the technical side, your team can confidently manage content while we take care of the complex backend work, updates, and infrastructure.",
   },
   {
     number: "2",
-    title: "Sometimes the issue is internal",
-    body: "Sometimes, the problem may even be a misjudged design or development decision. You might spend hours overhauling your site, only to realize that it looked and functioned better before (we've all been there!)",
+    title: "Built with SEO in mind",
+    body: "Strong SEO performance depends on clean structure, fast loading speeds, responsive design, and proper metadata. Through ongoing WordPress support, we help detect and fix issues like broken templates, slow plugins, caching conflicts, and indexing errors—keeping your website aligned with both user experience and search engine requirements.",
   },
   {
     number: "3",
-    title: "Recover quickly and move forward",
-    body: "You've already wasted enough time, without having to undo every single change manually. Restoring from our backup can save you a lot of effort, and help you move on from this misstep as quickly as possible.",
+    title: "Secure and reliable for peace of mind",
+    body: "Website security requires continuous attention, not one-time fixes. WordPress performs best when updates, configurations, and access controls are properly managed. Eyrion helps reduce risk through regular patching, security monitoring, and safe system configurations, allowing you to focus on your business while your website stays protected.",
   },
   {
     number: "4",
-    title: "Backups should not stay on the to-do list",
-    body: "As a website owner, we understand that you have a mile long To Do list. It's easy to keep pushing WordPress backups to the bottom of that list. However, every minute that you delay is another minute you risk losing your website.",
+    title: "Highly customizable and scalable",
+    body: "WordPress supports everything from simple websites to complex systems like memberships, CRMs, and ecommerce platforms. However, poor plugin choices or unmanaged growth can lead to instability. Our support ensures your setup stays optimized, stable, and aligned with your business workflows as your website evolves.",
   },
 ];
 
@@ -67,6 +67,7 @@ function SEOCard({ item, index }) {
         gap: "clamp(16px, 2vw, 24px)",
       }}
     >
+      {/* Number badge — left of heading */}
       <div
         style={{
           display: "inline-flex",
@@ -125,7 +126,7 @@ function SEOCard({ item, index }) {
 }
 
 // ─── Section ──────────────────────────────────────────────────────────────────
-export default function SEOResultsSection() {
+export default function WhySEOResultsSection() {
   const headingRef = useRef(null);
 
   useEffect(() => {
@@ -178,8 +179,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Why should I back up my website with a WordPress backup service from
-          Freshy?
+          Why Choose WordPress for Professional Support?
         </h2>
         <p
           style={{
@@ -190,10 +190,21 @@ export default function SEOResultsSection() {
             lineHeight: 1.75,
           }}
         >
-          There's an assumption that when something's on the internet, it's
-          there forever. However, that's not necessarily true. If you don't
-          back up your WordPress site, you risk losing 100 percent of your
-          content, with no chance of recovery.
+          If you want a website platform that is flexible, widely adopted, and built to grow
+          over time, WordPress remains one of the strongest choices available. When paired
+          with dedicated professional support, it becomes even more powerful—giving you
+          structured maintenance, fewer unexpected issues, and long-term stability.
+        </p>
+        <p
+          style={{
+            margin: "14px auto 0",
+            maxWidth: "920px",
+            color: "rgba(255,255,255,0.76)",
+            fontSize: "clamp(1.02rem, 1.2vw, 1.2rem)",
+            lineHeight: 1.75,
+          }}
+        >
+          Here are key reasons why WordPress support is a smart long-term decision:
         </p>
       </div>
 
@@ -227,12 +238,10 @@ export default function SEOResultsSection() {
             lineHeight: 1.78,
           }}
         >
-          Contact Freshy today, and you'll never have to start completely from
-          scratch. Just let us know how often we should back up your site, and
-          we'll sit in the background, silently creating WordPress backups to
-          suit your schedule. With our WordPress backup solutions, we'll
-          properly backup WordPress, and you'll get complete peace of mind, with
-          zero effort.
+          These are just a few reasons why businesses choose WordPress—and why professional
+          support makes such a difference. At Eyrion, we treat your website like a long-term
+          product, not a one-time project. That means structured updates, clear priorities, and
+          continuous improvement instead of reactive fixes.
         </p>
       </div>
 

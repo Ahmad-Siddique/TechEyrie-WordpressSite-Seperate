@@ -246,7 +246,7 @@ export default function FooterSection() {
         {/* Right column */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "32px" }}>
 
-          {/* Eyrion wordmark */}
+          {/* EYRION wordmark */}
           <div ref={wordmarkRef}>
             <span style={{
               display: "block",
@@ -258,7 +258,7 @@ export default function FooterSection() {
               lineHeight: 1,
               userSelect: "none",
             }}>
-              Eyrion
+              EYRION
             </span>
           </div>
 
