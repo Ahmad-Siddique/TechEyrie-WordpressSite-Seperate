@@ -11,7 +11,7 @@ const ITEMS = [
   {
     number: "1",
     title: "How it works",
-    body: "At Freshy, during the website conversion to WordPress, we'll work with you to redesign your old site and make it ready for the WordPress world. We'll do our best to re-create your pages to the smallest detail. We'll also be happy to revamp your pages in order to make them more professional and functional. Just tell us what your WordPress goals are, and we'll make sure you get there.",
+    body: "At Eyrion, during the website conversion to WordPress, we'll work with you to redesign your old site and make it ready for the WordPress world. We'll do our best to re-create your pages to the smallest detail. We'll also be happy to revamp your pages in order to make them more professional and functional. Just tell us what your WordPress goals are, and we'll make sure you get there.",
   },
   {
     number: "2",
@@ -168,7 +168,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Converting websites to WordPress with Freshy
+          Converting websites to WordPress with Eyrion
         </h2>
         <p
           style={{

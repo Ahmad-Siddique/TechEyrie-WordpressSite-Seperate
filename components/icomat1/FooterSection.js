@@ -38,36 +38,39 @@ const YouTubeIcon = () => (
 const FOOTER_HEADING_COLOR = "#d4ff6a";
 const FOOTER_LINK_COLOR = "rgba(255,255,255,0.92)";
 
+// ── WordPress service routes (match `src/app/wordpress/<slug>/page.js`) ──
+const WORDPRESS_SERVICE_LINKS = [
+  { label: "WordPress website design", href: "/wordpress/design" },
+  { label: "WordPress retained services", href: "/wordpress/retained-services" },
+  { label: "WordPress backups", href: "/wordpress/backups" },
+  { label: "WordPress conversion", href: "/wordpress/convert" },
+  { label: "WordPress security", href: "/wordpress/security" },
+  { label: "WordPress search engine optimization", href: "/wordpress/search-engine-optimization" },
+  { label: "WordPress support", href: "/wordpress/support" },
+  { label: "WooCommerce developer", href: "/wordpress/woocommerce" },
+  { label: "WordPress development", href: "/wordpress/development" },
+  { label: "WordPress hosting", href: "/wordpress/hosting" },
+  { label: "WordPress compliance", href: "/wordpress/compliance" },
+  { label: "WordPress Divi theme", href: "/wordpress/divi" },
+  { label: "WordPress migration", href: "/wordpress/migration" },
+  { label: "WordPress GDPR compliance", href: "/wordpress/gdpr-compliance" },
+  { label: "WordPress theme experts", href: "/wordpress/theme" },
+  { label: "Sell my web design company", href: "/wordpress/sell-my-design-company" },
+  { label: "WordPress maintenance", href: "/wordpress/maintenance" },
+  { label: "WordPress ADA compliance", href: "/wordpress/ada-compliance" },
+  { label: "Marketing Pro", href: "/wordpress/marketing-pro" },
+  { label: "WordPress Elementor builder", href: "/wordpress/elementor" },
+  { label: "WordPress PCI compliance", href: "/wordpress/pci-compliance" },
+  { label: "WordPress speed optimization", href: "/wordpress/speed-optimization" },
+  { label: "WordPress white label", href: "/wordpress/white-label-wordpress" },
+];
+
 // ── Nav data ──────────────────────────────────────────────────
 const NAV_MAIN = [
   {
     label: "Our services",
-    href: "/#solutions",
-    sub: [
-      "WordPress website design",
-      "WordPress retained services",
-      "WordPress backups",
-      "WordPress conversion",
-      "WordPress security",
-      "WordPress search engine optimization",
-      "WordPress support",
-      "WooCommerce developer",
-      "WordPress development",
-      "WordPress hosting",
-      "WordPress compliance",
-      "WordPress Divi theme",
-      "WordPress migration",
-      "WordPress GDPR compliance",
-      "WordPress theme experts",
-      "Sell my web design company",
-      "WordPress maintenance",
-      "WordPress ADA compliance",
-      "Marketing Pro",
-      "WordPress Elementor builder",
-      "WordPress PCI compliance",
-      "WordPress speed optimization",
-      "WordPress white label",
-    ],
+    href: "/wordpress",
+    sub: WORDPRESS_SERVICE_LINKS,
   },
   {
     label: "Our work",
@@ -127,16 +130,16 @@ const SUB_LINK_STYLE = {
   transition: "color 0.2s",
 };
 
-function FooterServicesSubLink({ sub }) {
+function FooterServicesSubLink({ item }) {
   return (
     <a
-      href={`#${sub.toLowerCase().replace(/\s/g, "-")}`}
-      className="block min-w-0 max-w-full whitespace-normal break-words [overflow-wrap:anywhere]"
+      href={item.href}
+      className="footer-hover-line min-w-0 max-w-full whitespace-normal break-words [overflow-wrap:anywhere]"
       style={SUB_LINK_STYLE}
       onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
       onMouseLeave={(e) => (e.currentTarget.style.color = FOOTER_LINK_COLOR)}
     >
-      {sub}
+      {item.label}
     </a>
   );
 }
@@ -173,8 +176,8 @@ function FooterServicesLinks({ subs }) {
     >
       {columns.map((chunk, i) => (
         <div key={i} className="flex min-w-0 flex-1 flex-col gap-[0.35rem]">
-          {chunk.map((sub) => (
-            <FooterServicesSubLink key={sub} sub={sub} />
+          {chunk.map((item) => (
+            <FooterServicesSubLink key={item.label} item={item} />
           ))}
         </div>
       ))}
@@ -408,14 +411,14 @@ export default function FooterSection() {
                   >
                     <a
                       href={item.href}
-                      className="block whitespace-normal break-words"
+                      className="footer-hover-line whitespace-normal break-words max-w-full"
                       style={{
                         color: FOOTER_HEADING_COLOR,
                         fontSize: "clamp(0.62rem, 0.72vw, 0.72rem)",
                         fontWeight: 600,
                         letterSpacing: "0.05em",
                         textDecoration: "none",
-                        transition: "opacity 0.2s",
+                        transition: "opacity 0.2s, color 0.2s",
                         lineHeight: 1.2,
                       }}
                       onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
@@ -432,7 +435,7 @@ export default function FooterSection() {
                             <a
                               key={sub}
                               href={`#${sub.toLowerCase().replace(/\s/g, "-")}`}
-                              className="block min-w-0 max-w-full whitespace-normal break-words [overflow-wrap:anywhere]"
+                              className="footer-hover-line min-w-0 max-w-full whitespace-normal break-words [overflow-wrap:anywhere]"
                               style={{
                                 ...SUB_LINK_STYLE,
                               }}
@@ -492,6 +495,7 @@ export default function FooterSection() {
               <a
                 key={item.label}
                 href={item.href}
+                className="footer-hover-line"
                 style={{
                   color: item.bold ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.32)",
                   fontSize: "clamp(0.58rem, 0.65vw, 0.65rem)",
@@ -564,6 +568,39 @@ export default function FooterSection() {
           willChange: "transform",
         }}
       />
+
+      <style>{`
+        .footer-hover-line {
+          position: relative;
+          display: inline-block;
+          width: fit-content;
+          max-width: 100%;
+          align-self: flex-start;
+          vertical-align: top;
+          padding-bottom: 3px;
+        }
+        .footer-hover-line::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 1px;
+          background: currentColor;
+          opacity: 0.9;
+          transform: scaleX(0);
+          transform-origin: left center;
+          transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
+        }
+        .footer-hover-line:hover::after,
+        .footer-hover-line:focus-visible::after {
+          transform: scaleX(1);
+        }
+        .footer-hover-line:focus-visible {
+          outline: none;
+        }
+      `}</style>
     </footer>
   );
 }

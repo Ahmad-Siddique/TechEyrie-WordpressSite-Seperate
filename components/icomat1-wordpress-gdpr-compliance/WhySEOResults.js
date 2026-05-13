@@ -11,7 +11,7 @@ const ITEMS = [
   {
     number: "1",
     title: "Accessible and easy to use",
-    body: "WordPress keeps day-to-day site management approachable—clear menus, familiar editing, and a huge ecosystem of tools. With Freshy support, your team does not need to become server experts overnight; we help you operate confidently inside the admin while we handle the technical heavy lifting behind the scenes.",
+    body: "WordPress keeps day-to-day site management approachable—clear menus, familiar editing, and a huge ecosystem of tools. With Eyrion support, your team does not need to become server experts overnight; we help you operate confidently inside the admin while we handle the technical heavy lifting behind the scenes.",
   },
   {
     number: "2",
@@ -228,7 +228,7 @@ export default function WhySEOResultsSection() {
           }}
         >
           These are only a handful of the reasons teams choose WordPress—and why
-          pairing it with proactive support pays off. At Freshy, we treat your site
+          pairing it with proactive support pays off. At Eyrion, we treat your site
           like a product: documented changes, clear priorities, and steady
           improvement instead of one-off heroics.
         </p>

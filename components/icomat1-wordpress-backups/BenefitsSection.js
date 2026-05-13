@@ -25,7 +25,7 @@ const ITEMS = [
   {
     number: "4",
     title: "Off-site and offline WordPress backups",
-    body: "We've hand-picked all of our backup sources to provide the highest level of reliability and availability. However, at Freshy we're always prepared for the edge cases and worst-case scenarios. That's why we create multiple WordPress backups of your site across multiple sources. This includes Amazon S3 Cloud and a physical hard drive. In the extremely unlikely event that one backup source is unavailable, we can restore your site from a second source (or a third, or a fourth...).",
+    body: "We've hand-picked all of our backup sources to provide the highest level of reliability and availability. However, at Eyrion we're always prepared for the edge cases and worst-case scenarios. That's why we create multiple WordPress backups of your site across multiple sources. This includes Amazon S3 Cloud and a physical hard drive. In the extremely unlikely event that one backup source is unavailable, we can restore your site from a second source (or a third, or a fourth...).",
   },
   {
     number: "5",
@@ -214,7 +214,7 @@ export default function BenefitsSection() {
               maxWidth: "46ch",
             }}
           >
-            When you partner with Freshy, we promise to be at your side every
+            When you partner with Eyrion, we promise to be at your side every
             step of the way with reliable service.
           </p>
           <p
@@ -229,7 +229,7 @@ export default function BenefitsSection() {
             This includes initial research and development, right through to
             helping you win the Search Engine Optimization (SEO) game - as well
             as creating regular WordPress backups. Losing content is something
-            no website owner wants to think about. With Freshy in your corner,
+            no website owner wants to think about. With Eyrion in your corner,
             this worry will become a thing of the past. Our team of WordPress
             backup experts can manage the entire backup process for you. This
             leaves you more time to focus on what really matters - running a

@@ -221,7 +221,7 @@ export default function SEOResultsSection() {
             margin: 0,
           }}
         >
-          Freshy WordPress Site Speed Optimization Features
+          Eyrion WordPress Site Speed Optimization Features
         </h2>
         <p
           style={{

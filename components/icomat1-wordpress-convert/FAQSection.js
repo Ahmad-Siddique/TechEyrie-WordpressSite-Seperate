@@ -271,7 +271,7 @@ export default function FAQSection() {
             <br />
             It's true that there are dozens of WordPress backup plugins to
             choose from. This includes free plugins, premium options, and
-            everything in between. At Freshy, we've helped thousands of clients
+            everything in between. At Eyrion, we've helped thousands of clients
             migrate away from WordPress backup plugins. When you consider the
             benefits, it's easy to see why!
           </p>

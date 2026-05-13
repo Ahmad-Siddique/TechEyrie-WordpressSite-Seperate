@@ -4,7 +4,7 @@ const PLUGIN_FEATURES = [
   {
     id: "plugins",
     title: "Trusted WordPress security plugins and tools",
-    body: "At Freshy, we only ever use selected trusted plugins for your WordPress website. We conduct rigorous checks on any potential plugins to ensure they meet our high standards of security for your WordPress site. If they're anything less than perfect, we won't use them for your site.",
+    body: "At Eyrion, we only ever use selected trusted plugins for your WordPress website. We conduct rigorous checks on any potential plugins to ensure they meet our high standards of security for your WordPress site. If they're anything less than perfect, we won't use them for your site.",
     icon: "plug",
   },
   {
@@ -16,7 +16,7 @@ const PLUGIN_FEATURES = [
   {
     id: "beyond",
     title: "Beyond a typical one-time WordPress security check",
-    body: "When you choose Freshy for your WordPress security, you can rest easy knowing we go above and beyond to protect your business' website from every angle, with a proactive approach, and an ongoing basis — 24/7.",
+    body: "When you choose Eyrion for your WordPress security, you can rest easy knowing we go above and beyond to protect your business' website from every angle, with a proactive approach, and an ongoing basis — 24/7.",
     icon: "check",
   },
 ];

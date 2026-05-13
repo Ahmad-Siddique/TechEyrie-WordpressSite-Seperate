@@ -101,7 +101,7 @@ export default function HeroSection() {
             <br />
             <br />
             Fortunately, you don't have to do everything yourself. As WordPress
-            experts, Freshy helps site owners make the conversion and move to
+            experts, Eyrion helps site owners make the conversion and move to
             WordPress, so they can start enjoying the benefits of this
             extensive ecosystem.
           </p>
