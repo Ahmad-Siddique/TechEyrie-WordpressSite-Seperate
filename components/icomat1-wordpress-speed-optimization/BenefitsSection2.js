@@ -208,7 +208,7 @@ export default function BenefitsSection2({ onQuoteClick }) {
 
   return (
     <section
-      className="ada-benefits2-section"
+      className="ada-benefits2-section benefits-section"
       style={{
         width: "100%",
         backgroundColor: GREEN,
@@ -265,11 +265,10 @@ export default function BenefitsSection2({ onQuoteClick }) {
         </div>
 
         <div
-          className="ada-benefits2-grid"
+          className="benefits-pillars-grid ada-benefits2-grid"
           style={{
             marginTop: "clamp(52px, 7vw, 80px)",
             display: "grid",
-            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
             columnGap: "clamp(36px, 5vw, 72px)",
             rowGap: "clamp(40px, 5vw, 56px)",
             alignItems: "start",
@@ -334,20 +333,6 @@ export default function BenefitsSection2({ onQuoteClick }) {
           })}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .ada-benefits2-grid {
-            grid-template-columns: 1fr !important;
-            max-width: min(640px, 100%);
-            margin-left: auto;
-            margin-right: auto;
-          }
-        }
-        .ada-benefits2-section h2 {
-          text-wrap: balance;
-        }
-      `}</style>
     </section>
   );
 }

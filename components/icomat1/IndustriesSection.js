@@ -62,12 +62,29 @@ export default function IndustriesSection() {
     imgLayersRef.current.forEach((img, i) => {
       if (!img) return;
       const visible = i === idx;
+
       img.style.zIndex = visible ? "1" : "0";
       img.style.clipPath = visible ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)";
       img.style.opacity = visible ? "1" : "0";
     });
+
     if (headingRef.current) headingRef.current.textContent = INDUSTRIES[idx].heading;
     if (subRef.current) subRef.current.textContent = INDUSTRIES[idx].subheading;
+
+    if (contentRef.current) {
+      contentRef.current.style.opacity = "1";
+      contentRef.current.style.transform = "translateY(0px)";
+      contentRef.current.style.visibility = "visible";
+    }
+  }, []);
+
+  useEffect(() => {
+    ScrollTrigger.saveStyles([
+      containerRef.current,
+      contentRef.current,
+      picInnerRef.current,
+      ...imgLayersRef.current,
+    ]);
   }, []);
 
   // ── Desktop: scroll expand + content reveal ─────────────────
@@ -76,7 +93,9 @@ export default function IndustriesSection() {
       const container = containerRef.current;
       const content = contentRef.current;
       const section = sectionRef.current;
-      if (!container || !content || !section) return;
+      const picInner = picInnerRef.current;
+
+      if (!container || !content || !section || !picInner) return;
 
       const mm = gsap.matchMedia();
 
@@ -85,19 +104,25 @@ export default function IndustriesSection() {
           clearProps: "all",
           width: "100%",
           maxWidth: "100%",
-          height: "auto",
+          height: "clamp(320px, 78vw, 460px)",
           borderRadius: "12px",
           x: 0,
           xPercent: 0,
         });
-        gsap.set(content, { opacity: 1, y: 0, clearProps: "all" });
-        if (picInnerRef.current) {
-          gsap.set(picInnerRef.current, {
-            clearProps: "all",
-            scale: 1,
-            borderRadius: "12px",
-          });
-        }
+
+        gsap.set(content, {
+          clearProps: "all",
+          opacity: 1,
+          y: 0,
+          visibility: "visible",
+        });
+
+        gsap.set(picInner, {
+          clearProps: "all",
+          scale: 1,
+          borderRadius: "12px",
+        });
+
         applyMobileSlide(activeRef.current);
       });
 
@@ -108,6 +133,12 @@ export default function IndustriesSection() {
           borderRadius: "20px",
           x: "50%",
           xPercent: -50,
+        });
+
+        gsap.set(content, {
+          opacity: 0,
+          y: 18,
+          visibility: "visible",
         });
 
         gsap.timeline({
@@ -130,15 +161,17 @@ export default function IndustriesSection() {
               ease: "power2.inOut",
               duration: 1,
             },
-            0,
+            0
           )
           .fromTo(
             content,
             { opacity: 0, y: 18 },
             { opacity: 1, y: 0, ease: "power3.out", duration: 0.45 },
-            0.55,
+            0.55
           );
       });
+
+      return () => mm.revert();
     }, sectionRef);
 
     return () => ctx.revert();
@@ -175,7 +208,7 @@ export default function IndustriesSection() {
             scrub: 1.2,
             invalidateOnRefresh: true,
           },
-        },
+        }
       );
 
       rafId = requestAnimationFrame(() => ScrollTrigger.refresh());
@@ -184,12 +217,16 @@ export default function IndustriesSection() {
         cancelAnimationFrame(rafId);
         tween?.scrollTrigger?.kill();
         tween?.kill();
-        gsap.set(pic, { scale: 1, borderRadius: "0px" });
+        gsap.set(pic, { clearProps: "all" });
       };
     });
 
     mm.add(MOBILE_MQ, () => {
-      gsap.set(pic, { clearProps: "all", scale: 1, borderRadius: "12px" });
+      gsap.set(pic, {
+        clearProps: "all",
+        scale: 1,
+        borderRadius: "12px",
+      });
     });
 
     return () => mm.revert();
@@ -219,14 +256,28 @@ export default function IndustriesSection() {
       const sub = subRef.current;
       const learn = learnRef.current;
 
-      gsap.set(newImg, { zIndex: 2, clipPath: "inset(0% 0% 100% 0%)" });
+      if (!newImg || !oldImg) {
+        isAnimating.current = false;
+        return;
+      }
+
+      gsap.set(newImg, {
+        zIndex: 2,
+        opacity: 1,
+        clipPath: "inset(0% 0% 100% 0%)",
+      });
+
       gsap.to(newImg, {
         clipPath: "inset(0% 0% 0% 0%)",
         duration: 0.95,
         ease: "power3.inOut",
         onComplete: () => {
-          gsap.set(oldImg, { zIndex: 1 });
-          gsap.set(newImg, { zIndex: 1 });
+          gsap.set(oldImg, {
+            zIndex: 1,
+            opacity: 0,
+            clipPath: "inset(0% 0% 100% 0%)",
+          });
+          gsap.set(newImg, { zIndex: 1, opacity: 1 });
           isAnimating.current = false;
         },
       });
@@ -252,7 +303,7 @@ export default function IndustriesSection() {
           stagger: 0.06,
         });
     },
-    [applyMobileSlide],
+    [applyMobileSlide]
   );
 
   useEffect(() => {
@@ -261,6 +312,7 @@ export default function IndustriesSection() {
       const next = (activeRef.current + 1) % INDUSTRIES.length;
       switchTo(next);
     }, AUTO_TAB_INTERVAL_MS);
+
     return () => clearInterval(id);
   }, [switchTo]);
 
@@ -312,6 +364,7 @@ export default function IndustriesSection() {
                   height: "100%",
                   objectFit: "cover",
                   zIndex: i === 0 ? 1 : 0,
+                  opacity: i === 0 ? 1 : 0,
                   clipPath: i === 0 ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
                 }}
               />
@@ -340,6 +393,7 @@ export default function IndustriesSection() {
               inset: 0,
               zIndex: 4,
               opacity: 0,
+              visibility: "visible",
             }}
           >
             <div className="industries-content-copy">
@@ -428,7 +482,9 @@ export default function IndustriesSection() {
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     color:
-                      active === i ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.38)",
+                      active === i
+                        ? "rgba(255,255,255,0.95)"
+                        : "rgba(255,255,255,0.38)",
                     transition: "color 0.25s ease",
                   }}
                   onMouseEnter={(e) => {
@@ -459,13 +515,13 @@ export default function IndustriesSection() {
       </div>
 
       <style>{`
-        /* Desktop: tall scroll section + sticky stage */
         .industries-section {
           height: 200vh;
           display: flex;
           align-items: flex-start;
           justify-content: center;
         }
+
         .industries-sticky-wrap {
           position: sticky;
           top: 0;
@@ -476,15 +532,18 @@ export default function IndustriesSection() {
           justify-content: center;
           overflow: hidden;
         }
+
         .industries-visual {
           will-change: width, height, border-radius;
         }
+
         .industries-content-copy {
           position: absolute;
           top: clamp(28px, 5vw, 64px);
           left: clamp(28px, 5vw, 64px);
           max-width: 520px;
         }
+
         .industries-tabs {
           position: absolute;
           bottom: clamp(28px, 4vw, 56px);
@@ -493,15 +552,16 @@ export default function IndustriesSection() {
           align-items: center;
           gap: 32px;
           flex-wrap: wrap;
+          z-index: 6;
         }
 
-        /* Mobile: static block — no sticky / scroll / expand */
         @media (max-width: 768px) {
           .industries-section {
             height: auto !important;
             min-height: 0 !important;
             padding: 40px 0 48px;
           }
+
           .industries-sticky-wrap {
             position: relative !important;
             top: auto !important;
@@ -510,46 +570,57 @@ export default function IndustriesSection() {
             padding: 0 20px;
             overflow: visible !important;
           }
+
           .industries-visual {
             width: 100% !important;
             max-width: 100% !important;
-            height: clamp(280px, 70vw, 400px) !important;
+            height: clamp(320px, 78vw, 460px) !important;
             border-radius: 12px !important;
             transform: none !important;
             will-change: auto !important;
           }
+
           .industries-pic-inner {
             border-radius: 12px !important;
             transform: none !important;
           }
+
           .industries-content {
             opacity: 1 !important;
+            visibility: visible !important;
           }
+
           .industries-content-copy {
             top: 20px !important;
             left: 16px !important;
             right: 16px !important;
             max-width: none !important;
           }
+
           .industries-content-copy h2 {
             font-size: clamp(1.5rem, 6.5vw, 2rem) !important;
             margin-bottom: 12px !important;
           }
+
           .industries-content-copy p {
             font-size: 0.9rem !important;
             margin-bottom: 16px !important;
             max-width: 100% !important;
           }
+
           .industries-tabs {
             position: absolute !important;
             bottom: 14px !important;
             left: 12px !important;
             right: 12px !important;
             gap: 12px 20px !important;
+            z-index: 10 !important;
           }
+
           .industries-tabs button {
             font-size: 0.65rem !important;
           }
+
           .industries-slide-img {
             transition: opacity 0.35s ease;
           }

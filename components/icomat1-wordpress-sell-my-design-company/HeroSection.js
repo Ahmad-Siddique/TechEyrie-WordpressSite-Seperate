@@ -145,6 +145,7 @@ export default function HeroSection() {
 
   return (
     <section
+      className="icomat-wp-service-hero"
       style={{
         position: "relative",
         width: "100%",

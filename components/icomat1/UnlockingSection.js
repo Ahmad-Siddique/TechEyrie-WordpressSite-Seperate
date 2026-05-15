@@ -331,16 +331,6 @@ function ImageLinkCard({ card, animRef }) {
       ref={setRef}
       href={card.href}
       className="unlocking-image-card"
-      style={{
-        position: "relative",
-        display: "block",
-        borderRadius: "18px",
-        overflow: "hidden",
-        height: "clamp(260px, 32vw, 480px)",
-        minHeight: "220px",
-        cursor: "pointer",
-        textDecoration: "none",
-      }}
     >
       {/* Background image */}
       <img
@@ -510,20 +500,10 @@ export default function UnlockingSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="unlocking-section"
-      style={{
-        width: "100%",
-        background: "#f7f7f5",
-        padding: "clamp(64px, 10vw, 130px) clamp(24px, 5vw, 80px)",
-        boxSizing: "border-box",
-        overflow: "hidden",
-      }}
-    >
+    <section ref={sectionRef} className="unlocking-section">
 
       {/* ── Heading ───────────────────────────────────────────── */}
-      <div style={{ textAlign: "center", marginBottom: "clamp(52px, 7vw, 90px)" }}>
+      <div className="unlocking-heading-wrap">
         <h2
           ref={headingRef}
           className="unlocking-heading"
@@ -543,16 +523,7 @@ export default function UnlockingSection() {
       </div>
 
       {/* ── Feature cards grid ────────────────────────────────── */}
-      <div
-        ref={gridRef}
-        className="unlocking-cards-grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "clamp(12px, 1.4vw, 18px)",
-          marginBottom: "clamp(12px, 1.4vw, 18px)",
-        }}
-      >
+      <div ref={gridRef} className="unlocking-cards-grid">
         {CARDS.map((card, i) => (
           <FeatureCard
             key={card.id}
@@ -563,15 +534,7 @@ export default function UnlockingSection() {
       </div>
 
       {/* ── Image link row ────────────────────────────────────── */}
-      <div
-        ref={imageRowRef}
-        className="unlocking-image-row"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(12px, 1.4vw, 18px)",
-        }}
-      >
+      <div ref={imageRowRef} className="unlocking-image-row">
         {IMAGE_CARDS.map((card, i) => (
           <ImageLinkCard
             key={card.id}
@@ -581,49 +544,6 @@ export default function UnlockingSection() {
         ))}
       </div>
 
-      <style>{`
-        @media (max-width: 1100px) {
-          .unlocking-cards-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 720px) {
-          .unlocking-section {
-            padding-left: clamp(16px, 4vw, 24px) !important;
-            padding-right: clamp(16px, 4vw, 24px) !important;
-          }
-          .unlocking-heading {
-            font-size: clamp(1.85rem, 7vw, 2.4rem) !important;
-            line-height: 1.12 !important;
-          }
-          .unlocking-cards-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .unlocking-image-row {
-            grid-template-columns: 1fr !important;
-          }
-          .unlocking-feature-card {
-            min-height: 240px !important;
-          }
-          .unlocking-image-card {
-            height: clamp(220px, 55vw, 320px) !important;
-          }
-          .unlocking-image-pill {
-            padding: 16px 22px !important;
-            border-radius: 28px !important;
-          }
-          .unlocking-pill-label {
-            white-space: normal !important;
-            font-size: clamp(9px, 2.2vw, 11px) !important;
-          }
-        }
-        @media (max-width: 400px) {
-          .unlocking-feature-card {
-            padding: 22px !important;
-            min-height: 220px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

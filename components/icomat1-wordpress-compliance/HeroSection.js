@@ -11,6 +11,7 @@ const STATS = [
 export default function HeroSection() {
   return (
     <section
+      className="icomat-wp-service-hero"
       style={{
         width: "100%",
         minHeight: "100vh",

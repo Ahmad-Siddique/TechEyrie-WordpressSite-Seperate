@@ -47,7 +47,7 @@ export default function HrchitectPortfolioPage() {
   }, []);
 
   return (
-    <>
+    <div className="icomat1-laygrotesk">
       <style jsx global>{`
         html, body {
           -ms-overflow-style: none;
@@ -67,6 +67,6 @@ export default function HrchitectPortfolioPage() {
       <EndToEndSection />
       <CTASection />
       <FooterSection />
-    </>
+    </div>
   );
 }

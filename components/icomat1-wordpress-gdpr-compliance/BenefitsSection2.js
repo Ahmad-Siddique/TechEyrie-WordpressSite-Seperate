@@ -134,7 +134,7 @@ export default function BenefitsSection2({ onQuoteClick }) {
 
   return (
     <section
-      style={{
+      className="benefits-section" style={{
         width: "100%",
         backgroundColor: GREEN,
         boxSizing: "border-box",

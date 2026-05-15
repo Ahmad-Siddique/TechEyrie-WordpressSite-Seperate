@@ -38,7 +38,7 @@ const ITEMS = [
 function NumberBadge({ number }) {
   return (
     <div
-      style={{
+            style={{
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
@@ -161,14 +161,15 @@ export default function BenefitsSection() {
 
   return (
     <section
-      style={{
+      className="benefits-section" style={{
         width: "100%",
         backgroundColor: "#162D24",
         boxSizing: "border-box",
-        padding: "clamp(72px, 9vw, 120px) clamp(80px, 12vw, 200px)",
+        padding: "clamp(48px, 10vw, 120px) clamp(16px, 4vw, 24px)",
       }}
     >
       <div
+        className="benefits-inner"
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
@@ -182,22 +183,20 @@ export default function BenefitsSection() {
 
         {/* ── LEFT COLUMN — sticky ── */}
         <div
+          className="benefits-sidebar"
           style={{
             flex: "0 0 clamp(240px, 34%, 420px)",
             // ✅ THE FIX: CSS sticky instead of GSAP y-scrub
-            position: "sticky",
             // Adjust `top` to your navbar height so it doesn't hide behind it
-            top: "8rem",
             // ✅ REQUIRED: collapses item to content height so sticky activates
             alignSelf: "flex-start",
           }}
         >
           <h2
             ref={titleRef}
+            className="benefits-title"
             style={{
               fontWeight: 600,
-              fontSize: "54px",
-              lineHeight: 1.07,
               letterSpacing: "-0.025em",
               color: "#ffffff",
               margin: 0,
@@ -225,6 +224,7 @@ export default function BenefitsSection() {
 
         {/* ── RIGHT COLUMN — scrolls normally ── */}
         <div
+          className="benefits-content"
           style={{
             flex: "1 1 0",
             minWidth: 0,
@@ -240,17 +240,6 @@ export default function BenefitsSection() {
       </div>
 
       {/* Responsive: stack columns on small screens */}
-      <style>{`
-        @media (max-width: 860px) {
-          /* On mobile, sticky left column becomes static and full-width */
-          .benefits-left {
-            position: static !important;
-            align-self: auto !important;
-            flex: none !important;
-            width: 100% !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

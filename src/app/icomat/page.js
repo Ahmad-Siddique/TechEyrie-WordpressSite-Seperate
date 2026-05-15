@@ -69,7 +69,7 @@ export default function IcomatPage() {
   }, [])
 
   return (
-    <div data-theme="dark" style={{ backgroundColor: '#1A1A1A', minHeight: '100vh' }}>
+    <div data-theme="dark" className="icomat1-laygrotesk" style={{ backgroundColor: '#1A1A1A', minHeight: '100vh' }}>
       <style jsx global>{`
         html, body {
           -ms-overflow-style: none;

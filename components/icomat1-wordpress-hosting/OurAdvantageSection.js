@@ -243,23 +243,9 @@ export default function OurAdvantageSection({
         {/* ── LEFT COLUMN — sticky, travels with the right column ── */}
         <div
           ref={leftColRef}
-          className="flex flex-col gap-4 md:gap-6"
+          className="our-advantage-sidebar flex flex-col gap-4 md:gap-6"
           style={{
             flex: "0 0 45%",
-            /*
-              `position: sticky` pins the left column to the top of the
-              viewport while the right column scrolls past it.
-              `top` = distance from the top of the viewport.
-              Adjust this to match your navbar height.
-            */
-            position: "sticky",
-            top: "8rem",
-            /*
-              `alignSelf: flex-start` is the second required piece — it
-              collapses the sticky item to its natural content height so the
-              browser knows it has room to stick.
-            */
-            alignSelf: "flex-start",
           }}
         >
           <p

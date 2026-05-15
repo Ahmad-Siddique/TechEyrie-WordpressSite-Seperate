@@ -202,11 +202,11 @@ export default function BenefitsSection() {
 
   return (
     <section
-      style={{
+      className="benefits-section" style={{
         width: "100%",
         backgroundColor: "#162D24",
         boxSizing: "border-box",
-        padding: "clamp(72px, 9vw, 120px) clamp(80px, 12vw, 200px)",
+        padding: "clamp(48px, 10vw, 120px) clamp(16px, 4vw, 24px)",
       }}
     >
       <div
@@ -221,19 +221,17 @@ export default function BenefitsSection() {
         }}
       >
         <div
+          className="benefits-sidebar"
           style={{
-            position: "sticky",
-            top: "clamp(80px, 10vw, 120px)",
             flex: "0 0 clamp(300px, 44%, 560px)",
             alignSelf: "flex-start",
           }}
         >
           <h2
             ref={titleRef}
+            className="benefits-title"
             style={{
               fontWeight: 600,
-              fontSize: "54px",
-              lineHeight: 1.07,
               letterSpacing: "-0.025em",
               color: "#ffffff",
               margin: 0,
@@ -245,6 +243,7 @@ export default function BenefitsSection() {
         </div>
 
         <div
+          className="benefits-content"
           style={{
             flex: "1 1 0",
             minWidth: 0,
@@ -258,14 +257,6 @@ export default function BenefitsSection() {
           ))}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 860px) {
-          .benefits-inner {
-            flex-direction: column !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

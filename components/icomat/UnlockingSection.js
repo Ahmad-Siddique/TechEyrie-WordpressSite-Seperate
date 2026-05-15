@@ -149,6 +149,7 @@ function FeatureCard({ card, animRef }) {
     return (
       <div
         ref={setRef}
+        className="unlocking-feature-card"
         style={{
           background: "#2d2d2b",
           borderRadius: "18px",
@@ -156,7 +157,6 @@ function FeatureCard({ card, animRef }) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          minHeight: "280px",
         }}
       >
         <div>
@@ -205,6 +205,7 @@ function FeatureCard({ card, animRef }) {
   return (
     <div
       ref={setRef}
+      className="unlocking-feature-card"
       style={{
         background: "#efefed",
         borderRadius: "18px",
@@ -212,7 +213,6 @@ function FeatureCard({ card, animRef }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        minHeight: "280px",
         cursor: "pointer",
         willChange: "background-color",
       }}
@@ -287,19 +287,7 @@ function ImageLinkCard({ card, animRef }) {
   }, []);
 
   return (
-    <a
-      ref={setRef}
-      href={card.href}
-      style={{
-        position: "relative",
-        display: "block",
-        borderRadius: "18px",
-        overflow: "hidden",
-        height: "clamp(260px, 32vw, 480px)",
-        cursor: "pointer",
-        textDecoration: "none",
-      }}
-    >
+    <a ref={setRef} href={card.href} className="unlocking-image-card">
       {/* Background image */}
       <img
         ref={imgRef}
@@ -339,12 +327,13 @@ function ImageLinkCard({ card, animRef }) {
       >
         <div
           ref={pillRef}
+          className="unlocking-image-pill"
           style={{
             backgroundColor: "rgba(60,58,54,0.68)",
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
             borderRadius: "999px",
-            padding: "14px 44px",
+            padding: "clamp(12px, 3vw, 14px) clamp(20px, 5vw, 44px)",
             color: "rgba(255,255,255,0.88)",
             fontSize: "clamp(0.68rem, 0.8vw, 0.76rem)",
             fontWeight: 700,
@@ -432,26 +421,15 @@ export default function UnlockingSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: "100%",
-        background: "#f7f7f5",
-        padding: "clamp(64px, 10vw, 130px) clamp(24px, 5vw, 80px)",
-      }}
-    >
+    <section ref={sectionRef} className="unlocking-section">
 
       {/* ── Heading ───────────────────────────────────────────── */}
-      <div style={{ textAlign: "center", marginBottom: "clamp(52px, 7vw, 90px)" }}>
+      <div className="unlocking-heading-wrap">
         <h2
           ref={headingRef}
+          className="unlocking-heading"
           style={{
             fontWeight: 600,
-            fontSize: "clamp(2.4rem, 4.5vw, 4.5rem)",
-            lineHeight: 1.06,
-            letterSpacing: "-0.03em",
-            maxWidth: "820px",
-            margin: "0 auto",
             color: "rgba(0,0,0,0.1)",
           }}
         >
@@ -460,15 +438,7 @@ export default function UnlockingSection() {
       </div>
 
       {/* ── Feature cards grid ────────────────────────────────── */}
-      <div
-        ref={gridRef}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "clamp(12px, 1.4vw, 18px)",
-          marginBottom: "clamp(12px, 1.4vw, 18px)",
-        }}
-      >
+      <div ref={gridRef} className="unlocking-cards-grid">
         {CARDS.map((card, i) => (
           <FeatureCard
             key={card.id}
@@ -479,14 +449,7 @@ export default function UnlockingSection() {
       </div>
 
       {/* ── Image link row ────────────────────────────────────── */}
-      <div
-        ref={imageRowRef}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(12px, 1.4vw, 18px)",
-        }}
-      >
+      <div ref={imageRowRef} className="unlocking-image-row">
         {IMAGE_CARDS.map((card, i) => (
           <ImageLinkCard
             key={card.id}

@@ -88,7 +88,7 @@ export default function IcomatWordpressMaintainancePage() {
         }
       `}</style>
       <Header quoteOpen={quoteOpen} setQuoteOpen={setQuoteOpen} />
-      <div className="homepage-font-scope">
+      <div className="homepage-font-scope icomat-wp-service-page">
         <HeroSection />
         <BenefitsSection />
         <SEOResultsSection />

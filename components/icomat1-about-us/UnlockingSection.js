@@ -135,6 +135,7 @@ function FeatureCard({ card, animRef }) {
     return (
       <div
         ref={setRef}
+        className="unlocking-feature-card"
         style={{
           background: "#162D24",
           borderRadius: "18px",
@@ -142,7 +143,6 @@ function FeatureCard({ card, animRef }) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          minHeight: "280px",
         }}
       >
         <div>
@@ -202,6 +202,7 @@ function FeatureCard({ card, animRef }) {
   return (
     <div
       ref={setRef}
+      className="unlocking-feature-card"
       style={{
         background: "#efefed",
         borderRadius: "18px",
@@ -209,7 +210,6 @@ function FeatureCard({ card, animRef }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        minHeight: "280px",
         cursor: "pointer",
         willChange: "background-color",
         userSelect: "none",
@@ -312,19 +312,7 @@ function ImageLinkCard({ card, animRef }) {
   }, []);
 
   return (
-    <a
-      ref={setRef}
-      href={card.href}
-      style={{
-        position: "relative",
-        display: "block",
-        borderRadius: "18px",
-        overflow: "hidden",
-        height: "clamp(260px, 32vw, 480px)",
-        cursor: "pointer",
-        textDecoration: "none",
-      }}
-    >
+    <a ref={setRef} href={card.href} className="unlocking-image-card">
       {/* Background image */}
       <img
         ref={imgRef}
@@ -364,6 +352,7 @@ function ImageLinkCard({ card, animRef }) {
       >
         <div
           ref={pillRef}
+          className="unlocking-image-pill"
           style={{
             position: "relative",
             overflow: "hidden",
@@ -375,8 +364,8 @@ function ImageLinkCard({ card, animRef }) {
             WebkitBackdropFilter: "blur(10px)",
             border: "1px solid rgba(255,255,255,0.34)",
             borderRadius: "38px",
-            padding: "36px 46px",
-            fontSize: "clamp(11px, 0.75vw, 12px)",
+            padding: "clamp(18px, 4vw, 36px) clamp(22px, 5vw, 46px)",
+            fontSize: "clamp(10px, 2.5vw, 12px)",
             fontWeight: 300,
             letterSpacing: "0.09em",
             textTransform: "uppercase",
@@ -386,11 +375,13 @@ function ImageLinkCard({ card, animRef }) {
         >
           <span
             ref={textRef}
+            className="unlocking-pill-label"
             style={{
               display: "block",
               color: "#ffffff",
               whiteSpace: "nowrap",
-              lineHeight: 1,
+              lineHeight: 1.2,
+              textAlign: "center",
             }}
           >
             {card.label}
@@ -486,26 +477,15 @@ export default function UnlockingSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        width: "100%",
-        background: "#f7f7f5",
-        padding: "clamp(64px, 10vw, 130px) clamp(24px, 5vw, 80px)",
-      }}
-    >
+    <section ref={sectionRef} className="unlocking-section">
 
       {/* ── Heading ───────────────────────────────────────────── */}
-      <div style={{ textAlign: "center", marginBottom: "clamp(52px, 7vw, 90px)" }}>
+      <div className="unlocking-heading-wrap">
         <h2
           ref={headingRef}
+          className="unlocking-heading"
           style={{
             fontWeight: 600,
-            fontSize: "clamp(2.4rem, 4.5vw, 4.5rem)",
-            lineHeight: 1.06,
-            letterSpacing: "-0.03em",
-            maxWidth: "820px",
-            margin: "0 auto",
             color: "rgba(0,0,0,0.1)",
           }}
         >
@@ -514,15 +494,7 @@ export default function UnlockingSection() {
       </div>
 
       {/* ── Feature cards grid ────────────────────────────────── */}
-      <div
-        ref={gridRef}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "clamp(12px, 1.4vw, 18px)",
-          marginBottom: "clamp(12px, 1.4vw, 18px)",
-        }}
-      >
+      <div ref={gridRef} className="unlocking-cards-grid unlocking-cards-grid--2col">
         {CARDS.map((card, i) => (
           <FeatureCard
             key={card.id}
@@ -532,8 +504,15 @@ export default function UnlockingSection() {
         ))}
       </div>
 
-   
-     
+      <div ref={imageRowRef} className="unlocking-image-row">
+        {IMAGE_CARDS.map((card, i) => (
+          <ImageLinkCard
+            key={card.id}
+            card={card}
+            animRef={(el) => (imgCardRefs.current[i] = el)}
+          />
+        ))}
+      </div>
 
     </section>
   );

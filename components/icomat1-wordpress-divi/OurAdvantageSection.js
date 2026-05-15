@@ -100,8 +100,8 @@ export default function OurAdvantageSection() {
     <section ref={sectionRef} className="w-full bg-[#162D24] py-24 md:py-32 px-6 sm:px-10 md:px-16 lg:px-20">
       <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16">
         <div
-          className="flex flex-col gap-4 md:gap-6"
-          style={{ flex: "0 0 45%", position: "sticky", top: "8rem", alignSelf: "flex-start" }}
+          className="our-advantage-sidebar flex flex-col gap-4 md:gap-6"
+          style={{ flex: "0 0 45%" }}
         >
           <p ref={labelRef} className="text-[13px] sm:text-[14px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.45)" }}>
             Eyrion Divi experts

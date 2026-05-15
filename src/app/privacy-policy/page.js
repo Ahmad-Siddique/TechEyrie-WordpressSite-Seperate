@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
   }, [])
 
   return (
-    <div style={{ backgroundColor: '#ffffff', minHeight: '100vh' }}>
+    <div className="icomat1-laygrotesk" style={{ backgroundColor: '#ffffff', minHeight: '100vh' }}>
       <Header />
       <PrivacyPolicySection />
       <CTASection />
