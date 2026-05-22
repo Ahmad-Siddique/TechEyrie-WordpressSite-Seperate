@@ -575,6 +575,11 @@ body {
   width: 100%;
 }
 
+/* Match loader + most pages so nothing light flashes between loader and content */
+body[data-route-loading="true"] {
+  background-color: #162d24;
+}
+
 /* Hide routed page until the global loader finishes (prevents flash on navigation) */
 .global-loading-content[data-loading="true"] {
   visibility: hidden;
