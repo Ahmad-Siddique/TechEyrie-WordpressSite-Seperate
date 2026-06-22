@@ -6,35 +6,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { pageKeyFromPathname } from "../../lib/pageKeys";
 import { getCustomerSectionVideos } from "../../lib/pageVideos";
+import {
+  CUSTOMER_SECTION_HEADING,
+  CUSTOMER_TESTIMONIALS,
+} from "../../lib/customerTestimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CLIENTS = [
-  {
-    id: "hrchitect",
-    logo: "HRCHITECT",
-    quote: '"Their team is highly responsive, thorough, and consultative in guiding us through a website technical optimization."',
-    author: "SAMANTHA COLBY @HRCHITECT",
-  },
-  {
-    id: "premise",
-    logo: "PREMISE",
-    quote: '"None compare to the level of expertise and professionalism that the Eyrion team brings to the table."',
-    author: "ERIC VAZQUEZ @PREMISE",
-  },
-  {
-    id: "azelis",
-    logo: "AZELIS",
-    quote: '"Everyone was quick to respond to emails and explained everything clearly, so communication was easy with the whole group."',
-    author: "WENDY MADDALONE @AZELIS",
-  },
-  {
-    id: "akumen",
-    logo: "AKUMEN, INC.",
-    quote: '"Everything that I asked for was delivered by the Eyrion team of WordPress experts. I’m very pleased and recommend Eyrion based on my own experience."',
-    author: "CARL GARCIA @AKUMEN, INC.",
-  },
-];
+const CLIENTS = CUSTOMER_TESTIMONIALS;
 
 function ClientLogo({ client, dark = false }) {
   const color = dark ? "rgba(0,0,0,0.75)" : "rgba(255,255,255,0.75)";
@@ -490,8 +469,18 @@ export default function CustomersSection({
               <div ref={headingRef}>
                 <h2 className="text-white font-bold leading-[1.05] tracking-tight"
                   style={{ fontSize: "clamp(2.2rem,4vw,4.2rem)" }}>
-                  Trusted by<br />WordPress clients<br />nationwide.
+                  {CUSTOMER_SECTION_HEADING.title}
                 </h2>
+                <p
+                  className="font-medium"
+                  style={{
+                    marginTop: "clamp(12px, 1.4vw, 16px)",
+                    fontSize: "clamp(1rem, 1.25vw, 1.2rem)",
+                    color: "rgba(255,255,255,0.55)",
+                  }}
+                >
+                  {CUSTOMER_SECTION_HEADING.subtitle}
+                </p>
               </div>
 
               {/* RIGHT */}

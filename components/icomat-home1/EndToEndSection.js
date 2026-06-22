@@ -12,42 +12,91 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 const CARD_META = [
   {
     num: "01",
+    label: "SYNTAX STUDIOS",
+    sub: "Custom WordPress marketing site for a US software agency — responsive across desktop, tablet, and mobile with ongoing partnership.",
+    href: "/case-studies/syntaxstudios",
+    img: "/case-studies/syntaxstudios/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "02",
+    label: "FUELED",
+    sub: "Enterprise marketing site for a digital product agency—AI, mobile, web, and WordPress VIP expertise showcased across every device.",
+    href: "/case-studies/fueled",
+    img: "/case-studies/fueled/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "03",
+    label: "NECTAFY",
+    sub: "WordPress marketing site for a human content agency—Content Credibility and HumanContent offerings, built for authenticity across every device.",
+    href: "/case-studies/nectafy",
+    img: "/case-studies/nectafy/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "04",
+    label: "FADNA",
+    sub: "E-commerce site for a Sri Lankan wellness brand—functional herbal teas and life-science products, responsive across every device.",
+    href: "/case-studies/fadna",
+    img: "/case-studies/fadna/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "05",
+    label: "ECHT SOCIAL",
+    sub: "Marketing site for a boutique Sri Lankan digital agency—social, design, SEO, and content services, responsive across every device.",
+    href: "/case-studies/echtsocial",
+    img: "/case-studies/echtsocial/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "06",
+    label: "CLE INDY",
+    sub: "Marketing site for a leadership and career consultancy—coaching, outplacement, and culture programs, responsive across every device.",
+    href: "/case-studies/cleindy",
+    img: "/case-studies/cleindy/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "07",
+    label: "BRINC",
+    sub: "Marketing site for a public safety drone company—hardware, software, and agency programs, responsive across every device.",
+    href: "/case-studies/brincdrones",
+    img: "/case-studies/brincdrones/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "08",
+    label: "UFOMAMMOOT",
+    sub: "Marketing site for a Berlin digital agency—interactive portfolio, AR/VR work, and creative technology, responsive across every device.",
+    href: "/case-studies/ufomammoot",
+    img: "/case-studies/ufomammoot/all-devices-white.png",
+    imgFit: "contain",
+  },
+  {
+    num: "09",
     label: "HRCHITECT",
     sub: "Website migration, infrastructure review, and a comprehensive audit result in strategic planning for phase II redesign project.",
     href: "/portfolio/hrchitect",
   },
   {
-    num: "02",
+    num: "10",
     label: "TIGER",
     sub: "Five sister websites get fresh looks and added features",
     href: "/portfolio/tiger",
   },
   {
-    num: "03",
+    num: "11",
     label: "AZELIS A&ES",
     sub: "Seamless merger of two ecommerce websites into one adds ease and efficiency.",
     href: "/portfolio/azelis-aes",
   },
   {
-    num: "04",
+    num: "12",
     label: "ACERTUS",
     sub: "WordPress website migrated, optimized for long term expansion via Eyrion retained services.",
     href: "/portfolio/acertus",
-  },
-  {
-    num: "05",
-    label: "Seeding Action",
-    sub: null,
-  },
-  {
-    num: "06",
-    label: "Grasshopper Gardens",
-    sub: null,
-  },
-  {
-    num: "07",
-    label: "Paint Supply",
-    sub: null,
   },
 ];
 
@@ -55,7 +104,7 @@ function buildCards(pageKey) {
   const pics = getPageSectionPics(pageKey, "endToEnd");
   return CARD_META.map((card, i) => ({
     ...card,
-    img: pics[i] ?? pics[0],
+    img: card.img ?? pics[i] ?? pics[0],
   }));
 }
 
@@ -235,7 +284,7 @@ export default function EndToEndSection({ theme = "dark", pageKey = "home1" }) {
                   <img
                     src={card.img}
                     alt={card.label}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className={`absolute inset-0 w-full h-full ${card.imgFit === "contain" ? "object-contain p-4" : "object-cover"}`}
                     onError={(e) => {
                       e.currentTarget.style.display = "none";
                     }}

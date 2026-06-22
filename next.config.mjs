@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/portfolio/syntaxstudios",
+        destination: "/case-studies/syntaxstudios",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
