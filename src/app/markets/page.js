@@ -12,6 +12,7 @@ import MarketHeroSection from '../../../components/icomat1-market/MarketHeroSect
 import MarketsServingSection from '../../../components/icomat1-market/MarketsServingSection'
 import MarketsLocalCitiesSection from '../../../components/icomat1-market/MarketsLocalCitiesSection'
 import MarketsUnitedStatesSection from '../../../components/icomat1-market/MarketsUnitedStatesSection'
+import MarketsPageStyles from '../../../components/icomat1-market/MarketsPageStyles'
 import CTASection from '../../../components/icomat1/CTASection'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -61,11 +62,23 @@ export default function IcomatPage() {
   }, [])
 
   return (
-    <div data-theme="dark" className="icomat1-laygrotesk" style={{ backgroundColor: '#1A1A1A', minHeight: '100vh' }}>
+    <div
+      data-theme="dark"
+      className="icomat1-laygrotesk markets-page"
+      style={{
+        backgroundColor: '#1A1A1A',
+        minHeight: '100vh',
+        width: '100%',
+        maxWidth: '100%',
+        overflowX: 'clip',
+      }}
+    >
       <style jsx global>{`
         html, body {
           -ms-overflow-style: none;
           scrollbar-width: none;
+          overflow-x: clip;
+          max-width: 100%;
         }
         html::-webkit-scrollbar,
         body::-webkit-scrollbar {
@@ -73,13 +86,16 @@ export default function IcomatPage() {
         }
       `}</style>
 
+      <MarketsPageStyles />
       <Header />
-      <MarketHeroSection />
-      <MarketsServingSection />
-      <MarketsLocalCitiesSection />
-      <MarketsUnitedStatesSection />
-      <CTASection />
-      <FooterSection />
+      <div className="homepage-font-scope" style={{ width: '100%', maxWidth: '100%', overflowX: 'clip' }}>
+        <MarketHeroSection />
+        <MarketsServingSection />
+        <MarketsLocalCitiesSection />
+        <MarketsUnitedStatesSection />
+        <CTASection />
+        <FooterSection />
+      </div>
     </div>
   )
 }

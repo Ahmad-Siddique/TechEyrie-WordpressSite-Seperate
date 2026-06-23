@@ -25,13 +25,7 @@ function MarketCell({ name, primary = false }) {
 export default function MarketsServingSection() {
   return (
     <section className="markets-serving-section" style={sectionPadding}>
-      <div
-        style={{
-          maxWidth: "min(1400px, 100%)",
-          margin: "0 auto",
-          textAlign: "center",
-        }}
-      >
+      <div className="markets-section-inner" style={{ textAlign: "center" }}>
         <p
           style={{
             margin: "0 0 clamp(12px, 1.5vw, 16px)",
@@ -53,10 +47,8 @@ export default function MarketsServingSection() {
       </div>
 
       <div
-        style={{
-          maxWidth: "min(1400px, 100%)",
-          margin: "clamp(40px, 5vw, 56px) auto 0",
-        }}
+        className="markets-section-inner"
+        style={{ marginTop: "clamp(40px, 5vw, 56px)" }}
       >
         <h3
           className="markets-serving-subhead"
@@ -110,43 +102,6 @@ export default function MarketsServingSection() {
         </div>
       </div>
 
-      <style>{`
-        .markets-serving-grid {
-          display: grid;
-          width: 100%;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          column-gap: clamp(28px, 4.2vw, 64px);
-          row-gap: clamp(16px, 2.4vw, 32px);
-          align-items: start;
-        }
-        .markets-serving-grid--primary {
-          max-width: min(720px, 100%);
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .markets-serving-grid--extended {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-        .markets-serving-cell--primary .markets-serving-label {
-          font-weight: 600;
-          color: ${GREEN};
-        }
-        @media (max-width: 1100px) {
-          .markets-serving-grid:not(.markets-serving-grid--primary) {
-            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 780px) {
-          .markets-serving-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 400px) {
-          .markets-serving-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

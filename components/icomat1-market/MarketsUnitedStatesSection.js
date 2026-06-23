@@ -15,13 +15,7 @@ export default function MarketsUnitedStatesSection() {
         borderTop: "1px solid rgba(22, 45, 36, 0.08)",
       }}
     >
-      <div
-        style={{
-          maxWidth: "min(1400px, 100%)",
-          margin: "0 auto",
-          textAlign: "center",
-        }}
-      >
+      <div className="markets-section-inner" style={{ textAlign: "center" }}>
         <h2 style={headingStyle}>United States</h2>
         <p style={introStyle}>
           Eyrion also offers WordPress design, development, hosting, and ongoing support to your
@@ -40,10 +34,8 @@ export default function MarketsUnitedStatesSection() {
       </div>
 
       <div
-        style={{
-          maxWidth: "min(1400px, 100%)",
-          margin: "clamp(40px, 5vw, 56px) auto 0",
-        }}
+        className="markets-section-inner"
+        style={{ marginTop: "clamp(40px, 5vw, 56px)" }}
       >
         <h3
           style={{
@@ -92,57 +84,6 @@ export default function MarketsUnitedStatesSection() {
         </div>
       </div>
 
-      <style>{`
-        .markets-us-states-grid {
-          display: grid;
-          width: 100%;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          column-gap: clamp(20px, 3vw, 40px);
-          row-gap: clamp(8px, 1.2vw, 14px);
-          align-items: start;
-        }
-        .markets-us-cities-grid {
-          display: grid;
-          width: 100%;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          column-gap: clamp(24px, 3.5vw, 48px);
-          row-gap: clamp(8px, 1.5vw, 16px);
-          align-items: start;
-        }
-        .markets-us-state-link {
-          text-decoration: none;
-          color: rgba(22, 45, 36, 0.9);
-          transition: color 0.15s ease;
-        }
-        .markets-us-state-link:hover {
-          color: ${GREEN};
-        }
-        .markets-us-city-cell {
-          padding-left: 0 !important;
-        }
-        @media (max-width: 1100px) {
-          .markets-us-states-grid {
-            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-          }
-          .markets-us-cities-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 780px) {
-          .markets-us-states-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-          .markets-us-cities-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 400px) {
-          .markets-us-states-grid,
-          .markets-us-cities-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

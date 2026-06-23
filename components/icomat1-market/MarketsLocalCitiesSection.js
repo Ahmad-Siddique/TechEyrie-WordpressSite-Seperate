@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { LOCAL_AREAS_BY_MARKET } from "./marketsData";
-import { BODY, GREEN, cellStyle, headingStyle, introStyle, sectionPadding } from "./marketTheme";
+import { GREEN, cellStyle, headingStyle, introStyle, sectionPadding } from "./marketTheme";
 
 function cityName(city) {
   return typeof city === "string" ? city : city.name;
@@ -22,13 +22,7 @@ export default function MarketsLocalCitiesSection() {
         borderTop: "1px solid rgba(22, 45, 36, 0.08)",
       }}
     >
-      <div
-        style={{
-          maxWidth: "min(1400px, 100%)",
-          margin: "0 auto",
-          textAlign: "center",
-        }}
-      >
+      <div className="markets-section-inner" style={{ textAlign: "center" }}>
         <h2 style={headingStyle}>Local cities and areas we cover</h2>
         <p style={introStyle}>
           From districts in Doha and Lusail to major hubs across the Gulf, Turkey, Pakistan, Spain, and
@@ -38,9 +32,9 @@ export default function MarketsLocalCitiesSection() {
       </div>
 
       <div
+        className="markets-section-inner"
         style={{
-          maxWidth: "min(1400px, 100%)",
-          margin: "clamp(40px, 5vw, 56px) auto 0",
+          marginTop: "clamp(40px, 5vw, 56px)",
           display: "flex",
           flexDirection: "column",
           gap: "clamp(40px, 5vw, 56px)",
@@ -106,43 +100,6 @@ export default function MarketsLocalCitiesSection() {
         ))}
       </div>
 
-      <style>{`
-        .markets-local-cities-cell--plain {
-          padding-left: 0 !important;
-        }
-        .markets-local-cities-cell--link {
-          text-decoration: none;
-          color: ${BODY};
-          transition: color 0.2s ease, opacity 0.2s ease;
-        }
-        .markets-local-cities-cell--link:hover {
-          color: ${GREEN};
-          opacity: 0.88;
-        }
-        .markets-local-cities-grid {
-          display: grid;
-          width: 100%;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          column-gap: clamp(24px, 3.5vw, 48px);
-          row-gap: clamp(8px, 1.5vw, 16px);
-          align-items: start;
-        }
-        @media (max-width: 1100px) {
-          .markets-local-cities-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 780px) {
-          .markets-local-cities-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 400px) {
-          .markets-local-cities-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

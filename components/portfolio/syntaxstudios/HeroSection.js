@@ -77,6 +77,7 @@ export default function SyntaxStudiosHeroSection() {
       }}
     >
       <section
+        className="icomat-content-hero"
         style={{
           width: "100%",
           backgroundColor: "#162D24",

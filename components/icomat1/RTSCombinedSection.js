@@ -382,7 +382,7 @@ export default function RTSCombinedSection({ pageKey: pageKeyProp }) {
       <div
         ref={panelARef}
         className={`
-          w-full bg-[#f5f5f5] pt-6 pb-0 will-change-transform
+          w-full bg-[#f5f5f5] pt-6 will-change-transform
           ${showVideoPanel ? "md:absolute md:inset-0" : ""}
         `}
         style={{
@@ -391,6 +391,7 @@ export default function RTSCombinedSection({ pageKey: pageKeyProp }) {
           overflow: "clip",
           transformOrigin: "center center",
           zIndex: 1,
+          paddingBottom: "clamp(48px, 7vw, 96px)",
         }}
       >
         {/* On desktop we need the panel to fill 100vh */}

@@ -198,7 +198,7 @@ export default function HeroSection({ onQuoteClick }) {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen min-h-[600px] bg-[#162D24]"
+      className="icomat-fullscreen-hero relative w-full h-screen min-h-[600px] bg-[#162D24]"
       style={{
         overflow: "clip",
         overflowX: "clip",
@@ -241,7 +241,7 @@ export default function HeroSection({ onQuoteClick }) {
       />
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pb-6 md:pb-8">
+      <div className="icomat-fullscreen-hero-content relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pb-6 md:pb-8">
 
         <div className="flex-1" />
 

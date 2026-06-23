@@ -1335,3 +1335,42 @@ body[data-route-loading="true"] {
   }
 }
 
+/* ── Full-screen heroes — extra bottom space on mobile phones only (tablet+ unchanged) ─ */
+@media (max-width: 639px) {
+  .icomat-wp-service-hero.h-screen {
+    height: auto !important;
+    min-height: max(600px, 100svh);
+    padding-bottom: clamp(32px, 8vw, 48px);
+    box-sizing: border-box;
+  }
+
+  .icomat-wp-service-hero.h-screen .wp-service-hero-content {
+    min-height: max(600px, 100svh);
+    height: auto !important;
+    padding-bottom: clamp(96px, 22vw, 128px) !important;
+    box-sizing: border-box;
+  }
+
+  .icomat-fullscreen-hero {
+    height: auto !important;
+    min-height: max(600px, 100svh);
+    padding-bottom: clamp(32px, 8vw, 48px);
+    box-sizing: border-box;
+  }
+
+  .icomat-fullscreen-hero .icomat-fullscreen-hero-content {
+    min-height: max(600px, 100svh);
+    height: auto !important;
+    padding-bottom: clamp(96px, 22vw, 128px) !important;
+    box-sizing: border-box;
+  }
+
+  .icomat-content-hero {
+    padding-bottom: calc(clamp(96px, 14vw, 148px) + clamp(48px, 10vw, 64px)) !important;
+  }
+
+  .icomat-wp-service-hero:not(.h-screen) {
+    padding-bottom: clamp(72px, 14vw, 96px) !important;
+  }
+}
+

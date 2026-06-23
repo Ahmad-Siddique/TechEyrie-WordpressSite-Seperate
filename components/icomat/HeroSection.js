@@ -151,7 +151,7 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen min-h-[600px] bg-black"
+      className="icomat-fullscreen-hero relative w-full h-screen min-h-[600px] bg-black"
       style={{ overflow: "clip" }}
     >
       {/* Background Video */}
@@ -186,7 +186,7 @@ export default function HeroSection() {
       />
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pt-84 pb-10 md:pb-14">
+      <div className="icomat-fullscreen-hero-content relative z-10 h-full flex flex-col px-6 sm:px-10 md:px-16 lg:px-10 pt-84 pb-10 md:pb-14">
 
         {/* Top-right badge */}
         <div className="flex justify-end flex-shrink-0">

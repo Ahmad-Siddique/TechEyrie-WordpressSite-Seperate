@@ -35,6 +35,7 @@ export const cellStyle = {
   justifyContent: "flex-start",
   gap: "clamp(8px, 1vw, 12px)",
   minHeight: "40px",
+  minWidth: 0,
   padding: "clamp(6px, 0.8vw, 10px) 0",
   color: "rgba(22, 45, 36, 0.9)",
   fontSize: "clamp(1rem, 1.15vw, 1.18rem)",

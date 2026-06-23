@@ -133,43 +133,16 @@ function StatCell({ label, sublabel, value, isLeftCol }) {
   return (
     <div
       ref={cellRef}
-      style={{
-        position: "relative",
-        paddingTop: "24px",
-        paddingBottom: "40px",
-        paddingRight: isLeftCol ? "40px" : "0",
-        paddingLeft:  isLeftCol ? "0"   : "40px",
-        borderRight: isLeftCol ? "1px solid rgba(0,0,0,0.12)" : "none",
-        opacity: 0,
-      }}
+      className={`factory-stat-cell ${isLeftCol ? "factory-stat-cell--left" : "factory-stat-cell--right"}`}
+      style={{ opacity: 0 }}
     >
-      {/* Top border line */}
-      <div ref={lineRef} style={{
-        position: "absolute",
-        top: 0,
-        left: isLeftCol ? "0" : "40px",
-        right: isLeftCol ? "40px" : "0",
-        height: "1px",
-        background: "rgba(0,0,0,0.18)",
-      }} />
+      <div ref={lineRef} className="factory-stat-line" />
 
-      {/* Mono label */}
-      <p style={{
-        fontFamily: "'Courier New', Courier, monospace",
-        fontSize: "0.62rem",
-        fontWeight: 400,
-        letterSpacing: "0.07em",
-        textTransform: "uppercase",
-        color: "rgba(0,0,0,0.4)",
-        margin: "0 0 20px",
-        lineHeight: 1.6,
-        whiteSpace: "pre-line",
-      }}>
+      <p className="factory-stat-label">
         {label}{sublabel ? `\n${sublabel}` : ""}
       </p>
 
-      {/* Dot-matrix — reserve height so layout does not shift when visible */}
-      <div style={{ minHeight: "40px" }}>
+      <div className="factory-dot-wrap">
         {visible ? (
           <DotMatrix value={value} dotSize={6} gap={3} charGap={8} />
         ) : (
@@ -227,113 +200,41 @@ export default function FactorySection({
 
   return (
     <>
-      <section style={{
-        width: "100%",
-        background: "#f5f4f0",
-        padding: "clamp(72px, 9vw, 130px) 0",
-        /* ── Fix 4: 90% width, centred ── */
-        display: "flex",
-        justifyContent: "center",
-      }}>
-        {/* Inner wrapper — wider with bigger inter-column gap */}
-        <div style={{
-          width: "94%",
-          maxWidth: "1680px",
-          display: "grid",
-          /* ── Equal halves, heading left / content right ── */
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(80px, 9vw, 180px)",
-          alignItems: "start",
-        }}>
-
-          {/* ── LEFT: Heading — anchored to far left ─────────── */}
-          {/* Fix 2: no auto-margin, text-align left, padding-right pushes it
-              toward the left edge of its column             */}
-          <div style={{
-            paddingRight: "clamp(24px, 4vw, 64px)",
-          }}>
+      <section
+        className="factory-section"
+        style={{
+          width: "100%",
+          background: "#f5f4f0",
+          padding: "clamp(72px, 9vw, 130px) 0",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div className="factory-inner">
+          <div className="factory-left">
             <h2
               ref={headingRef}
-              className="font-semibold leading-[1.05] tracking-tight"
-              style={{
-                fontSize: "clamp(2rem, 3.4vw, 3.8rem)",
-                color: "#0a0a09",
-                margin: 0,
-                opacity: 0,
-                textAlign: "left",
-              }}
+              className="factory-heading font-semibold leading-[1.05] tracking-tight"
+              style={{ opacity: 0 }}
             >
               {heading}
             </h2>
           </div>
 
-          {/* ── RIGHT: Content — anchored to far right, left-aligned text ── */}
-          {/* Fix 3: padding-left pushes content toward the right edge,
-              but all text inside remains left-aligned              */}
-          <div
-            ref={rightRef}
-            style={{
-              paddingLeft: "clamp(24px, 4vw, 64px)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "clamp(40px, 5vw, 60px)",   /* Fix 1 vertical rhythm */
-              alignItems: "flex-start",
-              opacity: 0,
-            }}
-          >
-
-            {/* Description paragraphs */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "22px", width: "100%" }}>
-              <p style={{
-                fontFamily: "inherit",
-                /* ── Fix 1: bigger text ── */
-                fontSize: "clamp(1rem, 1.15vw, 1.15rem)",
-                fontWeight: 400,
-                lineHeight: 1.72,
-                color: "#0a0a09",
-                margin: 0,
-              }}>
-                {description1}
-              </p>
+          <div ref={rightRef} className="factory-right" style={{ opacity: 0 }}>
+            <div className="factory-copy">
+              <p className="factory-description">{description1}</p>
               {description2 ? (
-                <p style={{
-                  fontFamily: "inherit",
-                  fontSize: "clamp(1rem, 1.15vw, 1.15rem)",
-                  fontWeight: 400,
-                  lineHeight: 1.72,
-                  color: "#0a0a09",
-                  margin: 0,
-                }}>
-                  {description2}
-                </p>
+                <p className="factory-description">{description2}</p>
               ) : null}
             </div>
 
-            {/* The Numbers block */}
-            <div style={{ width: "100%" }}>
-              <p
-                ref={numbersRef}
-                style={{
-                  fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-                  /* ── Fix 1: bigger label ── */
-                  fontSize: "clamp(1rem, 1.15vw, 1.15rem)",
-                  fontWeight: 400,
-                  color: "#0a0a09",
-                  margin: "0 0 clamp(20px, 2.5vw, 32px)",
-                  opacity: 0,
-                }}
-              >
+            <div className="factory-numbers-block">
+              <p ref={numbersRef} className="factory-numbers-label" style={{ opacity: 0 }}>
                 The Numbers
               </p>
 
-              {/* 2 × 2 stats grid */}
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                columnGap: "0",
-                rowGap: "0",
-                width: "100%",
-              }}>
+              <div className="factory-stats-grid">
                 {stats.map((stat) => (
                   <StatCell
                     key={stat.id}
@@ -345,22 +246,200 @@ export default function FactorySection({
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       <style>{`
-        @media (max-width: 860px) {
+        .factory-inner {
+          width: min(94%, calc(100% - 32px));
+          max-width: 1680px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: clamp(80px, 9vw, 180px);
+          align-items: start;
+        }
+
+        .factory-left {
+          padding-right: clamp(24px, 4vw, 64px);
+          min-width: 0;
+        }
+
+        .factory-heading {
+          font-size: clamp(2rem, 3.4vw, 3.8rem);
+          color: #0a0a09;
+          margin: 0;
+          text-align: left;
+        }
+
+        .factory-right {
+          padding-left: clamp(24px, 4vw, 64px);
+          display: flex;
+          flex-direction: column;
+          gap: clamp(40px, 5vw, 60px);
+          align-items: flex-start;
+          min-width: 0;
+          width: 100%;
+        }
+
+        .factory-copy {
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+          width: 100%;
+        }
+
+        .factory-description {
+          font-family: inherit;
+          font-size: clamp(1rem, 1.15vw, 1.15rem);
+          font-weight: 400;
+          line-height: 1.72;
+          color: #0a0a09;
+          margin: 0;
+        }
+
+        .factory-numbers-block {
+          width: 100%;
+          min-width: 0;
+        }
+
+        .factory-numbers-label {
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-size: clamp(1rem, 1.15vw, 1.15rem);
+          font-weight: 400;
+          color: #0a0a09;
+          margin: 0 0 clamp(20px, 2.5vw, 32px);
+        }
+
+        .factory-stats-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          width: 100%;
+          min-width: 0;
+        }
+
+        .factory-stat-cell {
+          position: relative;
+          min-width: 0;
+          padding-top: 24px;
+          padding-bottom: 40px;
+        }
+
+        .factory-stat-cell--left {
+          padding-right: clamp(20px, 3vw, 40px);
+          border-right: 1px solid rgba(0, 0, 0, 0.12);
+        }
+
+        .factory-stat-cell--right {
+          padding-left: clamp(20px, 3vw, 40px);
+        }
+
+        .factory-stat-line {
+          position: absolute;
+          top: 0;
+          height: 1px;
+          background: rgba(0, 0, 0, 0.18);
+        }
+
+        .factory-stat-cell--left .factory-stat-line {
+          left: 0;
+          right: clamp(20px, 3vw, 40px);
+        }
+
+        .factory-stat-cell--right .factory-stat-line {
+          left: clamp(20px, 3vw, 40px);
+          right: 0;
+        }
+
+        .factory-stat-label {
+          font-family: 'Courier New', Courier, monospace;
+          font-size: clamp(0.56rem, 1.6vw, 0.62rem);
+          font-weight: 400;
+          letter-spacing: 0.07em;
+          text-transform: uppercase;
+          color: rgba(0, 0, 0, 0.4);
+          margin: 0 0 20px;
+          line-height: 1.6;
+          white-space: pre-line;
+        }
+
+        .factory-dot-wrap {
+          min-height: 40px;
+          max-width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+
+        .factory-dot-wrap::-webkit-scrollbar {
+          display: none;
+        }
+
+        @media (max-width: 900px) {
           .factory-inner {
-            grid-template-columns: 1fr !important;
-            width: 92% !important;
+            grid-template-columns: 1fr;
+            gap: clamp(36px, 6vw, 52px);
+            width: min(92%, calc(100% - 40px));
           }
+
+          .factory-left,
           .factory-right {
-            padding-left: 0 !important;
+            padding-left: 0;
+            padding-right: 0;
           }
-          .factory-left {
-            padding-right: 0 !important;
+        }
+
+        @media (max-width: 640px) {
+          .factory-section {
+            padding: clamp(56px, 10vw, 80px) 0;
+          }
+
+          .factory-right {
+            gap: clamp(32px, 7vw, 44px);
+          }
+
+          .factory-stat-cell {
+            padding-top: 18px;
+            padding-bottom: 28px;
+          }
+
+          .factory-stat-cell--left {
+            padding-right: clamp(12px, 4vw, 20px);
+          }
+
+          .factory-stat-cell--right {
+            padding-left: clamp(12px, 4vw, 20px);
+          }
+
+          .factory-stat-cell--left .factory-stat-line {
+            right: clamp(12px, 4vw, 20px);
+          }
+
+          .factory-stat-cell--right .factory-stat-line {
+            left: clamp(12px, 4vw, 20px);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .factory-inner {
+            width: min(92%, calc(100% - 28px));
+          }
+
+          .factory-stats-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .factory-stat-cell--left,
+          .factory-stat-cell--right {
+            padding-left: 0;
+            padding-right: 0;
+            border-right: none;
+          }
+
+          .factory-stat-cell--left .factory-stat-line,
+          .factory-stat-cell--right .factory-stat-line {
+            left: 0;
+            right: 0;
           }
         }
       `}</style>
